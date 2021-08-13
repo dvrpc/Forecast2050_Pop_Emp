@@ -390,63 +390,6 @@
         box-shadow: 1.5px 0 0 rgba(0,0,0,.2);
         text-align: center;
     }
-/* Legends */
-    .legend-icons {
-        display: inline-block;
-        line-height: 25px;
-        width: 25px;
-        height: 15px;
-        text-align: center;
-    }
-    .civic{
-        color:rgb(142,198,63)
-    /* #8ec63f */
-    }
-    .cultural{
-        color: rgb(91,198,207);
-        /* #5bc5cf */
-    }
-    .fb {
-        color:#f29195;
-        /* rgb(242, 145, 149) */
-    }
-    .gafo {
-        color:#eb555c;
-        /* rgb(235, 85, 92)*/
-    }
-    .ngs {
-        color:#90565c;
-        /* rgb(144, 86, 92) */
-    }
-    .experiential{
-        color:#fad5d6;
-        /* rgb(250,213,214) */
-    }
-    .hosp{
-        color:#bc565c;
-        /* rgb(188, 86, 92)*/
-    }
-    .office{
-        color:rgb(12,135,123);
-        /* #0c877b */
-    }
-    .res{
-        color:rgb(251,176,64);
-        /* #fbb040 */
-    }
-    .vacant{
-        color:rgb(189,210,255);
-        /* #bdd2ff */
-    }
-    .construction{
-        color:#878787;
-    }
-    .institutional{
-        color:#da7b27;
-    }
-   
-    ul.a {list-style-type: circle;
-    }
     .input-group-addon {
         background-color: #66ABD1;
         border: none;
@@ -472,3 +415,127 @@
         border-radius: 4px;
         color: initial;
     }
+    /* Table */
+    /* ------------------
+ styling for the tables 
+   ------------------   */
+ #crashtable{
+    border-collapse: collapse;
+    text-align: center;
+    width: 92%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  th {
+      text-align: center;
+      font-weight: normal;
+      font-size: 80%;
+  }
+  td {
+    font-weight: bold;
+    font-size: 80%;
+  }   
+   #crashtable .odd
+  {
+    background:#ededed; 
+    border: 1px solid #bdbdbd;
+  }
+  #crashtable .even
+  {
+    border-right: 1px solid #bdbdbd;
+  }
+  
+   #crashtable .odd th
+  { 
+    padding: 4px;
+    border-bottom: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+    border-left: 1px solid #bdbdbd;
+  }
+  
+   #crashtable .odd td
+  {
+    border: 1px solid #bdbdbd;
+    padding: 2px;
+    
+  }
+  
+   #crashtable .even th
+  { 
+    padding: 4px;
+    border-bottom: 1px solid #bdbdbd;
+    border-right: 1px solid #bdbdbd;
+    border-left: 1px solid #bdbdbd;
+  }
+   #crashtable .even td
+  {
+    border: 1px solid #bdbdbd;
+    padding: 2px;
+  }
+/* Legend Boxes */ 
+#legend-box-Item {
+    text-align: center;
+    margin-bottom: 5px;
+} 
+#legend-Item{
+    text-align: center;
+}
+.circle {
+    width:20px;
+    height:20px;
+    border-radius:0px;
+}
+.circle span{
+    margin-left: 25px;
+    display: block;
+    width: 70px;
+    text-align: left;
+}
+  #legend-box1, #legend-box2 {
+    position: absolute;
+    bottom: 33px;
+    right: 10px;
+    z-index: 1001;
+    padding: 8px;
+    background: rgba(255,255,255, 0.95);
+}
+#legend-box1{
+    display:block;
+} 
+#legend-box2 {
+    display:none;
+} 
+
+/* Score Colors */
+.or-1 {
+    background: #fef0d9;
+}
+.or-2 {
+    background: #fdcc8a;
+}
+.or-3 {
+    background: #fc8d59;
+}
+.or-4 {
+    background: #e34a33;
+}
+.or-5 {
+    background: #b30000;
+}
+.bl-1 {
+    background: #f1eef6;
+}
+.bl-2 {
+    background: #bdc9e1;
+}
+.bl-3 {
+    background: #74a9cf;
+}
+.bl-4 {
+    background: #2b8cbe;
+}
+.bl-5 {
+    background: #045a8d;
+}
+/* End Score Colors */
+  

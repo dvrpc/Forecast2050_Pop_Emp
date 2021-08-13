@@ -5,35 +5,33 @@ const searchForm = document.getElementById('search')
 var retailSearch = {};
 var clickedStateId = null;
 
-function PrintElem(elem)
-{
-    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
-    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-    mywindow.document.write("<link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css\" rel=\"stylesheet\" media=\"print\" ><link href=\"../css/print.css\" rel=\"stylesheet\" media=\"print\">");
-   // mywindow.document.write("<link href="../css/print.css" rel="stylesheet" media="print">");
-    mywindow.document.write('</head><body >');
-    mywindow.document.write('<h1>' + document.title  + '</h1>');
-    mywindow.document.write(document.getElementById("sidebar").innerHTML);
-   // mywindow.document.write(document.getElementById(elem).innerHTML);
-    mywindow.document.write('</body></html>');
-
-    mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
-  
-    setTimeout(function () {
-      mywindow.print();
-      mywindow.close();
-      }, 1000)
-      return true;
-}
-
 function catShow() {
  $("#CATModal").modal("show");
 } 
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
   $("#aboutModal").modal("show");
+
+  $('.form-control').change(function() {
+    // If the load_image option was selected, call the loadImage() function
+    if ($(this).val() == 'load_image') {
+     // loadImage();
+     // currentLayer = 'EMP2045';
+      map.setPaintProperty('districts', "fill-color", mapColor);
+      document.getElementById("legend-box1").style.display = "block"
+      document.getElementById("legend-box2").style.display = "none"
+    }
+    else {
+       if ($(this).val() == 'load_image1') {
+     // loadImage1();
+    //  currentLayer = 'ABS2045';
+    map.setPaintProperty('districts', "fill-color", mapColor2);
+    document.getElementById("legend-box1").style.display = "none"
+    document.getElementById("legend-box2").style.display = "block"
+     }
+  }
+});
+
 });
 
 mapboxgl.accessToken =
@@ -128,134 +126,101 @@ map.on("load", function () {
     filter: ["==", "dvrpc", "Yes"],
   });
 
+mapColor = ['interpolate',['linear'],
+['get', 'emp45'],
+1,'#fef0d9',
+1000,'#fdcc8a',
+2500,'#fc8d59',
+5000,'#e34a33',
+10000,'#b30000'
+];  
+
+mapColor2 = ['interpolate',['linear'],
+['get', 'emp50'],
+1,'#f1eef6',
+1000,'#bdc9e1',
+2500,'#74a9cf',
+5000,'#2b8cbe',
+10000,'#045a8d'
+];  
+
 map.addLayer({
     id: "districts",
     type: "fill",
     source: {
       type: "geojson",
-      'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/Retail/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=geojson'
+      'data':'https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_MCD/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson'
    //   data: districts,
     },
     layout: {},
     paint: {
-      "fill-outline-color": "#39398e",
-      "fill-color": "rgba(57, 57, 142,0.35)"       
+      "fill-outline-color": "#1d1b1b",
+      "fill-opacity": .8,
+      "fill-color": mapColor       
     }
 });
 
  // When the map loads, add the data from the USGS earthquake API as a source
  map.addSource('d2', {
   'type': 'geojson',
-  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/Retail/FeatureServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+  'data':'https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_MCD/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
   //'data':d2, // Use the sevenDaysAgo variable to only retrieve quakes from the past week
   'generateId': true // This ensures that all features have unique IDs
 });
 
   map.addLayer({
     id: "d2",
-    type: "line",
+    type: "fill",
     source: "d2",
     layout: {},
     paint: {
-      "line-color": [ 'case',
-      ['boolean', ['feature-state', 'click'], false],
+      "fill-color": [ 'case',
+      ['boolean', ['feature-state', 'hover'], false],
       '#FFD662', '#0078ae'
       ],
-      "line-width": [ 'case',
-      ['boolean', ['feature-state', 'click'], false],
-      5, 3
-      ]
+      "fill-outline-color": [ 'case',
+      ['boolean', ['feature-state', 'hover'], false],
+      '#39398e', '#fff'
+      ],
+      'fill-opacity': [
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        .90, 0
+        ]
     }
   });
 
- // When the map loads, add the data from the USGS earthquake API as a source
-map.addSource('retail', {
-  'type': 'geojson',
-  //'data':retail, 
-  'data':'https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/Retail/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
-  'generateId': true // This ensures that all features have unique IDs
-});
-
-map.addLayer({
-    id: 'retail',
-    type: 'circle',
-    source:'retail',
-    layout: {
-      'visibility':'visible'
-       },
-    paint: {
-      'circle-radius': [
-        'case',
-        ['boolean', ['feature-state', 'hover'], false],
-        9,6
-        ],
-        'circle-stroke-color': '#e5e5e5',
-        'circle-stroke-width': .5,
-        'circle-color': [
-          'case',
-          ['boolean', ['feature-state', 'hover'], false],
-        //  '#fbb040',
-          '#ad0074',
-          '#39398e'
-          ],
-      }
-});
-
-var districtID = null;
+var hoveredStateId = null;
 var polygonID = null;
-// map.on('mousemove', 'districts', (marker) => {
-//     map.getCanvas().style.cursor = 'pointer';
-//     // var coordinates = marker.features[0].geometry.coordinates.slice();
-//     var description = '<h3>'+ marker.features[0].properties.DISTRICT+'</h3>';
-
-//     popup.setLngLat(coordinates).setHTML(description).addTo(map);
-//     if (marker.features.length > 0) {
-//       // When the mouse moves over the retail-viz layer, update the
-//       // feature state for the feature under the mouse
-//       if (districtID) {
-//         map.removeFeatureState({
-//           source: 'districts',
-//           id: districtID
-//         });
-//       }
-
-//       districtID = marker.features[0].id;
-
-//       map.setFeatureState(
-//         {
-//           source: 'districts',
-//           id: districtID
-//         },
-//         {
-//           hover: true
-//         }
-//       );
-//     }
+// When the user moves their mouse over the state-fill layer, we'll update the
+// feature state for the feature under the mouse.
+map.on('mousemove', 'd2', (e) => {
+  if (e.features.length > 0) {
+  if (hoveredStateId !== null) {
+  map.setFeatureState(
+  { source: 'd2', id: hoveredStateId },
+  { hover: false }
+  );
+  }
+  hoveredStateId = e.features[0].id;
+  map.setFeatureState(
+  { source: 'd2', id: hoveredStateId },
+  { hover: true }
+  );
+  }
+  });
    
-// });
-
-//   // When the mouse leaves the retail-viz layer, update the
-//   // feature state of the previously hovered feature
-// map.on('mouseleave', 'districts', function () {
-//     if (districtID) {
-//       map.setFeatureState(
-//         {
-//           source: 'districts',
-//           id: districtID
-//         },
-//         {
-//           hover: false
-//         }
-//       );
-//     }
-//     districtID = null;
-
-//     // Reset the cursor style
-//     map.getCanvas().style.cursor = '';
-//     popup.remove();
-// });
-
-
+  // When the mouse leaves the state-fill layer, update the feature state of the
+  // previously hovered feature.
+  map.on('mouseleave', 'd2', () => {
+  if (hoveredStateId !== null) {
+  map.setFeatureState(
+  { source: 'd2', id: hoveredStateId },
+  { hover: false }
+  );
+  }
+  hoveredStateId = null;
+  });
 
 map.on('click','districts', (marker) => {
     // mapbox function calling of geojson properties
@@ -338,118 +303,43 @@ const handleHighlight = function (FID){
 // pull click event into standalone function in order to apply to both form submit and map click
 // added 2 parameters props and coordinates to handle the different approaches to working with GeoJson features
 const handleDistrict = function (props,map) {
- // var props = marker.properties;
- // console.log(marker.features[0].properties);
- // var props = marker.features[0].properties;
-  if (props.BREW === 0) {
-    var BREW = "<div class='hidden'></div>";
-  } else {
-    var BREW ='<span class="label label-default">Brewery</span>';
-  }
-
-  if (props.CIRCUIT === 0) {
-    var CIRCUIT = "<div class='hidden'></div>";
-  } else {
-    var CIRCUIT = '<span class="label label-default">Circuit</span>';
-  }
-
-  if (props.CLASSIC === 0) {
-    var CTOWN = "<div class='hidden'></div>";
-  } else {
-    var CTOWN = '<span class="label label-default">Classic Town</span>';
-  }
-
-  if (props.COLLEGE === 0) {
-    var COLLEGE = "<div class='hidden'></div>";
-  } else {
-    var COLLEGE = '<span class="label label-default">College</span>';
-  }
-
-  if (props.CORE === 0) {
-    var CORE = "<div class='hidden'></div>";
-  } else {
-    var CORE = '<span class="label label-default">Core City</span>';
-  }
-
-  if (props.EXPAND === 0) {
-    var EXPAND = "<div class='hidden'></div>";
-  } else {
-    var EXPAND = '<span class="label label-default">Expanding</span>';
-  }
-
-  if (props.HIST === 0) {
-    var HDIST = "<div class='hidden'></div>";
-  } else {
-    var HDIST =
-      '<span class="label label-default">Historic</span>';
-  }
-
-  if (props.OPP === 0) {
-    var OPP = "<div class='hidden'></div>";
-  } else {
-    var OPP = '<span class="label label-default">Opportunity</span>';
-  }
-
-  if (props.TRANSIT_1 === 0) {
-    var TRANSIT = "<div class='hidden'></div>";
-  } else {
-    var TRANSIT =
-      '<span class="label label-default">Transit-Oriented</span>';
-  }
 
   var info =
     "<div id='d-name'><h3 style='margin-top:0;'>" +
-    props.DISTRICT +
+    props.mun_name  +
     "</span><small><span> " +
-    props.COUNTY +
+    props.co_name  +
     "</span><span></span> County, <span>" +
-    props.STATE +
+    props.state +
     "</span></small></h3></div>"+
-    "<div id='dt-section'><h4 style=''>District Typologies</h4>"+
-    BREW +
-    CIRCUIT +
-    CTOWN +
-    COLLEGE +
-    CORE +
-    EXPAND +
-    HDIST +
-    OPP +
-    TRANSIT+
-    "</div>" 
-    ;
-  var content1 = "<div class='data-row'><span class='data-info'>Number of Blocks </span><span class='data-value'> " +
-    props.DTRETAIL +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Maximum Sidewalk Width (ft) </span><span class='data-value'> " +
-    props.MAXSWW +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Maximum Cartway Width (ft) </span><span class='data-value'> " +
-    props.MAXCARTW +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Walk Score® </span><span class='data-value'> " +
-    props.WSCORE +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Transit </span><span class='data-value'> " +
-    props.TRANSIT +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Bus Route(s) </span><span class='data-value'> " +
-    props.BUSROUTE +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Parking </span><span class='data-value'> " +
-    props.PARKING +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Population </span><span class='data-value'> " +
-    numeral(props.POP).format("(0,0)") +
-    "</span></div>" +
-    "<br><div class='data-row'><span class='data-info'>Households </span><span class='data-value'> " +
-    numeral(props.HH).format("(0,0)") +
-    "</span></div>" +
-    "<br><div class='data-row-last'><span class='data-info'>Median Household Income </span><span class='data-value'> " +
-    numeral(props.MEDHH).format("($0,0)") +
-    "</span></div>" 
-    ;
-  document.getElementById("resultsHeader").innerHTML = info;
-  document.getElementById("info1").innerHTML = content1;
+    "<div id='dt-section'><h4 style=''>Municipal-Level Employment Forecasts, 2015-2045</h4>"+
+    "</div>"+
+    '<table id="crashtable">'+
+    '<tr><b><font color="#0074ad">'+ (props.mun_name )+' , '+(props.co_name)+' County</font></b></tr>'+
+    '<br>Absolute Change (2015-2045): <b>'+numeral(props.ABS2045).format('0,0')+'</b></br>'+
+    'Percent Change (2015-2045): <b>'+numeral(props.PER2045).format('0.00%')+
+    '</b><br>Absolute Change per Square Mile (2015-2045): <b>'+numeral(props.ABCHSQMI).format('0,0')+'</b>'+
+    '<tbody>'+
+    '<tr class="odd">'+
+    '<th>2015 Employment</th><td>' + numeral(props.emp15).format('0,0') + '</td>' + 
+    '<tr class="even">'+
+    '<th>2020 Forecast</th><td>' + numeral(props.emp20).format('0,0')+ '</td>' + 
+    '<tr class="odd">'+
+    '<th>2025 Forecast</th><td>' + numeral(props.emp25).format('0,0')+ '</td>' + 
+    '<tr class="even">'+
+    '<th>2030 Forecast</th><td>' + numeral(props.emp30).format('0,0')+ '</td>' + 
+    '<tr class="odd">'+
+    '<th>2035 Forecast</th><td>' + numeral(props.emp35).format('0,0')+ '</td>' + 
+    '<tr class="even">'+
+    '<th>2040 Forecast</th><td>' + numeral(props.emp40).format('0,0')+ '</td>' + 
+    '<tr class="odd">'+
+    '<th>2045 Forecast</th><td>' + numeral(props.emp45).format('0,0')+ '</td>' + 
+    '<tr class="even">'+
+    '<th>2050 Forecast</th><td>' + numeral(props.emp50).format('0,0')+ '</td>' + 
+    '</tbody>'+						
+      '<table>'; 
+
+  document.getElementById("resultsHeaderMCD").innerHTML = info;
 
   // map.flyTo({
   //   // created a parameter that pulls the lat/long values from the geojson
@@ -460,266 +350,78 @@ const handleDistrict = function (props,map) {
   // });
   // charts
   Retail = [
-    props.CIVIC,
-    props.CULT,
-    props.FB,
-    props.GAFO,
-    props.NGS,
-    props.NONREOFF,
-    props.RESIDE,
-    props.VACANT,
+    props.emp15,
+    props.emp20,
+    props.emp25,
+    props.emp30,
+    props.emp35,
+    props.emp40,
+    props.emp45,
+    props.emp50,
   ];
-  Retail2 = [
-    props.CIVIC20,
-    props.CULTURAL20,
-    props.EXP20,
-    props.FB20,
-    props.GAFO20,
-    props.HOSP20,
-    props.NGS20,
-    props.OFFICE20,
-    props.RES20,
-    props.VACANT20,
-    props.CONSTR20,
-    props.INST20,
-  ];
-
   updateRetailChart(Retail);
-  updateRetailChart2(Retail2);
 
   function updateRetailChart(Values) {
-    var RetailChart = {
+    var CntyChart = {
       chart: {
-        renderTo: "Chart1",
-        type: "pie",
-        plotBackgroundColor: null,
-        plotBorderWidth: 0, //null,
-        plotShadow: false,
-        height: 300,
-      //  width: 370,
-        colors: [
-          "#8ec63f",
-          "#5bc5cf",
-          "#f29195",
-          "#eb555c",
-          "#90565c",
-          "#0c877b",
-          "#fbb040",
-          "#bdd2ff"
-        ],
+          renderTo: 'Chart1',
+          type: 'line',
+          backgroundColor: 'white',
+          height: 250,
+          marginTop: 10,
+         // width: 290,
       },
       title: {
-        text: "",
+          text: '',
+          x: -0 //center
+        },	
+     xAxis: {
+          categories: ['2015', '2020', '2025', '2030', '2035', '2040','2045','2050']
       },
-      plotOptions: {
-        pie: {
-          //  allowPointSelect: true,
-          cursor: "pointer",
-          point: {
-            events: {
-              legendItemClick: function (e) {
-                e.preventDefault();
-              },
-            },
+      colors: ['#0074ad'],
+          yAxis: {
+              title: {
+                  text: 'Population'
+              }
           },
-          dataLabels: {
-        //   enabled: false
-            enabled: true,
-         //   style: "{text-align: center}",
-            verticalAlign: "middle",
-            distance: 5,
-            format: "<span>{point.percentage:.0f} %</span>",
-            filter: {
-              property: "percentage",
-              operator: ">",
-              value: ".5",
-            },
-          },
-          showInLegend: false,
-        },
-      },
-      tooltip: {
-        formatter: function () {
-          //  return '<b>'+Highcharts.numberFormat(this.point.y,0,',',',')+' Acres</b><br/>';
-          return (
-            "<b>" +
-            this.point.name +
-            "</b><br/>" +
-            Highcharts.numberFormat(this.percentage, 2) +
-            " %"
-          );
-        },
-      },
-      credits: {
-        enabled: false,
-      },
-      series: [
-        {
-          name: "Total",
-          id: "Values",
-          innerSize: "40%",
-          colors: [
-            "#8ec63f",
-            "#5bc5cf",
-            "#f29195",
-            "#eb555c",
-            "#90565c",
-            "#0c877b",
-            "#fbb040",
-            "#bdd2ff"
-          ],
-          data: [],
-        },
-      ],
-    };
-    var Labels = [
-        "Civic",
-        "Cultural",
-        "Food and Beverage",
-        "General Merchandise, Apparel, Furnishings, and Other",
-        "Neighborhood Goods and Services",
-        "Office",
-        "Residential",
-        "Vacant"
-      ],
-      counData = [];
-    for (var i = 0; i < Values.length; i++) {
-      counData.push({
-        name: Labels[i],
-        y: Values[i],
-      });
-    }
-    RetailChart.series[0].data = counData;
-    var chart2 = new Highcharts.Chart(RetailChart);
-  }
-  // start second chart
-  function updateRetailChart2(Values) {
-    var RetailChart2 = {
-      chart: {
-        renderTo: "Chart2",
-        type: "pie",
-        plotBackgroundColor: null,
-        plotBorderWidth: 0, //null,
-        plotShadow: false,
-         height: 300,
-      //  width: 75,
-        colors: [
-          "#8ec63f",
-          "#5bc5cf",
-          "#fad5d6",    
-          "#f29195",
-          "#eb555c",
-          "#bc565c",   
-          "#90565c",
-          "#0c877b",
-          "#fbb040",
-          "#bdd2ff",
-          "#878787",
-          "#da7b27"
-        ],
-      },
-      title: {
-        text: "",
-      },
-      plotOptions: {
-        pie: {
-          //  allowPointSelect: true,
-          cursor: "pointer",
-          point: {
-            events: {
-              legendItemClick: function (e) {
-                e.preventDefault();
-              },
-            },
-          },
-          dataLabels: {
-            //   enabled: false
-            enabled: true,
-          //  style: "{text-align: center}",
-            verticalAlign: "middle",
-            distance: 5,
-            format: "<span>{point.percentage:.0f} %</span>",
-            filter: {
-              property: "percentage",
-              operator: ">",
-              value: ".5",
-            },
-          },
-          showInLegend: false,
-        },
-      },
-  /*   legend: {
-      title: {
-          text: '<span style="text-align:center;font-size: 9px; color: #666; font-weight: normal">Retail Mix 2015</span>',
-          style: {
-                fontStyle: 'italic'
+     legend:{
+    enabled: false
+  },
+   tooltip: {
+          formatter:function(){
+
+              return Highcharts.numberFormat(this.point.y,0,',',',')+'</b><br/>';
           }
-        },
-      layout:'horizontal'
-    }, 
-  */  
-      tooltip: {
-        formatter: function () {
-          //  return '<b>'+Highcharts.numberFormat(this.point.y,0,',',',')+' Acres</b><br/>';
-          return (
-            "<b>" +
-            this.point.name +
-            "</b><br/>" +
-            Highcharts.numberFormat(this.percentage, 2) +
-            " %"
-          );
-        },
       },
       credits: {
-        enabled: false,
+          enabled: false
       },
-      series: [
-        {
-          name: "Total",
-          id: "Values",
-          innerSize: "40%",
-          colors: [
-            "#8ec63f",
-            "#5bc5cf",
-            "#fad5d6",    
-            "#f29195",
-            "#eb555c",
-            "#bc565c",   
-            "#90565c",
-            "#0c877b",
-            "#fbb040",
-            "#bdd2ff",
-            "#878787",
-            "#da7b27"
-          ],
-          data: [],
-        },
-      ],
-    };
-    var Labels = [
-        "Civic",
-        "Cultural",
-        "Experiential",
-        "Food and Beverage",
-        "General Merchandise, Apparel, Furnishings, and Other",
-        "Hospitality",
-        "Neighborhood Goods and Services",
-        "Office",
-        "Residential",
-        "Vacant",
-        "Construction",
-        "Institutional"
-      ],
-      counData = [];
-    for (var i = 0; i < Values.length; i++) {
-      counData.push({
-        name: Labels[i],
-        y: Values[i],
-      });
-    }
-    RetailChart2.series[0].data = counData;
-    var chart4 = new Highcharts.Chart(RetailChart2);
-  }
+/*      plotOptions: {
+          line: {
+              dataLabels: {
+                  enabled: true
+              },
+              enableMouseTracking: true
+          }
+      },*/
+      series: [{
+         name:'Population',
+     id: 'Values',
+         data: []
+      }]
+  };
+  var Labels = ["2015", "2020", "2025", "2030","2035", "2040", "2045", "2050"],
+  countData2 = [];
+  for (var i = 0; i < Values.length; i++){
+              countData2.push({
+                  name: Labels[i],
+                  y: Values[i]})
+          }
+  CntyChart.series[0].data = countData2;
+  var chart2 = new Highcharts.Chart(CntyChart)
+
+}
+
 }
 // add typeahead
 const populateOptions = function (obj) {
