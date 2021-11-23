@@ -1,0 +1,7 @@
+/*!
+ * numeral.js
+ * version : 1.5.2
+ * author : Adam Draper
+ * license : MIT
+ * http://adamwdraper.github.com/Numeral-js/
+ */

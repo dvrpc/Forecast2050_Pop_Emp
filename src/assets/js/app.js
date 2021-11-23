@@ -1,3 +1,7 @@
+import "../css/main.css";
+import "../css/print.css";
+import * as numeral from "./numeral.js"
+
 // var retail, districts, d2;
 var geojson;
 const searchForm = document.getElementById('search')
@@ -126,7 +130,7 @@ map.on("load", function () {
     filter: ["==", "dvrpc", "Yes"],
   });
 
-mapColor = ['interpolate',['linear'],
+let mapColor = ['interpolate',['linear'],
 ['get', 'emp45'],
 1,'#fef0d9',
 1000,'#fdcc8a',
@@ -135,7 +139,7 @@ mapColor = ['interpolate',['linear'],
 10000,'#b30000'
 ];  
 
-mapColor2 = ['interpolate',['linear'],
+let mapColor2 = ['interpolate',['linear'],
 ['get', 'emp50'],
 1,'#f1eef6',
 1000,'#bdc9e1',
@@ -349,7 +353,7 @@ const handleDistrict = function (props,map) {
   //   zoom: 15,
   // });
   // charts
-  Retail = [
+  let Retail = [
     props.emp15,
     props.emp20,
     props.emp25,
