@@ -3,11 +3,9 @@ import "../css/print.css";
 import * as numeral from "./numeral.js"
 
 // var retail, districts, d2;
-var geojson;
 const searchForm = document.getElementById('search')
 
-var retailSearch = {};
-var clickedStateId = null;
+var mcdSearch = {};
 
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
@@ -63,43 +61,17 @@ document.getElementById("zoomtoregion").addEventListener("click", function () {
   });
 
 });
-
-// function handleSidebarDisplay() {
-//   // If the sidebar is not display=block ...
-//   // ... set the sidebar display to block and resize the map div
-
-//   var sidebarViz = $("#sidebar").css("display");
-//   if (sidebarViz !== "block") {
-//     $("#map").toggleClass("col-sm-6 col-md-6 col-lg-6 col-sm-12 col-md-12 col-lg-12");
-//     $("#sidebar").css("display", "block");
-//   }
-//   $(window.map).resize();
-//   return false;
-// }
-
-// function handleFullMapDisplay() {
-//   // If the sidebar is display=block ...
-//   // ... set the sidebar display not display=none and resize the map div
-
-//   var sidebarViz = $("#sidebar").css("display");
-//   if (sidebarViz !== "none") {
-//     $("#map").toggleClass("col-sm-12 col-md-12 col-lg-12 col-sm-6 col-md-6 col-lg-6");
-//     $("#sidebar").css("display", "none");
-//   }
-//   $(window.map).resize();
-//   return false;
-// }
 // Handles Search Form function
 fetch('https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_MCD/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
   .then(response => response.json())
   .then (data => {
-    var retail = data;
-    retail.features.forEach(function (geojsonrow) {
-      retailSearch[geojsonrow.properties.mun_name] = geojsonrow
+    var mcd = data;
+    mcd.features.forEach(function (geojsonrow) {
+      mcdSearch[geojsonrow.properties.mun_name] = geojsonrow
     });
   });
  // .then(data => console.log(data));
- console.log(retailSearch);
+ console.log(mcdSearch);
 
 map.on("load", function () {
 // add map events here (click, mousemove, etc)
@@ -250,7 +222,7 @@ searchForm.onsubmit = function (e) {
   e.preventDefault()
   const input = e.target.children[0].children[0]
   const searched = input.value
-  const location = retailSearch[searched]
+  const location = Search[searched]
   
   if(!location) {
     alert('Please select a value from the dropdown list')
@@ -424,7 +396,7 @@ const handleDistrict = function (props,map) {
 }
 // add typeahead
 const populateOptions = function (obj) {
-  const datalist = document.getElementById('retail-districts-list')
+  const datalist = document.getElementById('mcd-list')
   const frag = document.createDocumentFragment()
   
   Object.keys(obj)
