@@ -9,9 +9,6 @@ const searchForm = document.getElementById('search')
 var retailSearch = {};
 var clickedStateId = null;
 
-function catShow() {
- $("#CATModal").modal("show");
-} 
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
   $("#aboutModal").modal("show");
@@ -93,12 +90,12 @@ document.getElementById("zoomtoregion").addEventListener("click", function () {
 //   return false;
 // }
 // Handles Search Form function
-fetch('https://services1.arcgis.com/LWtWv6q6BJyKidj8/ArcGIS/rest/services/Retail/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
+fetch('https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_MCD/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson')
   .then(response => response.json())
   .then (data => {
     var retail = data;
     retail.features.forEach(function (geojsonrow) {
-      retailSearch[geojsonrow.properties.DISTRICT] = geojsonrow
+      retailSearch[geojsonrow.properties.mun_name] = geojsonrow
     });
   });
  // .then(data => console.log(data));
@@ -316,11 +313,9 @@ const handleDistrict = function (props,map) {
     "</span><span></span> County, <span>" +
     props.state +
     "</span></small></h3></div>"+
-    "<div id='dt-section'><h4 style=''>Municipal-Level Employment Forecasts, 2015-2045</h4>"+
-    "</div>"+
     '<table id="crashtable">'+
-    '<tr><b><font color="#0074ad">'+ (props.mun_name )+' , '+(props.co_name)+' County</font></b></tr>'+
-    '<br>Absolute Change (2015-2045): <b>'+numeral(props.ABS2045).format('0,0')+'</b></br>'+
+    // '<tr><b><font color="#0074ad">'+ (props.mun_name )+' , '+(props.co_name)+' County</font></b></tr>'+
+    'Absolute Change (2015-2045): <b>'+numeral(props.ABS2045).format('0,0')+'</b></br>'+
     'Percent Change (2015-2045): <b>'+numeral(props.PER2045).format('0.00%')+
     '</b><br>Absolute Change per Square Mile (2015-2045): <b>'+numeral(props.ABCHSQMI).format('0,0')+'</b>'+
     '<tbody>'+
@@ -432,13 +427,14 @@ const populateOptions = function (obj) {
   const datalist = document.getElementById('retail-districts-list')
   const frag = document.createDocumentFragment()
   
-  Object.keys(obj).sort((a, b) => a > b).forEach(function(el) {
-    const option = document.createElement('option')
-    option.value = el
-    frag.appendChild(option)
-  })
-
-  datalist.appendChild(frag)
+  Object.keys(obj)
+  .sort()
+  .forEach(function (el) {
+    const option = document.createElement("option");
+    option.value = el;
+    frag.appendChild(option);
+  });
+datalist.appendChild(frag);
 }
 
 populateOptions(retailSearch)

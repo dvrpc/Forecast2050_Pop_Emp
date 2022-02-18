@@ -89,8 +89,8 @@
     <div class="col-sm-5 col-md-5 col-lg-5" id="sidebar">
         <div class="panel-group">
             <div id="data-info-section">
+                <label for="exampleFormControlSelect2">Choose a Map:</label>
                 <select class="form-control" style="margin-right:5px;">
-                    <option><B>Choose a Map</B></option>
                     <option name="layer" data-layer="X045FOR" id="layer-X045FOR" value="load_image"><i class="icon-question-sign" style="color: black">2050 Employment Forecasts by Municipality</option>
                     <option name="layer" data-layer="ABSC1545" id="layer-ABSC1545" value="load_image1"><i class="icon-question-sign" style="color: black">Absolute Change: 2015-2050</option>
                     <option name="layer" data-layer="PERC1545" id="layer-PERC1545" value="load_image2"><i class="icon-question-sign" style="color: black">Percent Change: 2015-2050</option>
@@ -152,7 +152,7 @@
                             <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
                                 <div class="tab-pane fade active in" id="about">
                                      <div><p class="about-one">
-                                         <p>As a part of DVRPC’s long-range planning activities, the Commission is required to maintain forecasts with at least a 20-year horizon, or to the horizon year of the long-range plan. Allocation of growth is forecasted using a land use model, UrbanSim, and working closely with member county planning staffs. DVRPC has prepared regional, county, and municipal-level population and employment forecasts in five-year increments through 2050, using 2015 Census population estimates and 2015 National Establishments Time Series (NETS) employment data as the base (adopted June 24, 2021).</p>
+                                         <p>As a part of DVRPC's long-range planning activities, the Commission is required to maintain forecasts with at least a 20-year horizon, or to the horizon year of the long-range plan. Allocation of growth is forecasted using a land use model, UrbanSim, and working closely with member county planning staffs. DVRPC has prepared regional, county, and municipal-level population and employment forecasts in five-year increments through 2050, using 2015 Census population estimates and 2015 National Establishments Time Series (NETS) employment data as the base (adopted June 24, 2021).</p>
                                       <p>
                                         <h4>For more information:</h4>
                                             <address>
@@ -179,38 +179,6 @@
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-    <!-- Legend Modal -->
-    <div class="modal fade" id="CATModal">
-        <div class="modal-dialog" style="width:710px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title modal-legend">Categories of Uses</h4>
-                    <p>Land use categories found within the region’s retail districts.</p>
-                </div>
-                <div class="modal-body">
-                    <ul class="a">
-                          <p> <i class="fa fa-circle legend-icons civic"></i><b>Civic:</b> Includes municipal buildings, firehouses, police stations, libraries, post offices, or any other government office.</p>
-                          <p> <i class="fa fa-circle legend-icons cultural"></i><b>Cultural:</b> Includes entertainment activities, such as art galleries, performing arts centers, historic theaters, as well as religious institutions.</p> 
-                          <p> <i class="fa fa-circle legend-icons construction"></i><b>Construction:</b> Active construction sites, even where the intended end use was known.</p>
-                          <p> <i class="fa fa-circle legend-icons institutional"></i><b>Institutional:</b> Includes institutions of higher or continuing education. </p> 
-                          <p> <i class="fa fa-circle legend-icons office"></i><b>Office:</b> Includes professional office space from both the public and non-profit sectors. Offices above ground floor retail may not have been captured if the use could not be verified.</p> 
-                          <p> <i class="fa fa-circle legend-icons res"></i><b>Residential:</b> Includes single-family and multifamily housing units. Residential units above ground-floor retail may not have been captured if the use could not be verified. </p> 
-                          <p> <i class="fa fa-circle legend-icons vacant"></i><b>Vacant:</b> Unoccupied buildings or storefronts.</p> 
-                        </ul>
-                          <p><b>Retail Types:</b>
-                            <ul class="a">
-                                <p><i class="fa fa-circle legend-icons experiential"></i><b>Experiential (EXP):</b> Experiential retail is a relatively new trend within the retail industry that includes uses such as axe throwing, pottery making, and painting with wine. Given the relatively recent rise in experiential retail, this type was not contained in the 2013 inventory.</p>
-                                <p><i class="fa fa-circle legend-icons fb"></i><b>Food and Beverage (F&B):</b> Includes sit-down restaurants, take-away food, cafes, bars, coffee shops, sandwich shops, ice cream shops, fast food restaurants, and similar types of tenants. </p>
-                                <p><i class="fa fa-circle legend-icons gafo"></i><b>General Merchandise, Apparel, Furnishings, and Other (GAFO):</b> Includes clothing stores, furniture stores, discount stores, bookstores, jewelry stores, gift shops, pet supply stores, home decor stores, music stores, sporting goods stores, craft stores, mattress stores, electronics stores, auto parts stores, hardware stores, and similar types of tenants.</p>
-                                <p><i class="fa fa-circle legend-icons hosp"></i><b>Hospitality (HOSP):</b> Includes bed and breakfasts, hotels, inns, motels, and other similar types of lodging. Restaurants and bars associated with a hospitality use would have been captured separately in the F&B retail type. Hospitality uses were not treated as a separate retail type in the 2013 inventory.</p>
-                                <p><i class="fa fa-circle legend-icons ngs"></i><b>Neighborhood Goods and Services (NG&S):</b> Includes grocery stores, convenience stores, drugstores, florists, gyms, bakeries, delicatessens, butchers, dry cleaners, yoga studios, salons, tailors, laundromats, spas, liquor stores, shoe repair, and similar types of tenants. </p>
-                             </ul>
-                        </p>
-                </div><!-- /.modal-body -->
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal fade-->           
 
 <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>  
 <!-- <script type="text/javascript" src="assets/js/app.js"></script>
