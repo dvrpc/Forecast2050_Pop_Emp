@@ -10,10 +10,10 @@ let popColor = ['interpolate',['linear'],
 let popColor2 = ['interpolate',['linear'],
 ['get', 'popabs50'],
 0, '#CCCCCC',
-2000, '#DFEFFB',
-4000, '#A6CFE1',
-6000, '#4D9DC0',
-48000, '#0078AE'
+1, '#DFEFFB',
+2000, '#A6CFE1',
+4000, '#4D9DC0',
+6000, '#0078AE'
 ];  
 
 const secondaryMapLayers = {
