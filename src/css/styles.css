@@ -210,7 +210,7 @@ nav {
 
 /* Sidebar */
 .sidebar {
-  width: 30%;
+  width: 40%;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -294,22 +294,21 @@ nav {
   text-align: center;
   border-bottom: 1px solid var(--theme-black);
 }
-.legend-item {
+/* .legend-item {
   margin: 10px 0;
   width: max-content;
-}
-.legend-item:last-child {
+} 
+ .legend-item:last-child {
   margin-bottom: 0;
-}
+} 
 .legend-icon-line {
   display: block;
   width: 2.5px;
   height: 15px;
   margin-right: 12.5px;
   transform: rotate(90deg);
-  /* account for transform */
   margin-left: 7.5px;
-}
+}*/
 .legend-icon-circle {
   display: block;
   width: 15px;
@@ -356,35 +355,35 @@ nav {
   padding: 8px;
 }
 /* Score Colors */
-.or-1 {
-  background: #fef0d9;
+.pop-1 {
+  background: #DFEFFB;
 }
-.or-2 {
-  background: #fdcc8a;
+.pop-2 {
+  background: #A6CFE1;
 }
-.or-3 {
-  background: #fc8d59;
+.pop-3 {
+  background: #4D9DC0;
 }
-.or-4 {
-  background: #e34a33;
+.pop-4 {
+  background: #0078AE;
 }
-.or-5 {
-  background: #b30000;
+.pop-5 {
+  background: #004E76;
 }
-.bl-1 {
-  background: #f1eef6;
+.popABS-1 {
+  background: #CCCCCC;
 }
-.bl-2 {
-  background: #bdc9e1;
+.popABS-2 {
+  background: #DFEFFB;
 }
-.bl-3 {
-  background: #74a9cf;
+.popABS-3 {
+  background: #A6CFE1;
 }
-.bl-4 {
-  background: #2b8cbe;
+.popABS-4 {
+  background: #4D9DC0;
 }
-.bl-5 {
-  background: #045a8d;
+.popABS-5 {
+  background: #0078AE;
 }
 /* End Score Colors */
 

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+       <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="description" content="version 1.0.0">
+        <meta name="author" content="DVRPC">   
+    
+        <title>DVRPC 2050 Municipal-Level Population and Employment Forecasts</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css">
+      
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/print.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+        
+    <style>
+    </style>
+  </head>
+  
+  <body>
+<!-- Start Main Body -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                <div class="navbar-brand">
+                    <div class="wrapper">
+                        <a id="header-link" href="https://www.dvrpc.org" target="_blank">
+                            <img id="dvrpc-logo" src="assets/img/dvrpc_logo_small.png" alt="DVRPC logo"/>
+                            <p id="header-link-text">DVRPC 2050 Population and Employment Forecasts</p>
+                            </a>
+                             <button type="button" class="btn about-btn" onclick="$('#aboutModal').modal('show'); return false;" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                <i class="fa fa-info-circle" style="color:#39398e"></i>&nbsp;&nbsp;<b>About</b>
+                            </button>
+                      </div> 
+                       
+                
+                </div>
+
+                </div>
+             
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                 
+
+                    <div class="nav navbar-nav navbar-right">
+                        <div class="input-group search-container">
+                            <form id="search">
+                                <label>
+                                    <input type="search" list="mcd-list" id="searchbox" name="searchbox" placeholder="Search by Municipality"/>
+            
+                                    <datalist id="retail-districts-list"></datalist>
+                                </label>
+        
+                                <button type="submit" class="btn">search</button>
+                            </form>
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+    </div>
+ 
+
+<div class="row" id="container">
+    <div class="col-sm-5 col-md-5 col-lg-5" id="sidebar">
+        <div class="panel-group">
+            <div id="data-info-section">
+                <label for="exampleFormControlSelect2">Choose a Map:</label>
+                <select class="form-control" style="margin-right:5px;">
+                    <option name="layer" data-layer="X045FOR" id="layer-X045FOR" value="load_image"><i class="icon-question-sign" style="color: black">2050 Employment Forecasts by Municipality</option>
+                    <option name="layer" data-layer="ABSC1545" id="layer-ABSC1545" value="load_image1"><i class="icon-question-sign" style="color: black">Absolute Change: 2015-2050</option>
+                    <option name="layer" data-layer="PERC1545" id="layer-PERC1545" value="load_image2"><i class="icon-question-sign" style="color: black">Percent Change: 2015-2050</option>
+                    <option name="layer" data-layer="AB_SQMI" id="layer-AB_SQMI" value="load_image3"><i class="icon-question-sign" style="color: black">Absolute Change per Square Mile: 2015-2050</option>
+             </select>   
+                     
+ <!-- Info Section-->                
+                <div class='infoLeft' style="height:100vh;">
+                    <div id='resultsHeaderMCD'></div>   
+                    
+                    <div class='chart-wrapper'>       
+                    <h3 class='chart-subheader'>MCD-Level Employment Forecasts, 2015-2050</h3> 
+                    <div id="Chart1"></div> 
+                    </div> 
+
+                </div>
+
+            </div>
+         </div> 
+    </div>
+         <!-- Map -->
+         <div class="col-sm-7 col-md-7 col-lg-7" id="map" style="overflow:hidden">
+            <div id="legend-box1">
+                <span>category scoring</span>
+                <div id="legend-box-Item" class="circle or-1"><span>1-2 Low</span></div>
+                <div id="legend-box-Item" class="circle or-2"><span>3</span></div>
+                <div id="legend-box-Item" class="circle or-3"><span>4</span></div>
+                <div id="legend-box-Item" class="circle or-4"><span>5</span></div>
+                <div id="legend-box-Item" class="circle or-5"><span>6</span></div>
+           </div> 
+           <div id="legend-box2">
+            <span>category scoring</span>
+            <div id="legend-box-Item" class="circle bl-1"><span>1-2 Low</span></div>
+            <div id="legend-box-Item" class="circle bl-2"><span>3</span></div>
+            <div id="legend-box-Item" class="circle bl-3"><span>4</span></div>
+            <div id="legend-box-Item" class="circle bl-4"><span>5</span></div>
+            <div id="legend-box-Item" class="circle bl-5"><span>6</span></div>
+       </div> 
+        </div>
+
+</div>      
+<!-- Zoom -->
+      </div>
+        <a href='javascript:void(0);' id='zoomtoregion'></a>
+</div>
+            <!-- About Modal -->
+        <div class="modal fade" id="aboutModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">DVRPC 2050 Municipal-Level Population and Employment Forecasts in Five-Year Increments</h4>
+                        </div>
+                        <div class="modal-body">
+                             <ul id="aboutTabs" class="nav nav-tabs">
+                                <li class="active"><a href="#about" data-toggle="tab"><i class="icon-info-sign"></i>&nbsp;About</a></li> 
+                                <li><a href="#disclaimer" data-toggle="tab"><i class="icon-exclamation-sign"></i>&nbsp;Disclaimer</a></li>
+                            </ul>
+                            <div id="aboutTabsContent" class="tab-content" style="padding-top: 10px;">
+                                <div class="tab-pane fade active in" id="about">
+                                     <div><p class="about-one">
+                                         <p>As a part of DVRPC's long-range planning activities, the Commission is required to maintain forecasts with at least a 20-year horizon, or to the horizon year of the long-range plan. Allocation of growth is forecasted using a land use model, UrbanSim, and working closely with member county planning staffs. DVRPC has prepared regional, county, and municipal-level population and employment forecasts in five-year increments through 2050, using 2015 Census population estimates and 2015 National Establishments Time Series (NETS) employment data as the base (adopted June 24, 2021).</p>
+                                      <p>
+                                        <h4>For more information:</h4>
+                                            <address>
+                                           Benny G | AICP | Manager, Socioeconomic and Land Use Analytics<br/>
+                                            <a href="mailto:bgruswitz@dvrpc.org" class="one">bgruswitz@dvrpc.org</a><br/>
+                                            </address>
+                                       </p>
+                                    </div> 
+                                     <div id="about_footer"><p>This web page is a public resource of general information. The Delaware Valley Regional Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying on any information or data furnished within.</p>
+                                        <p>For more information, visit <a href="https://www.dvrpc.org/Policies/" target="_blank" class="one">Policies</a> | 
+                                            <a href="https://www.dvrpc.org/Products/" target="_blank" class="one">Abstract Add LINK</a></p>
+                                    </p>
+                                    </div>                                 
+                                </div>
+                                <div class="tab-pane fade" id="disclaimer"> 
+                                      <img src="https://www.dvrpc.org/img/homepage/dvrpclogo70px.png" alt="DVRPC logo" class="dvrpc_full_logo"/><p style="margin: -5px 0px 0px 45px;display:block"><span><span>This web page is a public resource of general information. The Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, 
+                                        representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database 
+                                        information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or 
+                                        inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying 
+                                        on any information or data furnished within.</span></p>
+                               </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>  
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/numeral.js"></script>
+
+<script>var _gaq=[['_setAccount','UA-9825778-1'],['_trackPageview']];(function(d){var g=d.createElement('script'),s=d.scripts[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document))</script>
+
+<!-- End Main Body -->
+  </body>
+</html>
