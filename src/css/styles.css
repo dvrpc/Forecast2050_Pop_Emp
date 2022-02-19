@@ -39,6 +39,7 @@ a {
   --theme-black: #505a5e;
   --theme-white: #f7f7f7;
   --theme-offwhite: #f2f2f2;
+  --theme-offwhite2: #ebebf3;
 
   --padding-half: 5px;
   --padding: 10px;
@@ -257,6 +258,46 @@ nav {
 .label-select {
   margin-bottom: var(--padding);
 }
+.infoLeft {
+  /* padding: 10px; */
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-color: var(--theme-offwhite2);
+  margin-top: 10px;
+}
+#resultsHeader {
+  color: #333;
+  font-size: 18px;
+  /*   word-break:break-all; */
+  margin: 5px 0px 5px 10px;
+  border-radius: 4px;
+  border-color: #dadada;
+  /* background-color: var(--theme-reatil-lite); */
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+.chart-wrapper {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  /* margin-left: 10px; */
+}
+.chart-subheader {
+  background-color: var(--theme-dvrpc);
+  color: #f7f7f7;
+  padding: 0.25rem 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 1.5px 0 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+#Chart1 {
+  max-height: 300px;
+  display: inline-block;
+  width: 100%;
+}
 /* END Sidebar */
 
 /* Map */
@@ -285,7 +326,7 @@ nav {
   z-index: 1;
   /* padding: var(--padding); */
   padding: 5px;
-  width:140px;
+  width: 140px;
 }
 .legend-title {
   color: var(--theme-dvrpc-accent);
@@ -356,34 +397,34 @@ nav {
 }
 /* Score Colors */
 .pop-1 {
-  background: #DFEFFB;
+  background: #dfeffb;
 }
 .pop-2 {
-  background: #A6CFE1;
+  background: #a6cfe1;
 }
 .pop-3 {
-  background: #4D9DC0;
+  background: #4d9dc0;
 }
 .pop-4 {
-  background: #0078AE;
+  background: #0078ae;
 }
 .pop-5 {
-  background: #004E76;
+  background: #004e76;
 }
 .popABS-1 {
-  background: #CCCCCC;
+  background: #cccccc;
 }
 .popABS-2 {
-  background: #DFEFFB;
+  background: #dfeffb;
 }
 .popABS-3 {
-  background: #A6CFE1;
+  background: #a6cfe1;
 }
 .popABS-4 {
-  background: #4D9DC0;
+  background: #4d9dc0;
 }
 .popABS-5 {
-  background: #0078AE;
+  background: #0078ae;
 }
 /* End Score Colors */
 
@@ -396,5 +437,56 @@ footer {
   overflow-y: auto;
   background-color: var(--theme-white);
   color: var(--theme-black);
+}
+/* END Footer */
+/* Table */
+/* ------------------
+ styling for the tables 
+   ------------------   */
+#crashtable {
+  border-collapse: collapse;
+  text-align: center;
+  width: 92%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+th {
+  text-align: center;
+  font-weight: normal;
+  font-size: 80%;
+}
+td {
+  font-weight: bold;
+  font-size: 80%;
+}
+#crashtable .odd {
+  background: #ededed;
+  border: 1px solid #bdbdbd;
+}
+#crashtable .even {
+  border-right: 1px solid #bdbdbd;
+}
+
+#crashtable .odd th {
+  padding: 4px;
+  border-bottom: 1px solid #bdbdbd;
+  border-right: 1px solid #bdbdbd;
+  border-left: 1px solid #bdbdbd;
+}
+
+#crashtable .odd td {
+  border: 1px solid #bdbdbd;
+  padding: 2px;
+}
+
+#crashtable .even th {
+  padding: 4px;
+  border-bottom: 1px solid #bdbdbd;
+  border-right: 1px solid #bdbdbd;
+  border-left: 1px solid #bdbdbd;
+}
+#crashtable .even td {
+  border: 1px solid #bdbdbd;
+  padding: 2px;
 }
 /* END Footer */

@@ -44,6 +44,7 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script defer type="module" src="./js/index.js"></script>
   </head>
@@ -82,7 +83,7 @@
           <h3 class="sidebar-h3">Choose a Map Layer</h3>
           <form id="toggle-form" class="sidebar-form">
             <label class="flex-row flex-align-center flex-between label-select">
-              <!-- Municipal-Level -->
+              <!-- Population -->
               <select>
                 <option value="pop">2050 Population Forecasts</option>
                 <option value="popABS">Absolute Change: 2015-2050</option>
@@ -90,33 +91,16 @@
             </label>
           </form>
 
-          <h3 class="sidebar-h3">Section Subheader</h3>
-          <p>
-            Developed land federal highway administration intersection,
-            metropolitan planning organization not in my back yard planning
-            parking study ecosystem
-            <strong>sustainable communities</strong> strategy gentrification.
-            Loop detectors planner streetscape homeless suburb. But parks retail
-            sales tax air rights new urbanism minimum parking ratio.
-          </p>
+          <h3 class="sidebar-h3">MCD-Level Population Forecasts, 2015-2050</h3>
+          <div class='infoLeft' style="height:100vh;">
+            <div id='resultsHeaderMCD'></div>   
+            
+            <div class='chart-wrapper'>       
+            <h3 class='chart-subheader'>MCD-Level Population Forecasts, 2015-2050</h3> 
+            <div id="Chart1"></div> 
+            </div> 
 
-          <h3 class="sidebar-h3">Section Subheader</h3>
-          <p>
-            Compatible uses a geospatial analysis mode share street parking but
-            modernism. Feng shui youth county commercial corridor.
-            Unincorporated auction public works department community garden
-            household density <strong>school enrollment</strong>.
-          </p>
-
-          <h3 class="sidebar-h3">Section Subheader</h3>
-          <p>
-            <strong>Census-designated place</strong> unique farmland Euclid v.
-            Ambler, internal functional compatible uses urban organic
-            transferable development right transit signal urban planning Census
-            tract. Parklet local control vacant sharrows groceries
-            transit-oriented development highway ramp not in my back yard loops
-            and lollipops ministerial act.
-          </p>
+        </div>
         </div>
 
         <footer>contact: <a href="mailto:">name</a></footer>
@@ -166,8 +150,23 @@
         </section>
       </div>
     </div>
-
+    <script
+      type="text/javascript"
+      src="https://code.highcharts.com/highcharts.js"
+    ></script>
+    <script type="text/javascript" src="js/numeral.js"></script>
+   
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
+   
+   <script>
+      var _gaq = [["_setAccount", "UA-9825778-1"], ["_trackPageview"]];
+      (function (d) {
+        var g = d.createElement("script"),
+          s = d.scripts[0];
+        g.src = "//www.google-analytics.com/ga.js";
+        s.parentNode.insertBefore(g, s);
+      })(document);
+    </script>
   </body>
 </html>

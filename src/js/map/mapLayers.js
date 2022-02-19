@@ -10,16 +10,16 @@ const layers = {
     },
     filter: ["==", "dvrpc", "Yes"],
   },
-  muniOutline: {
-    id: "municipality-outline",
-    type: "line",
-    source: "boundaries",
-    "source-layer": "municipalities",
-    paint: {
-      "line-width": 0.5,
-      "line-color": "#748388",
-    },
-  },
+  // muniOutline: {
+  //   id: "municipality-outline",
+  //   type: "line",
+  //   source: "boundaries",
+  //   "source-layer": "municipalities",
+  //   paint: {
+  //     "line-width": 0.5,
+  //     "line-color": "#748388",
+  //   },
+  // },
   // add default layers here
 };
 
