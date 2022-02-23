@@ -8,7 +8,7 @@ const createLegendItem = (val) => {
     return `
   <div class="flex-row flex-align-center legend-item">
   <div id="legend-box2">
-  <span><b>Population Forecasts</b></span>
+  <span><b>Population Forecast</b></span>
   <div id="legend-box-Item" class="circle pop-1"><span>Less Than 10,000</span></div>
   <div id="legend-box-Item" class="circle pop-2"><span>10,000 to 24,999</span></div>
   <div id="legend-box-Item" class="circle pop-3"><span>25,000 to 49,999</span></div>

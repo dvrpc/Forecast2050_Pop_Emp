@@ -78,12 +78,12 @@
     <main class="flex-row flex-between main-content-wrapper">
       <section class="sidebar">
         <div class="sidebar-content">
-          <!-- <h2 class="sidebar-h2">Main Header</h2> -->
-
+  
+          <header id="sidebarHeader">
           <h3 class="sidebar-h3">Choose a Map Layer</h3>
           <form id="toggle-form" class="sidebar-form">
             <label class="flex-row flex-align-center flex-between label-select">
-              <!-- Population -->
+        
               <select>
                 <option value="pop">2050 Population Forecast</option>
                 <option value="popABS">Absolute Change: 2015-2050</option>
@@ -91,26 +91,30 @@
               </select>
             </label>
           </form>
+        </header>
 
-          <!-- <h3 class="sidebar-h3">MCD-Level Population Forecasts, 2015-2050</h3> -->
           <div class='infoLeft' style="height:100vh;">
-            <div id='resultsPOP'></div>   
-            
-            <div class='chart-wrapper'>       
-            <h3 class='chart-subheader'>MCD-Level Population Forecasts, 2015-2050</h3> 
-            <div id="Chart1"></div> 
-            <div id="Chart3"></div> 
-            <div id='resultsEMP'></div>  
-            <div class='chart-wrapper'>       
-            <h3 class='chart-subheader'>MCD-Level Employment Forecasts, 2015-2050</h3> 
-            <div id="Chart2"></div> 
-            <div id="Chart4"></div> 
           
-          </div> 
+            <div id='resultsPOP'></div>    
+            <div class='chart-wrapper'>       
+            <h3 class='chart-subheader POP'>MCD-Level Population Forecasts, 2015-2050</h3> 
+            <div id="Chart1"></div> 
+            <h3 class='chart-subheader POP'>County Population Forecasts, 2015-2050</h3> 
+            <div id="Chart3"></div> 
+            </div> 
+
+            <div id='resultsEMP'></div> 
+            <div class='chart-wrapper'>       
+            <h3 class='chart-subheader EMP'>MCD-Level Employment Forecasts, 2015-2050</h3> 
+            <div id="Chart2"></div> 
+            <h3 class='chart-subheader EMP'>County Population Forecasts, 2015-2050</h3> 
+            <div id="Chart4"></div> 
+            </div> 
+
+        </div>
 
         </div>
         </div>
-
         <footer>contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a></footer>
       </section>
 
@@ -135,26 +139,27 @@
         <h2 class="modal-content-subheader">County and Municipal-Level Population and Employment Forecasts, 2015-2050</h2>
 
         <section class="modal-section">
-          <h3>About</h3>
           <p>
-            Use this template to bootstrap a web map with robust context needed
-            in the sidebar. Charts and other data viz, explanations, anything
-            goes in the sidebar.
+            As a part of DVRPC's long-range planning activities, the Commission is required to maintain forecasts with at least a 20-year horizon, or to the horizon year of the long-range plan. Allocation of growth is forecasted using a land use model, UrbanSim, and working closely with member county planning staffs. DVRPC has prepared regional, county, and municipal-level population and employment forecasts in five-year increments through 2050, using 2015 Census population estimates and 2015 National Establishments Time Series (NETS) employment data as the base (adopted June 24, 2021).
           </p>
+          <p>
+            <h4>For more information:</h4>
+                <address>
+               Benny G | AICP | Manager, Socioeconomic and Land Use Analytics<br/>
+                <a href="mailto:bgruswitz@dvrpc.org" class="one">bgruswitz@dvrpc.org</a><br/>
+                </address>
+           </p>
         </section>
 
         <hr class="modal-hr" />
 
         <section class="modal-section">
-          <h3>Methodology</h3>
-          <p>lorem ipsum...</p>
-        </section>
-
-        <hr class="modal-hr" />
-
-        <section class="modal-section">
-          <h3>Disclaimer</h3>
-          <p>lorem ipsum...</p>
+          <div id="about_footer">
+          <p>This web page is a public resource of general information. The Delaware Valley Regional Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying on any information or data furnished within.</p>
+          <p>For more information, visit <a href="https://www.dvrpc.org/Policies/" target="_blank" class="one">Policies</a> | 
+          <a href="https://www.dvrpc.org/Products/" target="_blank" class="one">Abstract Add LINK</a></p>
+        </p>
+      </div>
         </section>
       </div>
     </div>
