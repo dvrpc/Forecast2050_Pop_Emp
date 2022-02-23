@@ -5,7 +5,7 @@ import handleModal from './modal.js'
 import handleForms from './forms.js'
 import handleLegend from './legend.js'
 // import { wire_layer_hover } from "./map/hover.js";
-import handleDistrict from "./map/click.js";
+import {handleDistrict, handleCounty} from "./map/click.js";
 
 const modal = document.getElementById('modal')
 const modalToggle = document.getElementById('modal-toggle')
@@ -71,6 +71,23 @@ map.on('load', () => {
     }
   });
 
+  map.addSource('CNTY', {
+    'type': 'geojson',
+    'data':'https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_County/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
+    //'data':MCD, // Use the sevenDaysAgo variable to only retrieve quakes from the past week
+    'generateId': true // This ensures that all features have unique IDs
+    });
+  
+    map.addLayer({
+      id: "CNTY",
+      type: "fill",
+      source: "CNTY",
+      layout: {},
+      paint: {
+        'fill-opacity': 0
+      }
+    });
+
 var hoveredStateId = null;
 // When the user moves their mouse over the state-fill layer, we'll update the
 // feature state for the feature under the mouse.
@@ -114,6 +131,12 @@ map.on('mousemove', 'MCD', (e) => {
       handleDistrict(props,map)
       // handleHighlight(FID)
   });
+
+  map.on('click','CNTY', (e) => {
+   var props = e.features[0].properties;
+   handleCounty(props)
+  });
+
 }) 
 // End Map Load
 // loading spinner 

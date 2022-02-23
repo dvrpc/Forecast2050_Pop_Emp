@@ -50,7 +50,7 @@ const handleDistrict = function (props,map) {
     '</b><br>Absolute Change per Square Mile (2015-2045): <b>'+numeral(props.empabssq).format('0,0')+'</b>'+
     '<tbody>'+
     '<tr class="odd">'+
-    '<th>2015 Population</th><td>' + numeral(props.emp15).format('0,0') + '</td>' + 
+    '<th>2015 Employment</th><td>' + numeral(props.emp15).format('0,0') + '</td>' + 
     '<tr class="even">'+
     '<th>2020 Forecast</th><td>' + numeral(props.emp20).format('0,0')+ '</td>' + 
     '<tr class="odd">'+
@@ -207,4 +207,138 @@ const handleDistrict = function (props,map) {
   var chart2 = new Highcharts.Chart(CntyChart)
 }
   };
-export default handleDistrict;
+
+
+  const handleCounty = function (props) {
+
+    // charts
+    let popForecast = [
+      props.pop15,
+      props.pop20,
+      props.pop25,
+      props.pop30,
+      props.pop35,
+      props.pop40,
+      props.pop45,
+      props.pop50,
+    ];
+    updatepopForecastChart(popForecast);
+
+    let empForecast = [
+      props.emp15,
+      props.emp20,
+      props.emp25,
+      props.emp30,
+      props.emp35,
+      props.emp40,
+      props.emp45,
+      props.emp50,
+    ];
+    updateempForecastChart(empForecast);
+  
+    function updatepopForecastChart(Values) {
+      var CntyChart = {
+        chart: {
+            renderTo: 'Chart3',
+            type: 'line',
+            backgroundColor: 'white',
+            height: 250,
+            marginTop: 10,
+           // width: 290,
+        },
+        title: {
+            text: '',
+            x: -0 //center
+          },	
+       xAxis: {
+            categories: ['2015', '2020', '2025', '2030', '2035', '2040','2045','2050']
+        },
+        colors: ['#0074ad'],
+            yAxis: {
+                title: {
+                    text: 'Population'
+                }
+            },
+       legend:{
+      enabled: false
+    },
+     tooltip: {
+            formatter:function(){
+  
+                return Highcharts.numberFormat(this.point.y,0,',',',')+'</b><br/>';
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+           name:'Population',
+       id: 'Values',
+           data: []
+        }]
+    };
+    var Labels = ["2015", "2020", "2025", "2030","2035", "2040", "2045", "2050"],
+    countData2 = [];
+    for (var i = 0; i < Values.length; i++){
+                countData2.push({
+                    name: Labels[i],
+                    y: Values[i]})
+            }
+    CntyChart.series[0].data = countData2;
+    var chart2 = new Highcharts.Chart(CntyChart)
+  }
+
+  function updateempForecastChart(Values) {
+    var CntyChart = {
+      chart: {
+          renderTo: 'Chart4',
+          type: 'line',
+          backgroundColor: 'white',
+          height: 250,
+          marginTop: 10,
+         // width: 290,
+      },
+      title: {
+          text: '',
+          x: -0 //center
+        },	
+     xAxis: {
+          categories: ['2015', '2020', '2025', '2030', '2035', '2040','2045','2050']
+      },
+      colors: ['#0074ad'],
+          yAxis: {
+              title: {
+                  text: 'Population'
+              }
+          },
+     legend:{
+    enabled: false
+  },
+   tooltip: {
+          formatter:function(){
+
+              return Highcharts.numberFormat(this.point.y,0,',',',')+'</b><br/>';
+          }
+      },
+      credits: {
+          enabled: false
+      },
+      series: [{
+         name:'Population',
+     id: 'Values',
+         data: []
+      }]
+  };
+  var Labels = ["2015", "2020", "2025", "2030","2035", "2040", "2045", "2050"],
+  countData2 = [];
+  for (var i = 0; i < Values.length; i++){
+              countData2.push({
+                  name: Labels[i],
+                  y: Values[i]})
+          }
+  CntyChart.series[0].data = countData2;
+  var chart2 = new Highcharts.Chart(CntyChart)
+}
+  };
+  
+export {handleDistrict, handleCounty};

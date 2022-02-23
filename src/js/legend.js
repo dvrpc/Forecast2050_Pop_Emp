@@ -31,6 +31,20 @@ const createLegendItem = (val) => {
 </div>
  </div>
 `;
+}
+else if (legendDetails.label === "emp") {
+  return `
+<div class="flex-row flex-align-center legend-item">
+<div id="legend-box2">
+<span><b>Employment Forecast</b></span>
+<div id="legend-box-Item" class="circle emp-1"><span>Less Than 5,000</span></div>
+<div id="legend-box-Item" class="circle emp-2"><span>5,000 to 9,999</span></div>
+<div id="legend-box-Item" class="circle emp-3"><span>10,000 to 19,999</span></div>
+<div id="legend-box-Item" class="circle emp-4"><span>20,000 to 39,999</span></div>
+<div id="legend-box-Item" class="circle emp-5"><span>40,000 or More</span></div>
+</div>
+</div>
+`;
   }
   return `
   <div class="flex-row flex-align-center legend-item">

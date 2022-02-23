@@ -15,7 +15,10 @@ const legendConfig = {
   },
   "popABS": {
     label: "popABS",
-  }
+  },
+  "emp": {
+    label: "emp"
+  },
 };
 
 export default legendConfig;

@@ -16,6 +16,15 @@ let popColor2 = ['interpolate',['linear'],
 6000, '#0078AE'
 ];  
 
+let empColor = ['interpolate',['linear'],
+['get', 'emp50'],
+5000, '#E4E7F4',
+10000, '#C8CDE1',
+20000, '#A3ACCD',
+40000, '#757CA5',
+290000, '#545A80'
+]; 
+
 const secondaryMapLayers = {
     pop:{
     id:"pop",
@@ -36,7 +45,17 @@ const secondaryMapLayers = {
         "fill-outline-color": "#748388",
         "fill-opacity": .8,
         "fill-color": popColor2       
-      },}
+      },},
+      emp:{
+        id:"emp",
+        type: "fill",
+        source: "forecastsMCD",
+        layout: {},
+        paint: {
+          "fill-outline-color": "#748388",
+          "fill-opacity": .8,
+          "fill-color": empColor       
+        },}
 }
 
 export default secondaryMapLayers
