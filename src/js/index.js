@@ -121,6 +121,8 @@ map.on('mousemove', 'MCD', (e) => {
 
   map.on('click','MCD', (e) => {
     // mapbox function calling of geojson properties
+    document.getElementById("mcdStart").style.display = "none";
+    document.getElementById("mcdDetails").style.display = "inline-block";
     var props = e.features[0].properties;
    // var coordinates = marker.features[0].geometry.coordinates;
     // var FID = e.features[0].id;
