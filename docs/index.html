@@ -86,31 +86,33 @@
         
               <select>
                 <option value="pop">2050 Population Forecast</option>
-                <option value="popABS">Absolute Change: 2015-2050</option>
+                <option value="popABS">Absolute Change in Population: 2015-2050</option>
+                <option value="popPER">Percent Change in Population: 2015-2050</option>
                 <option value="emp">2050 Employment Forecast</option>
               </select>
             </label>
           </form>
         </header>
 
-          <div class='infoLeft' style="height:100vh;">
-          
-            <div id='resultsPOP'></div>    
+        <div id="mcdStart" class='infoLeft' style="height:100vh;">
+          <div id="startContent">
+            <h1>Click the map to view County and Municipal-level Forecast data.</h1>
+          </div>
+        </div>
+
+          <div id="mcdDetails" class='infoLeft' style="height:100vh;">
+            <div id="stationContent">
+              <div id="mcdName"></div>
+              <div id="mcdInfo"></div>
+            </div>
+            <div id='results'></div> 
+  
             <div class='chart-wrapper'>       
-            <h3 class='chart-subheader POP'>MCD-Level Population Forecasts, 2015-2050</h3> 
+            <h3 class='chart-subheader POP'>MCD-Level Forecasts, 2015-2050</h3> 
             <div id="Chart1"></div> 
-            <h3 class='chart-subheader POP'>County Population Forecasts, 2015-2050</h3> 
+            <h3 class='chart-subheader POP'>County Forecasts, 2015-2050</h3> 
             <div id="Chart3"></div> 
             </div> 
-
-            <div id='resultsEMP'></div> 
-            <div class='chart-wrapper'>       
-            <h3 class='chart-subheader EMP'>MCD-Level Employment Forecasts, 2015-2050</h3> 
-            <div id="Chart2"></div> 
-            <h3 class='chart-subheader EMP'>County Population Forecasts, 2015-2050</h3> 
-            <div id="Chart4"></div> 
-            </div> 
-
         </div>
 
         </div>

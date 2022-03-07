@@ -10,7 +10,11 @@ body {
 }
 h1 {
   text-align: center;
-  font-size: inherit;
+  /* font-size: inherit; */
+}
+h1 small {
+  font-size: 65%;
+  font-weight: normal;
 }
 fieldset {
   font-size: 1em;
@@ -40,6 +44,8 @@ a {
   --theme-white: #f7f7f7;
   --theme-offwhite: #f2f2f2;
   --theme-offwhite2: #ebebf3;
+  --theme-dark: #505a5e;
+  --theme-dark2: #979797;
   --theme-pop: #004e76;
   --theme-emp: #54278f;
 
@@ -268,7 +274,8 @@ nav {
 }
 #sidebarHeader {
   position: sticky;
-  top: 0;
+  padding-top: 5px;
+  top: -10px;
   width: 100%;
   z-index: 1001;
   background-color: var(--theme-offwhite);
@@ -280,9 +287,14 @@ nav {
   /* padding: 10px; */
   width: 100%;
   height: 100%;
-  display: inline-block;
   background-color: var(--theme-offwhite2);
   margin-top: 10px;
+}
+#mcdDetails {
+  display: none;
+}
+#mcdStart {
+  display: inline-block;
 }
 #resultsHeader {
   color: #333;
@@ -350,7 +362,7 @@ nav {
   z-index: 1;
   /* padding: var(--padding); */
   padding: 5px;
-  width: 150px;
+  width: 240px;
 }
 .legend-title {
   color: var(--theme-dvrpc-accent);
@@ -396,7 +408,7 @@ nav {
 .circle span {
   margin-left: 25px;
   display: block;
-  width: 170px;
+  width: 200px;
   text-align: left;
 }
 #legend-box1,
@@ -435,6 +447,18 @@ nav {
 .popABS-5 {
   background: #0078ae;
 }
+.popPER-1 {
+  background: #dfeffb;
+}
+.popPER-2 {
+  background: #a6cfe1;
+}
+.popPER-3 {
+  background: #4d9dc0;
+}
+.popPER-4 {
+  background: #0078ae;
+}
 .emp-1 {
   background: #dadaeb;
 }
@@ -471,9 +495,8 @@ footer {
 #crashtable {
   border-collapse: collapse;
   text-align: center;
-  width: 92%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  width: 98%;
+  margin: 5px;
 }
 th {
   text-align: center;
@@ -513,5 +536,30 @@ td {
 #crashtable .even td {
   border: 1px solid #bdbdbd;
   padding: 2px;
+}
+#stationContent,
+#startContent {
+  color: #fff;
+  border-radius: 3px;
+  text-align: center;
+  margin: 10px auto 13px auto;
+  padding: 0px 10%;
+  background-color: var(--theme-dark2);
+  width: 75%;
+  min-height: 30px;
+  border: 2px solid var(--theme-dark);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+#mcdName {
+  color: #fff;
+  border-radius: 3px;
+  text-align: center;
+  margin: 10px auto 13px auto;
+  padding: 0px 10% 10px 10%;
+  background-color: var(--theme-dark);
+  width: 75%;
+  line-height: 30px;
+  border: 2px solid var(--theme-dark);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
 /* END Footer */

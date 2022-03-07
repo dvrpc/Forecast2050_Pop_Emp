@@ -32,6 +32,19 @@ const createLegendItem = (val) => {
  </div>
 `;
 }
+else if (legendDetails.label === "popPER") {
+  return `
+<div class="flex-row flex-align-center legend-item">
+<div id="legend-box2">
+<span><b>Percent Change</b></span>
+<div id="legend-box-Item" class="circle popPER-1"><span>Stable (-5% to 5%)</span></div>
+<div id="legend-box-Item" class="circle popPER-2"><span>Moderate Growth (+6% to 25%)</span></div>
+<div id="legend-box-Item" class="circle popPER-3"><span>Significant Growth (+26% to +50%)</span></div>
+<div id="legend-box-Item" class="circle popPER-4"><span>Exceptional Grwoth (Above 50%)</span></div>
+</div>
+</div>
+`;
+}
 else if (legendDetails.label === "emp") {
   return `
 <div class="flex-row flex-align-center legend-item">
