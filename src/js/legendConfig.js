@@ -16,6 +16,9 @@ const legendConfig = {
   "popABS": {
     label: "popABS",
   },
+  "popPER": {
+    label: "popPER",
+  },
   "emp": {
     label: "emp"
   },

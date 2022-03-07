@@ -362,7 +362,7 @@ nav {
   z-index: 1;
   /* padding: var(--padding); */
   padding: 5px;
-  width: 150px;
+  width: 240px;
 }
 .legend-title {
   color: var(--theme-dvrpc-accent);
@@ -408,7 +408,7 @@ nav {
 .circle span {
   margin-left: 25px;
   display: block;
-  width: 170px;
+  width: 200px;
   text-align: left;
 }
 #legend-box1,
@@ -445,6 +445,18 @@ nav {
   background: #4d9dc0;
 }
 .popABS-5 {
+  background: #0078ae;
+}
+.popPER-1 {
+  background: #dfeffb;
+}
+.popPER-2 {
+  background: #a6cfe1;
+}
+.popPER-3 {
+  background: #4d9dc0;
+}
+.popPER-4 {
   background: #0078ae;
 }
 .emp-1 {

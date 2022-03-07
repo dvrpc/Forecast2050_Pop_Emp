@@ -16,14 +16,13 @@ let popColor2 = ['interpolate',['linear'],
 6000, '#0078AE'
 ];  
 
-// let empColor = ['interpolate',['linear'],
-// ['get', 'emp50'],
-// 5000, '#E4E7F4',
-// 10000, '#C8CDE1',
-// 20000, '#A3ACCD',
-// 40000, '#757CA5',
-// 290000, '#545A80'
-// ]; 
+let popColor3 = ['interpolate',['linear'],
+['get', 'poppct50'],
+0.05, '#DFEFFB',
+0.25, '#A6CFE1',
+0.5, '#4D9DC0',
+1, '#0078AE'
+];  
 
 let empColor = ['interpolate',['linear'],
 ['get', 'emp50'],
@@ -69,6 +68,23 @@ const secondaryMapLayers = {
         },
         "fill-color": popColor2       
       },},
+      popPER:{
+        id:"popPER",
+        type: "fill",
+        source: "forecastsMCD",
+        layout: {},
+        paint: {
+          "fill-outline-color": "#748388",
+          "fill-opacity": {
+            base: 9,
+            stops: [
+              [10, .9],
+              [12, .7],
+              [13, .6],
+            ],
+          },
+          "fill-color": popColor3       
+        },},
       emp:{
         id:"emp",
         type: "fill",
