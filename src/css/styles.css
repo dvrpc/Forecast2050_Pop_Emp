@@ -390,6 +390,11 @@ nav {
   cursor: text;
   color: var(--theme-black);
 }
+.mapboxgl-popup-content{
+  border-radius: 4px;
+  font-size: 1.2em;
+  text-align: center;
+}
 /* END Map */
 
 /* Legend Boxes */

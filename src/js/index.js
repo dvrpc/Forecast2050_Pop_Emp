@@ -16,6 +16,17 @@ const inputs = toggleForm.querySelectorAll('input')
 const selects = toggleForm.querySelectorAll('select')
 
 
+function generatePopup(popup, e){
+  var props = e.features[0].properties
+  popup.setLngLat(e.lngLat)
+  .setHTML("<p>"+props.mun_name +"</p><hr /><p>"+ props.co_name +" County, "+ props.state +"</p>")
+  .addTo(map)
+}
+
+var popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: true
+})
 // map
 const map = makeMap()
 
@@ -164,6 +175,7 @@ map.on('mousemove', 'MCD', (e) => {
   { hover: true }
   );
   }
+  generatePopup(popup, e)
   });
    
   // When the mouse leaves the state-fill layer, update the feature state of the
@@ -176,6 +188,7 @@ map.on('mousemove', 'MCD', (e) => {
   );
   }
   hoveredStateId = null;
+  popup.remove()
   });
 
   map.on('click','MCD', (e) => {
