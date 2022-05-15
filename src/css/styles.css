@@ -474,6 +474,9 @@ nav {
 .emp-5 {
   background: #54278f;
 }
+.empABS-1 {
+  background: #CCCCCC;
+}
 
 /* End Score Colors */
 
@@ -539,6 +542,7 @@ td {
 }
 #stationContent,
 #startContent {
+  position: sticky;
   color: #fff;
   border-radius: 3px;
   text-align: center;

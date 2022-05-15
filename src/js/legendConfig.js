@@ -19,9 +19,21 @@ const legendConfig = {
   "popPER": {
     label: "popPER",
   },
+  "popSQM": {
+    label: "popSQM",
+  },
   "emp": {
     label: "emp"
   },
+  "empABS": {
+    label: "empABS",
+  },
+  "empPER": {
+    label: "empPER",
+  },
+  "empSQM": {
+    label: "empSQM",
+  }
 };
 
 export default legendConfig;

@@ -50,6 +50,37 @@ map.on('load', () => {
   });
 
   map.addLayer({
+    id: "MCD-line",
+    type: "line",
+    source: "MCD",
+    layout: {},
+    paint: {
+      "line-width": [
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        6,
+        1
+        ],
+    "line-color":[
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        "#FF0000", "#9cafb5"
+        ],
+    "line-opacity": {
+        base: 9,
+        stops: [
+          [9, .4],
+          [10, .5],
+          [11, .65],
+          [12, .7],
+          [13, .8],
+          [14, .9],
+        ],
+     }
+    }
+  });
+
+  map.addLayer({
     id: "MCD",
     type: "fill",
     source: "MCD",
@@ -91,6 +122,34 @@ map.on('load', () => {
 var hoveredStateId = null;
 // When the user moves their mouse over the state-fill layer, we'll update the
 // feature state for the feature under the mouse.
+map.on('mousemove', 'MCD-line', (e) => {
+  if (e.features.length > 0) {
+  if (hoveredStateId !== null) {
+  map.setFeatureState(
+  { source: 'MCD', id: hoveredStateId },
+  { hover: false }
+  );
+  }
+  hoveredStateId = e.features[0].id;
+  map.setFeatureState(
+  { source: 'MCD', id: hoveredStateId },
+  { hover: true }
+  );
+  }
+  });
+   
+  // When the mouse leaves the state-fill layer, update the feature state of the
+  // previously hovered feature.
+  map.on('mouseleave', 'MCD-line', () => {
+  if (hoveredStateId !== null) {
+  map.setFeatureState(
+  { source: 'MCD', id: hoveredStateId },
+  { hover: false }
+  );
+  }
+  hoveredStateId = null;
+  });
+
 map.on('mousemove', 'MCD', (e) => {
   if (e.features.length > 0) {
   if (hoveredStateId !== null) {
