@@ -390,6 +390,11 @@ nav {
   cursor: text;
   color: var(--theme-black);
 }
+.mapboxgl-popup-content{
+  border-radius: 4px;
+  font-size: 1.2em;
+  text-align: center;
+}
 /* END Map */
 
 /* Legend Boxes */
@@ -474,6 +479,9 @@ nav {
 .emp-5 {
   background: #54278f;
 }
+.empABS-1 {
+  background: #CCCCCC;
+}
 
 /* End Score Colors */
 
@@ -539,6 +547,7 @@ td {
 }
 #stationContent,
 #startContent {
+  position: sticky;
   color: #fff;
   border-radius: 3px;
   text-align: center;

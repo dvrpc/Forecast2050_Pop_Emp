@@ -41,13 +41,13 @@ var empPER50 = empABS50 / props.emp45 ;
 
     var info = '<table id="crashtable">'+
       // '<tr><b><font color="#0074ad">'+ (props.mun_name )+' , '+(props.co_name)+' County</font></b></tr>'+
-      'Absolute Change (2015-2045): <b>'+numeral(props.popabs50).format('0,0')+'</b></br>'+
-      'Percent Change (2015-2045): <b>'+numeral(props.poppct50).format('0.00%')+'</b></br>'+
-      'Absolute Change per Square Mile (2015-2045): <b>'+numeral(props.popabssq).format('0,0')+'</b></br>'+
+      'Absolute Change (2015-2050): <b>'+numeral(props.popabs50).format('0,0')+'</b></br>'+
+      'Percent Change (2015-2050): <b>'+numeral(props.poppct50).format('0.00%')+'</b></br>'+
+      'Absolute Change per Square Mile (2015-2050): <b>'+numeral(props.popabssq).format('0,0')+'</b></br>'+
       '<br><b>Five-year Increment Forecasts (2015 to 2050)</b>'+
       '<tbody>'+
       '<tr class="odd">'+
-      '<th class="tableOne"></th><td>Population</td><td>Change in Population <br><i> Absolute (Percent)</i></td><td>Employment</td><td>Change in Employment <br><i> Absolute (Percent)</i></td>' + 
+      '<th class="tableOne"></th><td>Population</td><td>Change in Population <br><i> Absolute (Percentage)</i></td><td>Employment</td><td>Change in Employment <br><i> Absolute (Percentage)</i></td>' + 
       '<tr class="even">'+
       '<th>2015</th><td>' + numeral(props.pop15).format('0,0') + '</td><td>-</td><td>' + numeral(props.emp15).format('0,0') + '</td><td>-</td>' + 
       '<tr class="odd">'+
@@ -78,6 +78,11 @@ var empPER50 = empABS50 / props.emp45 ;
     // });
 
     // charts
+
+
+    var chartHeader =  "<h3 class='chart-subheader POP'>"+ props.mun_name +" Forecasts, 2015-2050</h3>"; 
+    document.getElementById("chartMCD-results").innerHTML = chartHeader;
+
     let popForecast = [
       props.pop15,
       props.pop20,
@@ -185,6 +190,9 @@ var empPER50 = empABS50 / props.emp45 ;
     ];
     updatepopForecastChart(popForecast,empForecast);
 
+    var chartHeader2 =  "<h3 class='chart-subheader POP'>"+ props.co_name +" County Forecasts, 2015-2050</h3>"; 
+    document.getElementById("chartCO-results").innerHTML = chartHeader2;
+
   
     function updatepopForecastChart(Values, Values2) {
       var CntyChart = {
@@ -206,7 +214,7 @@ var empPER50 = empABS50 / props.emp45 ;
         colors: ['#0074ad','#54278f'],
             yAxis: {
                 title: {
-                    text: 'Population'
+                    text: 'Totals'
                 }
             },
         legend: {

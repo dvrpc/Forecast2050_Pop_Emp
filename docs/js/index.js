@@ -16,6 +16,17 @@ const inputs = toggleForm.querySelectorAll('input')
 const selects = toggleForm.querySelectorAll('select')
 
 
+function generatePopup(popup, e){
+  var props = e.features[0].properties
+  popup.setLngLat(e.lngLat)
+  .setHTML("<p>"+props.mun_name +"</p><hr /><p>"+ props.co_name +" County, "+ props.state +"</p>")
+  .addTo(map)
+}
+
+var popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: true
+})
 // map
 const map = makeMap()
 
@@ -47,6 +58,37 @@ map.on('load', () => {
   'data':'https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_MCD/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=geojson',
   //'data':MCD, // Use the sevenDaysAgo variable to only retrieve quakes from the past week
   'generateId': true // This ensures that all features have unique IDs
+  });
+
+  map.addLayer({
+    id: "MCD-line",
+    type: "line",
+    source: "MCD",
+    layout: {},
+    paint: {
+      "line-width": [
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        6,
+        1
+        ],
+    "line-color":[
+        'case',
+        ['boolean', ['feature-state', 'hover'], false],
+        "#FF0000", "#9cafb5"
+        ],
+    "line-opacity": {
+        base: 9,
+        stops: [
+          [9, .4],
+          [10, .5],
+          [11, .65],
+          [12, .7],
+          [13, .8],
+          [14, .9],
+        ],
+     }
+    }
   });
 
   map.addLayer({
@@ -91,7 +133,7 @@ map.on('load', () => {
 var hoveredStateId = null;
 // When the user moves their mouse over the state-fill layer, we'll update the
 // feature state for the feature under the mouse.
-map.on('mousemove', 'MCD', (e) => {
+map.on('mousemove', 'MCD-line', (e) => {
   if (e.features.length > 0) {
   if (hoveredStateId !== null) {
   map.setFeatureState(
@@ -109,6 +151,35 @@ map.on('mousemove', 'MCD', (e) => {
    
   // When the mouse leaves the state-fill layer, update the feature state of the
   // previously hovered feature.
+  map.on('mouseleave', 'MCD-line', () => {
+  if (hoveredStateId !== null) {
+  map.setFeatureState(
+  { source: 'MCD', id: hoveredStateId },
+  { hover: false }
+  );
+  }
+  hoveredStateId = null;
+  });
+
+map.on('mousemove', 'MCD', (e) => {
+  if (e.features.length > 0) {
+  if (hoveredStateId !== null) {
+  map.setFeatureState(
+  { source: 'MCD', id: hoveredStateId },
+  { hover: false }
+  );
+  }
+  hoveredStateId = e.features[0].id;
+  map.setFeatureState(
+  { source: 'MCD', id: hoveredStateId },
+  { hover: true }
+  );
+  }
+  generatePopup(popup, e)
+  });
+   
+  // When the mouse leaves the state-fill layer, update the feature state of the
+  // previously hovered feature.
   map.on('mouseleave', 'MCD', () => {
   if (hoveredStateId !== null) {
   map.setFeatureState(
@@ -117,6 +188,7 @@ map.on('mousemove', 'MCD', (e) => {
   );
   }
   hoveredStateId = null;
+  popup.remove()
   });
 
   map.on('click','MCD', (e) => {
