@@ -123,7 +123,7 @@ const secondaryMapLayers = {
   pop: {
     id: "pop",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -141,7 +141,7 @@ const secondaryMapLayers = {
   popABS: {
     id: "popABS",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -159,7 +159,7 @@ const secondaryMapLayers = {
   popPER: {
     id: "popPER",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -177,7 +177,7 @@ const secondaryMapLayers = {
   popSQM: {
     id: "popSQM",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -195,7 +195,7 @@ const secondaryMapLayers = {
   emp: {
     id: "emp",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -213,7 +213,7 @@ const secondaryMapLayers = {
   empABS: {
     id: "empABS",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -231,7 +231,7 @@ const secondaryMapLayers = {
   empPER: {
     id: "empPER",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
@@ -249,7 +249,7 @@ const secondaryMapLayers = {
   empSQM: {
     id: "empSQM",
     type: "fill",
-    source: "forecastsMCD",
+    source: "MCD",
     layout: {},
     paint: {
       "fill-outline-color": "#748388",
