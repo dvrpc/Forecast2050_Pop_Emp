@@ -32,7 +32,7 @@ const wire_layer_hover = (map) => {
     // Populate the popup and set its coordinates
     // based on the feature found.
     // popup.setLngLat(coordinates).setHTML(description).addTo(map);
-  //  createPopUp(e.features[0]);
+    //  createPopUp(e.features[0]);
   });
 
   // When the mouse leaves the station layer, update the eature state of the previously hovered feature
@@ -82,5 +82,5 @@ const wire_layer_hover = (map) => {
   // map.on("mouseleave", "transit_stops", function (e) {
   //   closePopUp();
   // });
-}
+};
 export { wire_layer_hover };

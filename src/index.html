@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Municipal and County-level Population and Employment Forecasts, 2015 - 2050</title>
+    <title>
+      Municipal and County-level Population and Employment Forecasts, 2015 -
+      2050
+    </title>
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,shrink-to-fit=no"
@@ -61,8 +64,10 @@
 
       <span class="nav-vr">|</span>
 
-
-      <h1>Municipal and County-level Population and Employment Forecasts, 2015-2050</h1>
+      <h1>
+        Municipal and County-level Population and Employment Forecasts,
+        2015-2050
+      </h1>
 
       <span class="nav-vr">|</span>
 
@@ -72,58 +77,71 @@
     <main class="flex-row flex-between main-content-wrapper">
       <section class="sidebar">
         <div class="sidebar-content">
-  
           <header id="sidebarHeader">
-          <h3 class="sidebar-h3">Choose a Map Layer</h3>
-          <form id="toggle-form" class="sidebar-form">
-            <label class="flex-row flex-align-center flex-between label-select">
-        
-              <select>
-                <option value="pop">2050 Population Forecast</option>
-                <option value="popABS">Absolute Change in Population: 2015-2050</option>
-                <option value="popPER">Percent Change in Population: 2015-2050</option>
-                <option value="popSQM">Absolute Change in Population per Square Mile, 2015-2050</option>
-                <option value="emp">2050 Employment Forecast</option>
-                <option value="empABS">Absolute Change in Employment: 2015-2050</option>
-                <option value="empPER">Percent Change in Employment: 2015-2050</option>
-                <option value="empSQM">Absolute Change in Employment per Square Mile, 2015-2050</option>
-              
-              </select>
-            </label>
-          </form>
-          <div id="mcdStart" class='infoLeft' style="height:100vh;">
-            <div id="startContent">
-              <h1>Click the map to view Municipal and County-level Forecast data.</h1>
+            <h3 class="sidebar-h3">Choose a Map Layer</h3>
+            <form id="toggle-form" class="sidebar-form">
+              <label
+                class="flex-row flex-align-center flex-between label-select"
+              >
+                <select>
+                  <option value="pop">2050 Population Forecast</option>
+                  <option value="popABS">
+                    Absolute Change in Population: 2015-2050
+                  </option>
+                  <option value="popPER">
+                    Percent Change in Population: 2015-2050
+                  </option>
+                  <option value="popSQM">
+                    Absolute Change in Population per Square Mile, 2015-2050
+                  </option>
+                  <option value="emp">2050 Employment Forecast</option>
+                  <option value="empABS">
+                    Absolute Change in Employment: 2015-2050
+                  </option>
+                  <option value="empPER">
+                    Percent Change in Employment: 2015-2050
+                  </option>
+                  <option value="empSQM">
+                    Absolute Change in Employment per Square Mile, 2015-2050
+                  </option>
+                </select>
+              </label>
+            </form>
+            <div id="mcdStart" class="infoLeft" style="height: 100vh">
+              <div id="startContent">
+                <h1>
+                  Click the map to view Municipal and County-level Forecast
+                  data.
+                </h1>
+              </div>
             </div>
-          </div>
-          <div id="stationContent">
-            <div id="mcdName"></div>
-          </div>
-        </header>
-<!-- 
+            <div id="stationContent">
+              <div id="mcdName"></div>
+            </div>
+          </header>
+          <!-- 
         <div id="mcdStart" class='infoLeft' style="height:100vh;">
           <div id="startContent">
             <h1>Click the map to view Municipal and County-level Forecast data.</h1>
           </div>
         </div> -->
 
-          <div id="mcdDetails" class='infoLeft' style="height:100vh;">
-           
-            <div id='results'></div> 
-  
-            <div class='chart-wrapper'>       
-            <!-- <h3 class='chart-subheader POP'>MCD-Level Forecasts, 2015-2050</h3>  -->
-            <div id='chartMCD-results'></div> 
-            <div id="Chart1"></div> 
-            <!-- <h3 class='chart-subheader POP'>County Forecasts, 2015-2050</h3>  -->
-            <div id='chartCO-results'></div> 
-            <div id="Chart3"></div> 
-            </div> 
-        </div>
+          <div id="mcdDetails" class="infoLeft" style="height: 100vh">
+            <div id="results"></div>
 
+            <div class="chart-wrapper">
+              <!-- <h3 class='chart-subheader POP'>MCD-Level Forecasts, 2015-2050</h3>  -->
+              <div id="chartMCD-results"></div>
+              <div id="Chart1"></div>
+              <!-- <h3 class='chart-subheader POP'>County Forecasts, 2015-2050</h3>  -->
+              <div id="chartCO-results"></div>
+              <div id="Chart3"></div>
+            </div>
+          </div>
         </div>
-        </div>
-        <footer>contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a></footer>
+        <footer>
+          contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a>
+        </footer>
       </section>
 
       <div id="map" class="map">
@@ -144,40 +162,97 @@
       <div class="modal-content">
         <span id="close-modal" class="close-modal">&times;</span>
 
-        <h2 class="modal-content-subheader">Municipal and County-level Population and Employment Forecasts, 2015-2050</h2>
+        <h2 class="modal-content-subheader">
+          Municipal and County-level Population and Employment Forecasts,
+          2015-2050
+        </h2>
 
         <section class="modal-section">
-            <p style="color:red">
-            Data provided is derived from DVRPC 2050 Municipal-Level Population and Employment Forecasts in Five-Year Increments, adopted June 24, 2021.
-            </p>
-            <p>
-            As a part of DVRPC's long-range planning activities, the Commission is required to maintain forecasts with at least a 20-year horizon, or to the horizon year of the long-range plan. Allocation of growth is forecasted using a land use model, UrbanSim, and working closely with member county planning staffs. DVRPC has prepared regional, county, and municipal-level population and employment forecasts in five-year increments through 2050, using 2015 Census population estimates and 2015 National Establishments Time Series (NETS) employment data as the base. <br>
-            - To view and download DVRPC's Population and Employment Forecasts data visit:
-            <ul>
-              <li><a href="https://www.dvrpc.org/asp/DataNavigator/Population2050.aspx" target="_new">Population Forecasts</a></li>
-              <li><a href="https://www.dvrpc.org/asp/DataNavigator/Employment2050.aspx" target="_new">Employment Forecasts</a></li>
-            </ul><br>
-            - To access DVRPC's Population and Employment Forecasts GIS dataset visit <a href="https://dvrpc-dvrpcgis.opendata.arcgis.com/datasets/dvrpcgis::municipal-population-and-employment-forecast-2015-2050/explore?location=40.057021%2C-75.266412%2C9.30" target="_new">DVRPC GIS Portal</a>.
-            
-            </p>
+          <p style="color: red">
+            Data provided is derived from DVRPC 2050 Municipal-Level Population
+            and Employment Forecasts in Five-Year Increments, adopted June 24,
+            2021.
+          </p>
           <p>
-            <h4>For more information:</h4>
-                <address>
-               Ben Gruswitz | AICP | Manager, Socioeconomic and Land Use Analytics<br/>
-                <a href="mailto:bgruswitz@dvrpc.org" class="one">bgruswitz@dvrpc.org</a><br/>
-                </address>
-           </p>
+            As a part of DVRPC's long-range planning activities, the Commission
+            is required to maintain forecasts with at least a 20-year horizon,
+            or to the horizon year of the long-range plan. Allocation of growth
+            is forecasted using a land use model, UrbanSim, and working closely
+            with member county planning staffs. DVRPC has prepared regional,
+            county, and municipal-level population and employment forecasts in
+            five-year increments through 2050, using 2015 Census population
+            estimates and 2015 National Establishments Time Series (NETS)
+            employment data as the base. <br />
+            - To view and download DVRPC's Population and Employment Forecasts
+            data visit:
+          </p>
+          <ul>
+            <li>
+              <a
+                href="https://www.dvrpc.org/asp/DataNavigator/Population2050.aspx"
+                target="_new"
+                >Population Forecasts</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.dvrpc.org/asp/DataNavigator/Employment2050.aspx"
+                target="_new"
+                >Employment Forecasts</a
+              >
+            </li>
+          </ul>
+          <p>
+            - To access DVRPC's Population and Employment Forecasts GIS dataset
+            visit
+            <a
+              href="https://dvrpc-dvrpcgis.opendata.arcgis.com/datasets/dvrpcgis::municipal-population-and-employment-forecast-2015-2050/explore?location=40.057021%2C-75.266412%2C9.30"
+              target="_new"
+              >DVRPC GIS Portal</a
+            >.
+          </p>
+          <h4>For more information:</h4>
+          <address>
+            Ben Gruswitz | AICP | Manager, Socioeconomic and Land Use
+            Analytics<br />
+            <a href="mailto:bgruswitz@dvrpc.org" class="one"
+              >bgruswitz@dvrpc.org</a
+            ><br />
+          </address>
         </section>
 
         <hr class="modal-hr" />
 
         <section class="modal-section">
           <div id="about_footer">
-          <p>This web page is a public resource of general information. The Delaware Valley Regional Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the spatial data or database information provided herein. DVRPC and partner state, local, and other agencies shall assume no liability for errors, omissions, or inaccuracies in the information provided regardless of how caused; or any decision made or action taken or not taken by any person relying on any information or data furnished within.</p>
-          <p>For more information, visit <a href="https://www.dvrpc.org/Policies/" target="_blank" class="one">Policies</a> | 
-          <a href="https://www.dvrpc.org/Products/ADR21014" target="_blank" class="one">Abstract</a></p>
-        </p>
-      </div>
+            <p>
+              This web page is a public resource of general information. The
+              Delaware Valley Regional Commission (DVRPC) makes no warranty,
+              representation, or guarantee as to the content, sequence,
+              accuracy, timeliness, or completeness of any of the spatial data
+              or database information provided herein. DVRPC and partner state,
+              local, and other agencies shall assume no liability for errors,
+              omissions, or inaccuracies in the information provided regardless
+              of how caused; or any decision made or action taken or not taken
+              by any person relying on any information or data furnished within.
+            </p>
+            <p>
+              For more information, visit
+              <a
+                href="https://www.dvrpc.org/Policies/"
+                target="_blank"
+                class="one"
+                >Policies</a
+              >
+              |
+              <a
+                href="https://www.dvrpc.org/Products/ADR21014"
+                target="_blank"
+                class="one"
+                >Abstract</a
+              >
+            </p>
+          </div>
         </section>
       </div>
     </div>
@@ -186,11 +261,11 @@
       src="https://code.highcharts.com/highcharts.js"
     ></script>
     <script type="text/javascript" src="js/numeral.js"></script>
-   
+
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
-   
-   <script>
+
+    <script>
       var _gaq = [["_setAccount", "UA-9825778-1"], ["_trackPageview"]];
       (function (d) {
         var g = d.createElement("script"),
