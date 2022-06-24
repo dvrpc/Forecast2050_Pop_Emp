@@ -8,6 +8,7 @@ const initMap = () => {
     //   style:"mapbox://styles/crvanpollard/cl309ua6g006a15qks975tm31",
     //  style: "mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd",
     center: [-75.2273, 40.071],
+    minZoom: 8,
     bounds: [
       [-76.09405517578125, 39.49211914385648],
       [-74.32525634765625, 40.614734298694216],

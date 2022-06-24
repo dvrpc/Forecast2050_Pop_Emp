@@ -1,122 +1,105 @@
-let popColor = [
-  "interpolate",
-  ["linear"],
+let emp0 = '#CCCCCC';
+let emp1 = '#dadaeb';
+let emp2 = '#bcbddc';
+let emp3 = '#9e9ac8';
+let emp4 = '#756bb1';
+let emp5 = '#54278f';
+
+let popColor = ["step",
   ["get", "pop50"],
-  10000,
   "#DFEFFB",
+  10000,
+  "#A6CFE1",
   25000,
-  "#A6CFE1",
+  "#4D9DC0",
   50000,
-  "#4D9DC0",
+  "#0078AE",
   100000,
-  "#0078AE",
-  180000,
-  "#004E76",
+  "#004E76"
 ];
 
-let popColor2 = [
-  "interpolate",
-  ["linear"],
+let popColor2 = ["step",
   ["get", "popabs50"],
-  0,
   "#CCCCCC",
-  1,
+  0,
   "#DFEFFB",
+  1,
+  "#A6CFE1",
   2000,
-  "#A6CFE1",
+  "#4D9DC0",
   4000,
-  "#4D9DC0",
-  6000,
   "#0078AE",
 ];
 
-let popColor3 = [
-  "interpolate",
-  ["linear"],
+let popColor3 = ["step",
   ["get", "poppct50"],
-  0.05,
   "#DFEFFB",
-  0.25,
+  0.05,
   "#A6CFE1",
-  0.5,
+  0.25,
   "#4D9DC0",
-  1,
+  0.5,
   "#0078AE",
 ];
 
-let popColorSQM = [
-  "interpolate",
-  ["linear"],
+let popColorSQM = ["step",
   ["get", "popabssq"],
-  1000,
   "#DFEFFB",
-  2500,
+  1000,
   "#A6CFE1",
-  5000,
+  2500,
   "#4D9DC0",
-  7500,
+  5000,
   "#0078AE",
-  28000,
+  7500,
   "#004E76",
 ];
 
-let empColor = [
-  "interpolate",
-  ["linear"],
+let empColor = ["step",
   ["get", "emp50"],
+  emp1,
   5000,
-  "#dadaeb",
+  emp2,
   10000,
-  "#bcbddc",
+  emp3,
   20000,
-  "#9e9ac8",
+  emp4,
   40000,
-  "#756bb1",
-  290000,
-  "#54278f",
+  emp5
 ];
-let empColorABS = [
-  "interpolate",
-  ["linear"],
+let empColorABS = ["step",
   ["get", "empabs50"],
+  emp0,
   0,
-  "#CCCCCC",
+  emp1,
   1000,
-  "#E4E7F4",
+  emp2,
   2000,
-  "#C8CDE1",
+  emp3,
   3000,
-  "#A3ACCD",
-  48000,
-  "#757CA5",
+  emp4
 ];
-let empColorPER = [
-  "interpolate",
-  ["linear"],
+let empColorPER = ["step",
   ["get", "emppct50"],
+  emp1,
   0.05,
-  "#E4E7F4",
+  emp2,
   0.25,
-  "#C8CDE1",
+  emp3,
   0.5,
-  "#A3ACCD",
-  1.5,
-  "#757CA5",
+  emp4
 ];
-let empColorSQM = [
-  "interpolate",
-  ["linear"],
+let empColorSQM = ["step",
   ["get", "empabssq"],
+  emp1,
   500,
-  "#E4E7F4",
+  emp2,
   1500,
-  "#C8CDE1",
+  emp3,
   3000,
-  "#A3ACCD",
+  emp4,
   6000,
-  "#757CA5",
-  45000,
-  "#545A80",
+  emp5
 ];
 
 const secondaryMapLayers = {

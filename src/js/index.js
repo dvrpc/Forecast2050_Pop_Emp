@@ -60,6 +60,7 @@ map.on("load", () => {
   };
 
   var hoveredStateId = null;
+  var mcdID = null;
   // When the user moves their mouse over the state-fill layer, we'll update the
   // feature state for the feature under the mouse.
   map.on("mousemove", "MCD-line", (e) => {
@@ -124,15 +125,13 @@ map.on("load", () => {
     // mapbox function calling of geojson properties
     document.getElementById("mcdStart").style.display = "none";
     document.getElementById("mcdDetails").style.display = "inline-block";
+    mcdID = e.features[0].properties.geoid;
     var props = e.features[0].properties;
-    // var coordinates = marker.features[0].geometry.coordinates;
-    // var FID = e.features[0].id;
-    //  console.log(FID);
-    // $("#chart2013").css("display", "block");
-    // $("#data-wrapper").css("display", "block");
-    // handleSidebarDisplay()
+    if (mcdID) {
+      map.setFilter("muniSelect", ["==", "geoid", mcdID]);
+      map.setLayoutProperty("muniSelect", "visibility", "visible");
+    }
     handleDistrict(props, map);
-    // handleHighlight(FID)
   });
 
   map.on("click", "CNTY", (e) => {

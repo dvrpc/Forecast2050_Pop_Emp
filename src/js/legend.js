@@ -8,9 +8,9 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Population Forecast</b></span>
+          <span><b>People</b></span>
           <div id="legend-box-Item" class="circle pop-1">
-            <span>Less Than 10,000</span>
+            <span>Less than 10,000</span>
           </div>
           <div id="legend-box-Item" class="circle pop-2">
             <span>10,000 to 24,999</span>
@@ -31,9 +31,9 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Absolute Change</b></span>
+          <span><b>People</b></span>
           <div id="legend-box-Item" class="circle popABS-1">
-            <span>Less Than 0</span>
+            <span>Loss of Population</span>
           </div>
           <div id="legend-box-Item" class="circle popABS-2">
             <span>0 to 1,999</span>
@@ -56,10 +56,10 @@ const createLegendItem = (val) => {
         <div id="legend-box2">
           <span><b>Percent Change</b></span>
           <div id="legend-box-Item" class="circle popPER-1">
-            <span>Stable (-5% to 5%)</span>
+            <span>Stable (-5% to +5%)</span>
           </div>
           <div id="legend-box-Item" class="circle popPER-2">
-            <span>Moderate Growth (+6% to 25%)</span>
+            <span>Moderate Growth (+6% to +25%)</span>
           </div>
           <div id="legend-box-Item" class="circle popPER-3">
             <span>Significant Growth (+26% to +50%)</span>
@@ -74,9 +74,9 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Absolute Change in Population per Square Mile</b></span>
+          <span><b>People per Square Mile</b></span>
           <div id="legend-box-Item" class="circle pop-1">
-            <span>Less Than 1,000</span>
+            <span>Fewer than 1,000</span>
           </div>
           <div id="legend-box-Item" class="circle pop-2">
             <span>1,000 to 2,499</span>
@@ -97,9 +97,9 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Employment Forecast</b></span>
+          <span><b>Employees</b></span>
           <div id="legend-box-Item" class="circle emp-1">
-            <span>Less Than 5,000</span>
+            <span>Fewer than 5,000</span>
           </div>
           <div id="legend-box-Item" class="circle emp-2">
             <span>5,000 to 9,999</span>
@@ -120,9 +120,9 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Absolute Change in Employment</b></span>
-          <div id="legend-box-Item" class="circle empABS-1">
-            <span>Less Than 0</span>
+          <span><b>Employees</b></span>
+          <div id="legend-box-Item" class="circle emp-0">
+            <span>Loss of Employees</span>
           </div>
           <div id="legend-box-Item" class="circle emp-1"><span>1 to 999</span></div>
           <div id="legend-box-Item" class="circle emp-2">
@@ -141,12 +141,12 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Percent Change in Employment</b></span>
+          <span><b>Percent Change</b></span>
           <div id="legend-box-Item" class="circle emp-1">
-            <span>Stable (-5% to 5%)</span>
+            <span>Stable (-5% to +5%)</span>
           </div>
           <div id="legend-box-Item" class="circle emp-2">
-            <span>Moderate Growth (+6% to 25%)</span>
+            <span>Moderate Growth (+6% to +25%)</span>
           </div>
           <div id="legend-box-Item" class="circle emp-3">
             <span>Significant Growth (+26% to +50%)</span>
@@ -161,9 +161,9 @@ const createLegendItem = (val) => {
     return `
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
-          <span><b>Absolute Change in Employment per Square Mile</b></span>
+          <span><b>Employees per Square Mile</b></span>
           <div id="legend-box-Item" class="circle emp-1">
-            <span>Less Than 500</span>
+            <span>Fewer than 500</span>
           </div>
           <div id="legend-box-Item" class="circle emp-2">
             <span>500 to 1,499</span>

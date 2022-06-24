@@ -76,6 +76,17 @@ const layers = {
       ],
     },
   },
+  muniSelect: {
+    id: "muniSelect",
+    type: "line",
+    source: "MCD",
+    paint: {
+      "line-width": 4,
+      "line-color": "#FF0000"
+      // "fill-opacity": 0.8
+    },
+    layout: {visibility: "none"},
+  },
 };
 
 export default layers;

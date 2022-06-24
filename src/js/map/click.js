@@ -1,12 +1,22 @@
 const handleDistrict = function (props, map) {
-  var mcdInfo =
-    "<h1>" +
+
+  if ( props.mun_name === "Pine Valley Borough") {
+    var mcdInfo = "<h1>" +
+    props.mun_name +
+    "<br><small><span> " +
+    props.co_name +
+    "</span><span></span> County, <span>" +
+    props.state +
+    "</span></small></h1><i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>";
+  } else {
+    var mcdInfo =   "<h1>" +
     props.mun_name +
     "<br><small><span> " +
     props.co_name +
     "</span><span></span> County, <span>" +
     props.state +
     "</span></small></h1>";
+  }
   document.getElementById("mcdName").innerHTML = mcdInfo;
 
   var popABS20 = props.pop20 - props.pop15;
@@ -395,4 +405,5 @@ const handleCounty = function (props) {
   }
 };
 
-export { handleDistrict, handleCounty };
+
+export { handleDistrict, handleCounty};
