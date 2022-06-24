@@ -10,30 +10,30 @@
 
 */
 const legendConfig = {
-  "pop": {
-    label: "pop"
+  pop: {
+    label: "pop",
   },
-  "popABS": {
+  popABS: {
     label: "popABS",
   },
-  "popPER": {
+  popPER: {
     label: "popPER",
   },
-  "popSQM": {
+  popSQM: {
     label: "popSQM",
   },
-  "emp": {
-    label: "emp"
+  emp: {
+    label: "emp",
   },
-  "empABS": {
+  empABS: {
     label: "empABS",
   },
-  "empPER": {
+  empPER: {
     label: "empPER",
   },
-  "empSQM": {
+  empSQM: {
     label: "empSQM",
-  }
+  },
 };
 
 export default legendConfig;

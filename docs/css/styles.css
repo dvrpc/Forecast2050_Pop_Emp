@@ -464,6 +464,9 @@ nav {
 .popPER-4 {
   background: #0078ae;
 }
+.emp-0 {
+  background: #CCCCCC;
+}
 .emp-1 {
   background: #dadaeb;
 }
@@ -478,9 +481,6 @@ nav {
 }
 .emp-5 {
   background: #54278f;
-}
-.empABS-1 {
-  background: #CCCCCC;
 }
 
 /* End Score Colors */
@@ -567,7 +567,7 @@ td {
   padding: 0px 10% 10px 10%;
   background-color: var(--theme-dark);
   width: 75%;
-  line-height: 30px;
+  /* line-height: 30px; */
   border: 2px solid var(--theme-dark);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
