@@ -1,21 +1,22 @@
 const handleDistrict = function (props, map) {
-
-  if ( props.mun_name === "Pine Valley Borough") {
-    var mcdInfo = "<h1>" +
-    props.mun_name +
-    "<br><small><span> " +
-    props.co_name +
-    "</span><span></span> County, <span>" +
-    props.state +
-    "</span></small></h1><i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>";
+  if (props.mun_name === "Pine Valley Borough") {
+    var mcdInfo =
+      "<h1>" +
+      props.mun_name +
+      "<br><small><span> " +
+      props.co_name +
+      "</span><span></span> County, <span>" +
+      props.state +
+      "</span></small></h1><i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>";
   } else {
-    var mcdInfo =   "<h1>" +
-    props.mun_name +
-    "<br><small><span> " +
-    props.co_name +
-    "</span><span></span> County, <span>" +
-    props.state +
-    "</span></small></h1>";
+    var mcdInfo =
+      "<h1>" +
+      props.mun_name +
+      "<br><small><span> " +
+      props.co_name +
+      "</span><span></span> County, <span>" +
+      props.state +
+      "</span></small></h1>";
   }
   document.getElementById("mcdName").innerHTML = mcdInfo;
 
@@ -50,17 +51,32 @@ const handleDistrict = function (props, map) {
   var empPER50 = empABS50 / props.emp45;
 
   var info =
-    '<table id="crashtable">' +
-    // '<tr><b><font color="#0074ad">'+ (props.mun_name )+' , '+(props.co_name)+' County</font></b></tr>'+
-    "Absolute Change (2015-2050): <b>" +
+    "<table id='crashtable'>" +
+    "<b>Forecasts (2015-2050)</b>" +
+    "<tbody>" +
+    '<tr class="odd">' +
+    '<th class="tableOne"></th><td>Population</td><td>Employment</td>' +
+    '<tr class="even">' +
+    "<th>Absolute Change</th><td>" +
     numeral(props.popabs50).format("0,0") +
-    "</b></br>" +
-    "Percent Change (2015-2050): <b>" +
+    "</td><td>" +
+    numeral(props.empabs50).format("0,0") +
+    "</td>" +
+    '<tr class="odd">' +
+    "<th>Percent Change</th><td>" +
     numeral(props.poppct50).format("0.00%") +
-    "</b></br>" +
-    "Absolute Change per Square Mile (2015-2050): <b>" +
+    "</td><td>" +
+    numeral(props.emppct50).format("0.00%") +
+    "</td>" +
+    '<tr class="odd">' +
+    "<th>Absolute Change per Square Mile</th><td>" +
     numeral(props.popabssq).format("0,0") +
-    "</b></br>" +
+    "</td><td>" +
+    numeral(props.empabssq).format("0,0") +
+    "</td>" +
+    "</tbody>" +
+    "</table>" +
+    "<table id='crashtable'>" +
     "<br><b>Five-year Increment Forecasts (2015 to 2050)</b>" +
     "<tbody>" +
     '<tr class="odd">' +
@@ -170,7 +186,7 @@ const handleDistrict = function (props, map) {
     numeral(empPER50).format("0.0%") +
     ")</td>" +
     "</tbody>" +
-    "<table>";
+    "</table>";
 
   document.getElementById("results").innerHTML = info;
 
@@ -185,9 +201,7 @@ const handleDistrict = function (props, map) {
   // charts
 
   var chartHeader =
-    "<h3 class='chart-subheader POP'>" +
-    props.mun_name +
-    " Forecasts, 2015-2050</h3>";
+    "<h3 class='chart-subheader POP'>" + props.mun_name + "</h3>";
   document.getElementById("chartMCD-results").innerHTML = chartHeader;
 
   let popForecast = [
@@ -318,9 +332,7 @@ const handleCounty = function (props) {
   updatepopForecastChart(popForecast, empForecast);
 
   var chartHeader2 =
-    "<h3 class='chart-subheader POP'>" +
-    props.co_name +
-    " County Forecasts, 2015-2050</h3>";
+    "<h3 class='chart-subheader POP'>" + props.co_name + " County</h3>";
   document.getElementById("chartCO-results").innerHTML = chartHeader2;
 
   function updatepopForecastChart(Values, Values2) {
@@ -405,5 +417,4 @@ const handleCounty = function (props) {
   }
 };
 
-
-export { handleDistrict, handleCounty};
+export { handleDistrict, handleCounty };

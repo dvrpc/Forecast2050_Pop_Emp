@@ -88,7 +88,7 @@ const createLegendItem = (val) => {
             <span>5,000 to 7,499</span>
           </div>
           <div id="legend-box-Item" class="circle pop-5">
-            <span>7,500 or More</span>
+            <span>7,500 or more</span>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@ const createLegendItem = (val) => {
             <span>3,000 to 5,999</span>
           </div>
           <div id="legend-box-Item" class="circle emp-5">
-            <span>6,000 or More</span>
+            <span>6,000 or more</span>
           </div>
         </div>
       </div>

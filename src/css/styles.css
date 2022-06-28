@@ -390,7 +390,7 @@ nav {
   cursor: text;
   color: var(--theme-black);
 }
-.mapboxgl-popup-content{
+.mapboxgl-popup-content {
   border-radius: 4px;
   font-size: 1.2em;
   text-align: center;
@@ -465,7 +465,7 @@ nav {
   background: #0078ae;
 }
 .emp-0 {
-  background: #CCCCCC;
+  background: #cccccc;
 }
 .emp-1 {
   background: #dadaeb;
@@ -507,7 +507,7 @@ footer {
   margin: 5px;
 }
 th {
-  text-align: center;
+  text-align: left;
   font-weight: normal;
   font-size: 80%;
 }
