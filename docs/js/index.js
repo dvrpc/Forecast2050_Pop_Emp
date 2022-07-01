@@ -124,7 +124,8 @@ map.on("load", () => {
   map.on("click", "MCD", (e) => {
     // mapbox function calling of geojson properties
     document.getElementById("mcdStart").style.display = "none";
-    document.getElementById("mcdDetails").style.display = "inline-block";
+    document.getElementById("mcdName").style.display = "block";
+    document.getElementById("mcdDetails").style.display = "block";
     mcdID = e.features[0].properties.geoid;
     var props = e.features[0].properties;
     if (mcdID) {

@@ -68,7 +68,7 @@ const handleDistrict = function (props, map) {
     "</td><td>" +
     numeral(props.emppct50).format("0.00%") +
     "</td>" +
-    '<tr class="odd">' +
+    '<tr class="even">' +
     "<th>Absolute Change per Square Mile</th><td>" +
     numeral(props.popabssq).format("0,0") +
     "</td><td>" +
@@ -202,7 +202,7 @@ const handleDistrict = function (props, map) {
 
   var chartHeader =
     "<h3 class='chart-subheader POP'>" + props.mun_name + "</h3>";
-  document.getElementById("chartMCD-results").innerHTML = chartHeader;
+  document.getElementById("chartMCD-header").innerHTML = chartHeader;
 
   let popForecast = [
     props.pop15,
@@ -333,7 +333,7 @@ const handleCounty = function (props) {
 
   var chartHeader2 =
     "<h3 class='chart-subheader POP'>" + props.co_name + " County</h3>";
-  document.getElementById("chartCO-results").innerHTML = chartHeader2;
+  document.getElementById("chartCO-header").innerHTML = chartHeader2;
 
   function updatepopForecastChart(Values, Values2) {
     var CntyChart = {

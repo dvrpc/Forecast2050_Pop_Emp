@@ -3,32 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <title>
-      Municipal and County-level Population and Employment Forecasts, 2015 -
+      Municipal and County-Level Population and Employment Forecasts, 2015 -
       2050
     </title>
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,shrink-to-fit=no"
     />
-    <meta name="created" content="" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="created" content="07/01/2022" />
+    <meta name="description" content="Quickly view DVRPC's 2050 Municipal-Level Employment and Population Forecasts with this easy-to-use interactive map. Simply click on the map to identify a municipality and compare five-year increments as well as absolute and percent change from 2015 to 2050." />
+    <meta name="keywords" content="Population, population forecasts, land use, UrbanSim, land use modeling, birth rates, survival rates, migration, Connections 2050, long-range plan, webmaps, employment, employment forecasts, National Establishments Time Series database, NETS" />
     <meta
       name="author"
       content="Delaware Valley Regional Planning Commission (DVRPC)"
     />
-    <meta name="owner" content="webmaster@dvrpc.org" />
+    <meta name="owner" content="gis@dvrpc.org" />
     <meta name="distribution" content="global" />
     <meta name="robots" content="index, follow" />
     <meta name="copyright" content="1995-2020 all rights reserved" />
     <!--  DVRPC Website VERSION #7.0 Copyright (c) 1995-2020 Delaware Valley Regional Planning Commission. All rights reserved.   -->
 
     <!-- social media -->
-    <meta property="og:title" content="" />
+    <meta property="og:title" content="Municipal and County-Level Population and Employment Forecasts, 2015-2050" />
     <meta propery="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:url" content="https://www.dvrpc.org/webmaps/popempforecasts" />
+    <meta property="og:description" content="A webmap for viewing municipal and district level population and employment forecast results through different lenses." />
+    <meta property="og:image" content="https://www.dvrpc.org/webmaps/popempforecasts/img/popempforecasts.png" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link
@@ -65,7 +65,7 @@
       <span class="nav-vr">|</span>
 
       <h1>
-        Municipal and County-level Population and Employment Forecasts,
+        Municipal and County-Level Population and Employment Forecasts,
         2015-2050
       </h1>
 
@@ -78,7 +78,7 @@
       <section class="sidebar">
         <div class="sidebar-content">
           <header id="sidebarHeader">
-            <h3 class="sidebar-h3">Choose a Map Layer</h3>
+            <h2 class="sidebar-h2">Choose a Map Layer</h2>
             <form id="toggle-form" class="sidebar-form">
               <label
                 class="flex-row flex-align-center flex-between label-select"
@@ -107,36 +107,31 @@
                 </select>
               </label>
             </form>
-            <div id="mcdStart" class="infoLeft" style="height: 100vh">
-              <div id="startContent">
+            <div id="mcdStart" class="infoLeft">
                 <h1>
-                  Click the map to view Municipal and County-level Forecast
+                  Click the map to view Municipal and County-Level Forecast
                   data.
                 </h1>
-              </div>
             </div>
-            <div id="stationContent">
-              <div id="mcdName"></div>
+          
+            <div id="mcdName">
             </div>
+        
           </header>
-          <!-- 
-        <div id="mcdStart" class='infoLeft' style="height:100vh;">
-          <div id="startContent">
-            <h1>Click the map to view Municipal and County-level Forecast data.</h1>
-          </div>
-        </div> -->
 
           <div id="mcdDetails" class="infoLeft" style="height: 100vh">
             <div id="results"></div>
 
-            <div class="chart-wrapper">
-              <!-- <h3 class='chart-subheader POP'>MCD-Level Forecasts, 2015-2050</h3>  -->
-              <div id="chartMCD-results"></div>
+            <div class="chart-wrapper">  
+              <div id="chartMCD-header"></div>
               <div id="Chart1"></div>
-              <!-- <h3 class='chart-subheader POP'>County Forecasts, 2015-2050</h3>  -->
-              <div id="chartCO-results"></div>
+            </div>
+          
+            <div class="chart-wrapper">  
+              <div id="chartCO-header"></div>
               <div id="Chart3"></div>
             </div>
+
           </div>
         </div>
         <footer>
@@ -163,7 +158,7 @@
         <span id="close-modal" class="close-modal">&times;</span>
 
         <h2 class="modal-content-subheader">
-          Municipal and County-level Population and Employment Forecasts,
+          Municipal and County-Level Population and Employment Forecasts,
           2015-2050
         </h2>
 
@@ -178,7 +173,7 @@
             is required to maintain forecasts with at least a 20-year horizon,
             or to the horizon year of the long-range plan. Allocation of growth
             is forecasted using a land use model, UrbanSim, and working closely
-            with member county planning staffs. DVRPC has prepared regional,
+            with member county planning staff. DVRPC has prepared regional,
             county, and municipal-level population and employment forecasts in
             five-year increments through 2050, using 2015 Census population
             estimates and 2015 National Establishments Time Series (NETS)
@@ -227,8 +222,7 @@
           <div id="about_footer">
             <p>
               This web page is a public resource of general information. The
-              Delaware Valley Regional Commission (DVRPC) makes no warranty,
-              representation, or guarantee as to the content, sequence,
+              Delaware Valley Regional Planning Commission (DVRPC) makes no warranty, representation, or guarantee as to the content, sequence,
               accuracy, timeliness, or completeness of any of the spatial data
               or database information provided herein. DVRPC and partner state,
               local, and other agencies shall assume no liability for errors,
