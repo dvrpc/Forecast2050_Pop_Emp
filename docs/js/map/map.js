@@ -35,7 +35,7 @@ const makeRegionalExtentEls = (map) => {
 
   icon.id = "regional-extent-img";
   icon.alt = "DVRPC Alternative Logo";
-  icon.src = "https://www.dvrpc.org/img/banner/new/bug-favicon.png";
+  icon.src = "./img/bug.png";
 
   button.classList.add("mapboxgl-ctrl-icon");
   button.classList.add("mapboxgl-ctrl-dvrpc");
