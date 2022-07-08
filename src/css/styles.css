@@ -267,7 +267,7 @@ nav {
 }
 .sidebar-form {
   margin: var(--padding) auto;
-  padding: var(--padding-double);
+  padding: 10px;
   box-shadow: var(--box-shadow-half);
   border-radius: var(--border-radius);
   background-color: var(--theme-offwhite2);
