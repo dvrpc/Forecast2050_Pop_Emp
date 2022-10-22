@@ -231,7 +231,7 @@ nav {
 
 /* Sidebar */
 .sidebar {
-  width: 40%;
+  width: 33%;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -369,7 +369,7 @@ nav {
 /* Map */
 .map {
   position: relative;
-  width: 70%;
+  width: 67%;
   height: 100%;
 }
 .mapboxgl-popup-content {
