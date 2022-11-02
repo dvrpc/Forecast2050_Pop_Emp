@@ -48,70 +48,80 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)" />
 
-    <script defer type="module" src="./js/index.js"></script>
+    <!-- <script defer type="module" src="./js/index.js"></script> -->
   </head>
 
   <body>
-    <nav class="flex-row flex-align-center">
-      <a href="/" class="nav-links"
-        ><img
-          src="./img/dvrpc.png"
-          alt="DVRPC logo"
-          id="dvrpc-logo"
-          class="nav-logos"
-      /></a>
-
-      <span class="nav-vr">|</span>
-
-      <h1>
-        Municipal and County-Level Population and Employment Forecasts,
-        2015-2050
-      </h1>
-
-      <span class="nav-vr">|</span>
-
-      <button id="modal-toggle" class="nav-btn">about</button>
-    </nav>
-
     <main class="flex-row flex-between main-content-wrapper">
-      <section class="sidebar">
-        <div class="sidebar-content">
-          <header id="sidebarHeader">            
-            <div id="mcdStart" class="infoLeft">
-                <h1>
-                  Click the map to view Municipal and County-Level Forecast
-                  data.
-                </h1>
-            </div>
-          
-            <div id="mcdName">
-            </div>
-        
+      <div class="flex-column flex-around sidebar-wrapper">
+        <nav class="flex-row flex-align-center flex-around">
+          <a href="/" class="nav-links"
+            ><img
+              src="./img/dvrpc.png"
+              alt="DVRPC logo"
+              id="dvrpc-logo"
+              class="nav-logos"
+          /></a>
+  
+          <span class="nav-vr">|</span>
+    
+          <header>
+            <h1>
+              Population & Employment Forecasts
+            </h1>
           </header>
+    
+          <span class="nav-vr">|</span>
+    
+          <button id="modal-toggle" class="nav-btn">about</button>
+        </nav>
 
-          <div id="mcdDetails" class="infoLeft" style="height: 100vh">
-            <div id="results"></div>
+        <section class="sidebar">
+          <div class="sidebar-content">
+              <div id="mcdStart" class="infoLeft">
+                Municipal and County-Level Population and Employment Forecasts,
+              2015-2050
 
-            <div class="chart-wrapper">  
-              <div id="chartMCD-header"></div>
-              <div id="Chart1"></div>
-            </div>
-          
-            <div class="chart-wrapper">  
-              <div id="chartCO-header"></div>
-              <div id="Chart3"></div>
-            </div>
-
+                View the Data...
+                
+                Hover over the painted map areas to highlight Census Block Groups.
+                Click the highlighted Census Block Groups to view data on electric vehicles.
+                
+                Update the Map...
+                
+                Click the "show/hide map toggles" map overlay and interact with the buttons and dropdowns to update the data on the map.
+              </div>
+            
+              <div id="mcdName">
+              </div>
+    
+              <div id="mcdDetails" class="infoLeft" style="height: 100vh">
+                <div id="results"></div>
+    
+                <div class="chart-wrapper">  
+                  <div id="chartMCD-header"></div>
+                  <div id="Chart1"></div>
+                </div>
+              
+                <div class="chart-wrapper">  
+                  <div id="chartCO-header"></div>
+                  <div id="Chart3"></div>
+                </div>
+    
+              </div>
           </div>
-        </div>
-        <footer>
-          contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a>
-        </footer>
-      </section>
+          
+          <footer>
+            contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a>
+          </footer>
+        </section>
+      </div>
+      
 
       <div id="map" class="map">
         <form id="toggle-form" class="legend-form">
           <h2 class="legend-h2">select map layer:</h2>
+          
           <label
             class="flex-row flex-align-center flex-between label-select"
           >

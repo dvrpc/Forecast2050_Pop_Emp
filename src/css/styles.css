@@ -10,11 +10,8 @@ body {
 }
 h1 {
   text-align: center;
-  /* font-size: inherit; */
-}
-h1 small {
-  font-size: 65%;
-  font-weight: normal;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 fieldset {
   font-size: 1em;
@@ -51,7 +48,7 @@ a {
 
   --padding-half: 5px;
   --padding: 10px;
-  --padding-double: 20px;
+  --padding-2: 20px;
 
   --border-radius: 4px;
   --box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
@@ -99,7 +96,7 @@ a {
   background: var(--theme-white);
   color: var(--theme-black);
   width: 60em;
-  padding: var(--padding-double);
+  padding: var(--padding-2);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
@@ -126,7 +123,7 @@ a {
   color: var(--theme-dvrpc);
 }
 .modal-hr {
-  margin: var(--padding-double) auto;
+  margin: var(--padding-2) auto;
   width: 45em;
 }
 #about_footer {
@@ -143,12 +140,15 @@ a {
 /* Navbar */
 nav {
   position: relative;
-  height: 6vh;
+  height: 50px;
+  width: calc(100% - var(--padding-2));
   padding: 0 var(--padding);
   background-color: var(--theme-dvrpc);
   color: var(--theme-white);
   box-shadow: var(--box-shadow-nav);
   z-index: 2;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 .nav-btn {
   font-size: 1em;
@@ -160,13 +160,12 @@ nav {
   cursor: pointer;
 }
 .nav-vr {
-  margin: 0 var(--padding);
   font-size: 1.5em;
   font-weight: 200;
 }
 #dvrpc-logo {
   display: block;
-  width: 75px;
+  width: 65px;
 }
 .project-logo {
   margin-right: var(--padding-half);
@@ -178,7 +177,7 @@ nav {
 
 /* Main Webmap Area */
 .main-content-wrapper {
-  height: 94vh;
+  height: 100vh;
 }
 #regional-extent-img {
   display: block;
@@ -230,19 +229,25 @@ nav {
 /* END Main Webmap Area */
 
 /* Sidebar */
+.sidebar-wrapper {
+	width: 33%;
+	height: 100%;
+	box-shadow: var(--box-shadow);
+	z-index: 1;
+	border-top-right-radius: var(--border-radius);
+}
 .sidebar {
-  width: 33%;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: var(--theme-offwhite);
   color: var(--theme-black);
-  box-shadow: var(--box-shadow-half);
+  box-shadow: var(--box-shadow);
   z-index: 1;
 }
 .sidebar-content {
-  padding: var(--padding);
-  height: calc(95% - 20px);
+  padding: var(--padding) var(--padding-2);
+  height: calc(95% - var(--padding-2));
   overflow-y: auto;
 }
 .sidebar-h2 {
@@ -254,7 +259,7 @@ nav {
   color: var(--theme-dvrpc-accent);
   font-size: 1.125em;
   font-weight: 400;
-  margin-top: var(--padding-double);
+  margin-top: var(--padding-2);
 }
 .sidebar-h3:first-of-type {
   margin-top: var(--padding);
@@ -278,13 +283,9 @@ nav {
   padding-bottom:10px;
 }
 .infoLeft {
-  /* padding: 10px; */
-  width: 100%;
-  height: 100%;
   background-color: var(--theme-offwhite);
   margin-top: 10px;
 }
-#mcdStart,
 #startContent {
   position: sticky;
   display: block;
@@ -367,18 +368,19 @@ nav {
   top: 10px;
   left: 10px;
   z-index: 1;
-  padding: 5px;
+  padding: var(--padding);
   box-shadow: var(--box-shadow-half);
   border-radius: var(--border-radius);
   background-color: white;
 }
 .legend-h2 {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: var(--theme-dvrpc-accent);
-  padding: 0 5px;
+  margin-bottom: var(--padding-half);
+  font-weight: 400;
 }
 .mapboxgl-popup-content {
-  padding: var(--padding-double) var(--padding);
+  padding: var(--padding-2) var(--padding);
 }
 .popup-span {
   display: block;
@@ -525,12 +527,10 @@ nav {
 
 /* Footer */
 footer {
-  height: calc(5% - 20px);
-  width: 100%;
+  height: calc(5% - var(--padding-2));
+  width: calc(100% - var(--padding-2));
   padding: var(--padding);
-  box-shadow: var(--box-shadow);
-  overflow-y: auto;
-  background-color: var(--theme-white);
+  background-color: white;
   color: var(--theme-black);
 }
 /* END Footer */
