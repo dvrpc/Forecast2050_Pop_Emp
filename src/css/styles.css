@@ -254,6 +254,9 @@ nav {
   height: calc(95% - var(--padding-2));
   overflow-y: auto;
 }
+.details {
+  margin-bottom: var(--padding);
+}
 .summary {
   font-weight: 700;
   cursor: pointer;
@@ -297,7 +300,8 @@ nav {
 .mcdName {
   display: none;
   text-align: center;
-  padding-bottom: var(--padding-half);
+  background-color: white;
+  padding-top: var(--padding);
 }
 .mcdDetails {
   display: none;
