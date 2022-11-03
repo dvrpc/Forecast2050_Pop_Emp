@@ -4,8 +4,7 @@ import legendConfig from "./legendConfig.js";
 const createLegendItem = (val) => {
   const legendDetails = legendConfig[val];
 
-  if (legendDetails.label === "pop") {
-    return `
+  /*
       <div class="flex-row flex-align-center legend-item">
         <div id="legend-box2">
           <span><b>People</b></span>
@@ -26,6 +25,34 @@ const createLegendItem = (val) => {
           </div>
         </div>
       </div>
+  */
+
+  if (legendDetails.label === "pop") {
+    return `
+        <div class="flex-column">
+          <h3 class="legend-h3">People</h3>
+          
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-1"></span>
+            <span>Less than 10,000</span>
+          </div>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-2"></span>  
+            <span>10,000 to 24,999</span>
+          </div>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-3"></span>  
+            <span>25,000 to 49,999</span>
+          </div>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-4"></span>
+            <span>50,000 to 99,999</span>
+          </div>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-5"></span>  
+            <span>100,000 or More</span>
+          </div>
+        </div>
     `;
   } else if (legendDetails.label === "popABS") {
     return `

@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)" />
 
-    <!-- <script defer type="module" src="./js/index.js"></script> -->
+    <script defer type="module" src="./js/index.js"></script>
   </head>
 
   <body>
@@ -78,19 +78,31 @@
 
         <section class="sidebar">
           <div class="sidebar-content">
-              <div id="mcdStart" class="infoLeft">
-                Municipal and County-Level Population and Employment Forecasts,
-              2015-2050
+            <details id="mcdStart" open>
+              <summary class="summary">
+                How To
+              </summary>
 
-                View the Data...
+              <div class="infoLeft">
+                <h2 class="sidebar-h2">View the Data...</h2>
+                <ul class="details-ul">
+                  <li>
+                    Hover over the painted map areas to highlight municipalities in the DVRPC region.
+                  </li>
+                  <li>
+                    Click a desired municipality to view <strong>population and employment forecast data from 2015-2050</strong>
+                    for the selected municipality and the county it belongs to.
+                  </li>
+                </ul>
                 
-                Hover over the painted map areas to highlight Census Block Groups.
-                Click the highlighted Census Block Groups to view data on electric vehicles.
-                
-                Update the Map...
-                
-                Click the "show/hide map toggles" map overlay and interact with the buttons and dropdowns to update the data on the map.
+                <h2 class="sidebar-h2">Update the Map...</h2>
+                <ul class="details-ul">
+                  <li>
+                    Interact with the dropdown menu in the top left corner of the map to update the map data.
+                  </li>
+                </ul>
               </div>
+            </details>
             
               <div id="mcdName">
               </div>
@@ -119,40 +131,39 @@
       
 
       <div id="map" class="map">
-        <form id="toggle-form" class="legend-form">
-          <h2 class="legend-h2">select map layer:</h2>
-          
-          <label
-            class="flex-row flex-align-center flex-between label-select"
-          >
-            <select>
-              <option value="pop">2050 Population Forecast</option>
-              <option value="popABS">
-                Absolute Change in Population (2015-2050)
-              </option>
-              <option value="popPER">
-                Percent Change in Population (2015-2050)
-              </option>
-              <option value="popSQM">
-                Absolute Change in Population per Square Mile (2015-2050)
-              </option>
-              <option value="emp">2050 Employment Forecast</option>
-              <option value="empABS">
-                Absolute Change in Employment (2015-2050)
-              </option>
-              <option value="empPER">
-                Percent Change in Employment (2015-2050)
-              </option>
-              <option value="empSQM">
-                Absolute Change in Employment per Square Mile (2015-2050)
-              </option>
-            </select>
-          </label>
-        </form>
-
-        <div class="legend-container">
-          <div id="legend-container">
-          </div>
+        <div class="map-overlays-container">
+          <form id="toggle-form" class="legend-form">
+            <h2 class="legend-h3">update map layer:</h2>
+            
+            <label
+              class="flex-row flex-align-center flex-between label-select"
+            >
+              <select>
+                <option value="pop">2050 Population Forecast</option>
+                <option value="popABS">
+                  Absolute Change in Population (2015-2050)
+                </option>
+                <option value="popPER">
+                  Percent Change in Population (2015-2050)
+                </option>
+                <option value="popSQM">
+                  Absolute Change in Population per Square Mile (2015-2050)
+                </option>
+                <option value="emp">2050 Employment Forecast</option>
+                <option value="empABS">
+                  Absolute Change in Employment (2015-2050)
+                </option>
+                <option value="empPER">
+                  Percent Change in Employment (2015-2050)
+                </option>
+                <option value="empSQM">
+                  Absolute Change in Employment per Square Mile (2015-2050)
+                </option>
+              </select>
+            </label>
+          </form>
+  
+          <div class="legend-container" id="legend-container"></div>
         </div>
 
         <div class="lds-ring lds-ring-active">
