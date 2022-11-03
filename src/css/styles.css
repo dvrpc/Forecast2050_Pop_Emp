@@ -296,18 +296,20 @@ nav {
   border-radius: var(--border-radius);
   padding: var(--padding) var(--padding-2);
   margin-bottom: var(--padding);
+  background: white;
 }
 .mcdName {
   display: none;
   text-align: center;
   background-color: white;
-  padding-top: var(--padding);
+  padding-bottom: var(--padding);
 }
 .mcdDetails {
   display: none;
   background-color: #fff;
   padding: var(--padding);
   border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-half);
 }
 .table-wrapper {
   box-shadow: var(--box-shadow);
