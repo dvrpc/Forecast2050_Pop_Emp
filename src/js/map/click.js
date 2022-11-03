@@ -10,7 +10,7 @@ const handleDistrict = function (props, map) {
       "</span></small></h1><i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>";
   } else {
     var mcdInfo =
-      "<h2 class='sidebar-h2'>" +
+      "<h2 class='sidebar-h2-large'>" +
       props.mun_name +
       "<small><span> " +
       props.co_name +
