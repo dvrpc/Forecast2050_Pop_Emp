@@ -108,45 +108,55 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "popSQM") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>People per Square Mile</b></span>
-          <div id="legend-box-Item" class="circle pop-1">
-            <span>Fewer than 1,000</span>
+      <div class="flex-column">
+        <h3 class="legend-h3">People per Square Mile</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-1"></span>
+            <span>Less than 1,000</span>
           </div>
-          <div id="legend-box-Item" class="circle pop-2">
-            <span>1,000 to 2,499</span>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-2"></span>  
+            <span>10,000 to 2,499</span>
           </div>
-          <div id="legend-box-Item" class="circle pop-3">
-            <span>2,500 to 4,999</span>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-3"></span>  
+            <span>25,000 to 4,999</span>
           </div>
-          <div id="legend-box-Item" class="circle pop-4">
-            <span>5,000 to 7,499</span>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-4"></span>
+            <span>50,000 to 7,499</span>
           </div>
-          <div id="legend-box-Item" class="circle pop-5">
-            <span>7,500 or more</span>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon pop-5"></span>  
+            <span>7,500 or More</span>
           </div>
         </div>
       </div>
     `;
   } else if (legendDetails.label === "emp") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>Employees</b></span>
-          <div id="legend-box-Item" class="circle emp-1">
+      <div class="flex-column">
+        <h3 class="legend-h3">Employees</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-1"></span>
             <span>Fewer than 5,000</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-2">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-2"></span>
             <span>5,000 to 9,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-3">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-3"></span>
             <span>10,000 to 19,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-4">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-4"></span>
             <span>20,000 to 39,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-5">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-5"></span>
             <span>40,000 or More</span>
           </div>
         </div>
@@ -154,20 +164,27 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "empABS") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>Employees</b></span>
-          <div id="legend-box-Item" class="circle emp-0">
+      <div class="flex-column">
+        <h3 class="legend-h3">Employees</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-0"></span>
             <span>Loss of Employees</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-1"><span>1 to 999</span></div>
-          <div id="legend-box-Item" class="circle emp-2">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-1"></span>
+            <span>1 to 999</span>
+          </div>
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-2"></span>
             <span>1,000 to 1,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-3">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-3"></span>
             <span>2,000 to 2,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-4">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-4"></span>
             <span>3,000 or More</span>
           </div>
         </div>
@@ -175,19 +192,23 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "empPER") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>Percent Change</b></span>
-          <div id="legend-box-Item" class="circle emp-1">
+      <div class="flex-column">
+        <h3 class="legend-h3">Percent Change</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-1"></span>
             <span>Stable (-5% to +5%)</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-2">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-2"></span>
             <span>Moderate Growth (+6% to +25%)</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-3">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-3"></span>
             <span>Significant Growth (+26% to +50%)</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-4">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-4"></span>
             <span>Exceptional Growth (Above 50%)</span>
           </div>
         </div>
@@ -195,22 +216,27 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "empSQM") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>Employees per Square Mile</b></span>
-          <div id="legend-box-Item" class="circle emp-1">
+      <div class="flex-column">
+        <h3 class="legend-h3">Employees per Square Mile</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-1"></span>
             <span>Fewer than 500</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-2">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-2"></span>
             <span>500 to 1,499</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-3">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-3"></span>
             <span>1,500 to 2,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-4">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-4"></span>
             <span>3,000 to 5,999</span>
           </div>
-          <div id="legend-box-Item" class="circle emp-5">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon emp-5"></span>
             <span>6,000 or more</span>
           </div>
         </div>
