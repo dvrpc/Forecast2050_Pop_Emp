@@ -56,22 +56,27 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "popABS") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>People</b></span>
-          <div id="legend-box-Item" class="circle popABS-1">
+      <div class="flex-column">
+        <h3 class="legend-h3">People</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popABS-1"></span>
             <span>Loss of Population</span>
           </div>
-          <div id="legend-box-Item" class="circle popABS-2">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popABS-2"></span>
             <span>0 to 1,999</span>
           </div>
-          <div id="legend-box-Item" class="circle popABS-3">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popABS-3"></span>
             <span>2,000 to 3,999</span>
           </div>
-          <div id="legend-box-Item" class="circle popABS-4">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popABS-4"></span>
             <span>4,000 to 5,999</span>
           </div>
-          <div id="legend-box-Item" class="circle popABS-5">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popABS-5"></span>
             <span>6,000 or More</span>
           </div>
         </div>
@@ -79,19 +84,23 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "popPER") {
     return `
-      <div class="flex-row flex-align-center legend-item">
-        <div id="legend-box2">
-          <span><b>Percent Change</b></span>
-          <div id="legend-box-Item" class="circle popPER-1">
+      <div class="flex-column">
+        <h3 class="legend-h3">Percent Change</h3>
+
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popPER-1"></span>
             <span>Stable (-5% to +5%)</span>
           </div>
-          <div id="legend-box-Item" class="circle popPER-2">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popPER-2"></span>
             <span>Moderate Growth (+6% to +25%)</span>
           </div>
-          <div id="legend-box-Item" class="circle popPER-3">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popPER-3"></span>
             <span>Significant Growth (+26% to +50%)</span>
           </div>
-          <div id="legend-box-Item" class="circle popPER-4">
+          <div class="flex-row flex-align-center legend-box-item">
+            <span class="legend-icon popPER-4"></span>
             <span>Exceptional Growth (Above 50%)</span>
           </div>
         </div>

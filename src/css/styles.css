@@ -23,10 +23,12 @@ input {
   cursor: pointer;
 }
 select {
+  border: 1px dotted var(--theme-dvrpc-accent);
   border-radius: var(--border-radius);
-  padding: 0.5em 0.75em;
+  padding: 0.75em;
   background-color: white;
   font-size: inherit;
+  box-shadow: var(--box-shadow);
 }
 input[type="radio"],
 input[type="checkbox"] {
@@ -392,6 +394,7 @@ nav {
   font-size: 0.9rem;
   margin-bottom: var(--padding-half);
   align-self: flex-start;
+  font-weight: 500;
   color: var(--theme-black);
 }
 .legend-box-item {
