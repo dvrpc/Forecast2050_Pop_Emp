@@ -280,59 +280,23 @@ nav {
 .sidebar-fieldset label {
   margin-right: 5px;
 }
-#sidebarHeader {
-  position: sticky;
-  padding-top: 5px;
-  top: -10px;
-  width: 100%;
-  z-index: 1001;
-  background-color: var(--theme-offwhite);
-  padding-bottom:10px;
-}
 .infoLeft {
   box-shadow: var(--box-shadow-half);
   border-radius: var(--border-radius);
   padding: var(--padding) var(--padding-2);
 }
-#startContent {
-  position: sticky;
-  display: block;
-  color: #fff;
-  border-radius: 3px;
-  text-align: center;
-  margin: auto;
-  padding: 10px;
-  background-color: var(--theme-dark2);
-  width: 75%;
-  min-height: 30px;
-  border: 2px solid var(--theme-dark);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-}
-#mcdName {
+.mcdName {
   display: none;
-  color: #fff;
-  border-radius: 3px;
+  color: var(--theme-white);
+  border-radius: var(--border-radius);
   text-align: center;
-  margin: auto;
-  padding: 10px;
+  padding: var(--padding-half) 0;
+  margin-bottom: var(--padding-half);
   background-color: var(--theme-dark);
-  width: 60%;
-  border: 2px solid var(--theme-dark);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 }
-#mcdDetails {
+.mcdDetails {
   display: none;
-  margin-top:15px;
-}
-#resultsHeader {
-  color: #333;
-  font-size: 18px;
-  margin: 5px 0px 5px 10px;
-  border-radius: 4px;
-  border-color: #dadada;
-  overflow: hidden;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
 }
 .chart-wrapper {
   background-color: #fff;
@@ -355,12 +319,12 @@ nav {
 .EMP {
   background-color: var(--theme-emp);
 }
-#Chart1 {
+.chart1 {
   max-height: 300px;
   display: inline-block;
   width: 100%;
 }
-#chartCO-header {
+.chartCO-header {
   margin-top:20px;
 }
 /* END Sidebar */
@@ -515,7 +479,7 @@ footer {
 /* ------------------
  styling for the tables 
    ------------------   */
-#crashtable {
+.crashtable {
   border-collapse: collapse;
   text-align: center;
   width: 95%;
@@ -530,33 +494,33 @@ td {
   font-weight: bold;
   font-size: 80%;
 }
-#crashtable .odd {
+.crashtable .odd {
   background: #ededed;
   border: 1px solid #bdbdbd;
 }
-#crashtable .even {
+.crashtable .even {
   border-right: 1px solid #bdbdbd;
 }
 
-#crashtable .odd th {
+.crashtable .odd th {
   padding: 4px;
   border-bottom: 1px solid #bdbdbd;
   border-right: 1px solid #bdbdbd;
   border-left: 1px solid #bdbdbd;
 }
 
-#crashtable .odd td {
+.crashtable .odd td {
   border: 1px solid #bdbdbd;
   padding: 2px;
 }
 
-#crashtable .even th {
+.crashtable .even th {
   padding: 4px;
   border-bottom: 1px solid #bdbdbd;
   border-right: 1px solid #bdbdbd;
   border-left: 1px solid #bdbdbd;
 }
-#crashtable .even td {
+.crashtable .even td {
   border: 1px solid #bdbdbd;
   padding: 2px;
 }

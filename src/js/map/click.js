@@ -51,7 +51,7 @@ const handleDistrict = function (props, map) {
   var empPER50 = empABS50 / props.emp45;
 
   var info =
-    "<table id='crashtable'>" +
+    "<table class='crashtable'>" +
     "<b>Forecasts (2015-2050)</b>" +
     "<tbody>" +
     '<tr class="odd">' +
@@ -76,7 +76,7 @@ const handleDistrict = function (props, map) {
     "</td>" +
     "</tbody>" +
     "</table>" +
-    "<table id='crashtable'>" +
+    "<table class='crashtable'>" +
     "<br><b>Five-year Increment Forecasts (2015 to 2050)</b>" +
     "<tbody>" +
     '<tr class="odd">' +
