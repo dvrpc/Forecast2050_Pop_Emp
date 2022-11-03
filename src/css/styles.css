@@ -256,12 +256,13 @@ nav {
 }
 .summary {
   font-weight: 700;
+  cursor: pointer;
 }
 .details-ul {
   margin-bottom: var(--padding);
 }
 .sidebar-h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 .sidebar-h2 small {
   display: block;
@@ -287,10 +288,11 @@ nav {
 .sidebar-fieldset label {
   margin-right: 5px;
 }
-.infoLeft {
+.details-content {
   box-shadow: var(--box-shadow-half);
   border-radius: var(--border-radius);
   padding: var(--padding) var(--padding-2);
+  margin-bottom: var(--padding);
 }
 .mcdName {
   display: none;
