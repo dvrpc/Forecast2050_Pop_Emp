@@ -98,18 +98,19 @@ a {
   position: relative;
   background: var(--theme-white);
   color: var(--theme-black);
-  width: 60em;
+  width: 50em;
+  height: 90vh;
+  overflow-y: auto;
   padding: var(--padding-2);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
 }
-.modal-content p,
-.modal-content span {
-  margin-top: 0.25em;
+.modal-content > * {
+  max-width: 45em;
+  margin: 0 auto;
 }
-.modal-section {
-  width: 60em;
-  margin: 0px 0px 0px 0px;
+.modal-content p {
+  margin-top: 1em;
 }
 .modal-section h3 {
   color: var(--theme-dvrpc-accent);
@@ -146,7 +147,7 @@ nav {
   height: 50px;
   width: calc(100% - var(--padding-2));
   padding: 0 var(--padding);
-  background-color: var(--theme-dvrpc);
+  background-color: var(--theme-dvrpc-accent);
   color: var(--theme-white);
   box-shadow: var(--box-shadow-nav);
   z-index: 2;
@@ -405,8 +406,7 @@ nav {
   font-size: 0.9rem;
   margin-bottom: var(--padding-half);
   align-self: flex-start;
-  font-weight: 500;
-  color: var(--theme-black);
+  color: var(--theme-dvrpc-accent);
 }
 .legend-box-item {
   margin-bottom: var(--padding);
