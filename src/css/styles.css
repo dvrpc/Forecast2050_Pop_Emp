@@ -360,6 +360,9 @@ nav {
   z-index: 2;
 }
 .legend-form {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   z-index: 1;
   padding: var(--padding);
   box-shadow: var(--box-shadow-half);
@@ -394,6 +397,10 @@ nav {
 
 /* Legend Boxes */
 .legend-container {
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 10px;
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   background-color: #fff;

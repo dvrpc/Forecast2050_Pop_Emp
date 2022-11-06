@@ -130,40 +130,38 @@
       
 
       <div id="map" class="map">
-        <div class="map-overlays-container">
-          <form id="toggle-form" class="legend-form">
-            <h2 class="legend-h3">Update map layer:</h2>
-            
-            <label
-              class="flex-row flex-align-center flex-between label-select"
-            >
-              <select>
-                <option value="pop">2050 Population Forecast</option>
-                <option value="popABS">
-                  Absolute Change in Population (2015-2050)
-                </option>
-                <option value="popPER">
-                  Percent Change in Population (2015-2050)
-                </option>
-                <option value="popSQM">
-                  Absolute Change in Population per Square Mile (2015-2050)
-                </option>
-                <option value="emp">2050 Employment Forecast</option>
-                <option value="empABS">
-                  Absolute Change in Employment (2015-2050)
-                </option>
-                <option value="empPER">
-                  Percent Change in Employment (2015-2050)
-                </option>
-                <option value="empSQM">
-                  Absolute Change in Employment per Square Mile (2015-2050)
-                </option>
-              </select>
-            </label>
-          </form>
-  
-          <div class="legend-container" id="legend-container"></div>
-        </div>
+        <form id="toggle-form" class="legend-form">
+          <h2 class="legend-h3">Update map layer:</h2>
+          
+          <label
+            class="flex-row flex-align-center flex-between label-select"
+          >
+            <select>
+              <option value="pop">2050 Population Forecast</option>
+              <option value="popABS">
+                Absolute Change in Population (2015-2050)
+              </option>
+              <option value="popPER">
+                Percent Change in Population (2015-2050)
+              </option>
+              <option value="popSQM">
+                Absolute Change in Population per Square Mile (2015-2050)
+              </option>
+              <option value="emp">2050 Employment Forecast</option>
+              <option value="empABS">
+                Absolute Change in Employment (2015-2050)
+              </option>
+              <option value="empPER">
+                Percent Change in Employment (2015-2050)
+              </option>
+              <option value="empSQM">
+                Absolute Change in Employment per Square Mile (2015-2050)
+              </option>
+            </select>
+          </label>
+        </form>
+
+        <div class="legend-container" id="legend-container"></div>
 
         <div class="lds-ring lds-ring-active">
           <div></div>
