@@ -1,196 +1,128 @@
 const handleDistrict = function (props, map) {
   if (props.mun_name === "Pine Valley Borough") {
-    var mcdInfo =
-      "<h1>" +
-      props.mun_name +
-      "<br><small><span> " +
-      props.co_name +
-      "</span><span></span> County, <span>" +
-      props.state +
-      "</span></small></h1><i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>";
+    var mcdInfo = `
+      <h1>${props.mun_name}<br>
+      <small>${props.co_name} County, ${props.state}</small>
+      </h1>
+      <i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>
+      `;
   } else {
-    var mcdInfo =
-      "<h2 class='sidebar-h2-large'>" +
-      props.mun_name +
-      "<small><span> " +
-      props.co_name +
-      "</span><span></span> County, <span>" +
-      props.state +
-      "</span></small></h2>";
+    var mcdInfo = `
+      <h2 class='sidebar-h2-large'>
+        ${props.mun_name}
+        <small>${props.co_name} County, ${props.state}</small>
+      </h2>
+      `;
   }
   document.getElementById("mcdName").innerHTML = mcdInfo;
 
-  var popABS20 = props.pop20 - props.pop15;
-  var popPER20 = popABS20 / props.pop15;
-  var popABS25 = props.pop25 - props.pop20;
-  var popPER25 = popABS25 / props.pop20;
-  var popABS30 = props.pop30 - props.pop25;
-  var popPER30 = popABS30 / props.pop25;
-  var popABS35 = props.pop35 - props.pop30;
-  var popPER35 = popABS35 / props.pop30;
-  var popABS40 = props.pop40 - props.pop35;
-  var popPER40 = popABS40 / props.pop35;
-  var popABS45 = props.pop45 - props.pop40;
-  var popPER45 = popABS45 / props.pop40;
-  var popABS50 = props.pop50 - props.pop45;
-  var popPER50 = popABS50 / props.pop45;
+  const formatPercent = function (val, dec) {
+    return val.toLocaleString("en", {
+      style: "percent",
+      minimumFractionDigits: dec,
+    });
+  };
 
-  var empABS20 = props.emp20 - props.emp15;
-  var empPER20 = empABS20 / props.emp15;
-  var empABS25 = props.emp25 - props.emp20;
-  var empPER25 = empABS25 / props.emp20;
-  var empABS30 = props.emp30 - props.emp25;
-  var empPER30 = empABS30 / props.emp25;
-  var empABS35 = props.emp35 - props.emp30;
-  var empPER35 = empABS35 / props.emp30;
-  var empABS40 = props.emp40 - props.emp35;
-  var empPER40 = empABS40 / props.emp35;
-  var empABS45 = props.emp45 - props.emp40;
-  var empPER45 = empABS45 / props.emp40;
-  var empABS50 = props.emp50 - props.emp45;
-  var empPER50 = empABS50 / props.emp45;
+  const formatNumber = function (val) {
+    return val.toLocaleString("en-US", {
+      maximumFractionDigits: 0,
+    });
+  };
 
-  var info =
-    "<div class='table-wrapper'>" +
-      "<table class='crashtable'>" +
-        "<h3 class='sidebar-group-header'>Forecasts (2015-2050)</h3>" +
-        "<tbody>" +
-          '<tr class="odd">' +
-            '<td></td><th class="th-true">Population</th><th class="th-true">Employment</th>' +
-          '<tr class="even">' +
-            "<th>Absolute Change</th><td>" +
-            numeral(props.popabs50).format("0,0") +
-            "</td><td>" +
-            numeral(props.empabs50).format("0,0") +
-            "</td>" +
-            '<tr class="odd">' +
-            "<th>Percent Change</th><td>" +
-            numeral(props.poppct50).format("0.00%") +
-            "</td><td>" +
-            numeral(props.emppct50).format("0.00%") +
-            "</td>" +
-            '<tr class="even">' +
-            "<th>Absolute Change per Square Mile</th><td>" +
-            numeral(props.popabssq).format("0,0") +
-            "</td><td>" +
-            numeral(props.empabssq).format("0,0") +
-            "</td>" +
-        "</tbody>" +
-      "</table>" +
-    "</div>" +
-    "<div class='table-wrapper'>" +
-      "<table class='crashtable'>" +
-        "<h3 class='sidebar-group-header'>Five-year Increment Forecasts (2015 to 2050)</h3>" +
-        "<tbody>" +
-          '<tr class="odd">' +
-          '<td></td><th class="th-true">Population</th><th class="th-true">Change in Population</th class="th-true"><th class="th-true">Employment</th><th class="th-true">Change in Employment</th>' +
-          '<tr class="even">' +
-          "<th>2015</th><td>" +
-          numeral(props.pop15).format("0,0") +
-          "</td><td>-</td><td>" +
-          numeral(props.emp15).format("0,0") +
-          "</td><td>-</td>" +
-          '<tr class="odd">' +
-          "<th>2020</th><td>" +
-          numeral(props.pop20).format("0,0") +
-          "</td><td>" +
-          numeral(popABS20).format("0,0") +
-          " (" +
-          numeral(popPER20).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp20).format("0,0") +
-          "</td><td>" +
-          numeral(empABS20).format("0,0") +
-          " (" +
-          numeral(empPER20).format("0.0%") +
-          ")</td>" +
-          '<tr class="even">' +
-          "<th>2025</th><td>" +
-          numeral(props.pop25).format("0,0") +
-          "</td><td>" +
-          numeral(popABS25).format("0,0") +
-          " (" +
-          numeral(popPER25).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp25).format("0,0") +
-          "</td><td>" +
-          numeral(empABS25).format("0,0") +
-          " (" +
-          numeral(empPER25).format("0.0%") +
-          ")</td>" +
-          '<tr class="odd">' +
-          "<th>2030</th><td>" +
-          numeral(props.pop30).format("0,0") +
-          "</td><td>" +
-          numeral(popABS30).format("0,0") +
-          " (" +
-          numeral(popPER30).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp30).format("0,0") +
-          "</td><td>" +
-          numeral(empABS30).format("0,0") +
-          " (" +
-          numeral(empPER30).format("0.0%") +
-          ")</td>" +
-          '<tr class="even">' +
-          "<th>2035</th><td>" +
-          numeral(props.pop35).format("0,0") +
-          "</td><td>" +
-          numeral(popABS35).format("0,0") +
-          " (" +
-          numeral(popPER35).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp35).format("0,0") +
-          "</td><td>" +
-          numeral(empABS35).format("0,0") +
-          " (" +
-          numeral(empPER35).format("0.0%") +
-          ")</td>" +
-          '<tr class="odd">' +
-          "<th>2040</th><td>" +
-          numeral(props.pop40).format("0,0") +
-          "</td><td>" +
-          numeral(popABS40).format("0,0") +
-          " (" +
-          numeral(popPER40).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp40).format("0,0") +
-          "</td><td>" +
-          numeral(empABS40).format("0,0") +
-          " (" +
-          numeral(empPER40).format("0.0%") +
-          ")</td>" +
-          '<tr class="even">' +
-          "<th>2045</th><td>" +
-          numeral(props.pop45).format("0,0") +
-          "</td><td>" +
-          numeral(popABS45).format("0,0") +
-          " (" +
-          numeral(popPER45).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp45).format("0,0") +
-          "</td><td>" +
-          numeral(empABS45).format("0,0") +
-          " (" +
-          numeral(empPER45).format("0.0%") +
-          ")</td>" +
-          '<tr class="odd">' +
-          "<th>2050</th><td>" +
-          numeral(props.pop50).format("0,0") +
-          "</td><td>" +
-          numeral(popABS50).format("0,0") +
-          " (" +
-          numeral(popPER50).format("0.0%") +
-          ")</td><td>" +
-          numeral(props.emp50).format("0,0") +
-          "</td><td>" +
-          numeral(empABS50).format("0,0") +
-          " (" +
-          numeral(empPER50).format("0.0%") +
-          ")</td>" +
-        "</tbody>" +
-      "</table>" +
-    "</div>";
+  var years = ["20", "25", "30", "35", "40", "45", "50"];
+  var emp = {};
+  var pop = {};
+  years.map(function (year) {
+    let _popabs = props[`pop${year}`] - props[`pop${parseInt(year) - 5}`];
+    pop[year] = {
+      abs: formatNumber(_popabs),
+      pct: formatPercent(_popabs / props[`pop${parseInt(year) - 5}`], 1),
+    };
+    let _empabs = props[`emp${year}`] - props[`emp${parseInt(year) - 5}`];
+    emp[year] = {
+      abs: formatNumber(_empabs),
+      pct: formatPercent(_empabs / props[`emp${parseInt(year) - 5}`], 1),
+    };
+  });
+
+  const tableRow = function (year) {
+    return `
+        <th>20${year}</th>
+        <td>${formatNumber(props[`pop${year}`])}</td>
+        <td>${pop[year].abs} (${pop[year].pct})</td>
+        <td>${formatNumber(props[`emp${year}`])}</td>
+        <td>${emp[year].abs} (${emp[year].pct})</td>
+      `;
+  };
+
+  var info = `<div class='table-wrapper'>
+      <table class='crashtable'>
+        <h3 class='sidebar-group-header'>Forecasts (2015-2050)</h3>
+        <tbody>
+          <tr class="odd">
+            <td></td>
+            <th class="th-true">Population</th>
+            <th class="th-true">Employment</th>
+          <tr class="even">
+            <th>Absolute Change</th>
+            <td>${formatNumber(props.popabs50)}</td>
+            <td>${formatNumber(props.empabs50)}</td>
+          </tr>
+          <tr class="odd">
+            <th>Percent Change</th>
+            <td>${formatPercent(props.poppct50, 2)}</td>
+            <td>${formatPercent(props.emppct50, 2)}</td>
+          </tr>
+          <tr class="even">
+            <th>Absolute Change per Square Mile</th>
+            <td>${formatNumber(props.popabssq)}</td>
+            <td>${formatNumber(props.empabssq)}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class='table-wrapper'>
+      <table class='crashtable'>
+        <h3 class='sidebar-group-header'>Five-year Increment Forecasts (2015 to 2050)</h3>
+        <tbody>
+          <tr class="odd">
+            <td></td>
+            <th class="th-true">Population</th>
+            <th class="th-true">Change in Population</th>
+            <th class="th-true">Employment</th>
+            <th class="th-true">Change in Employment</th>
+          </tr>
+          <tr class="even">
+            <th>2015</th>
+            <td>${formatNumber(props.pop15)}</td>
+            <td>-</td>
+            <td>${formatNumber(props.emp15)}</td>
+            <td>-</td>
+          </tr>
+          <tr class="odd">
+            ${tableRow(20)}
+          </tr>
+          <tr class="even">
+            ${tableRow(25)}
+          </tr>
+          <tr class="odd">
+            ${tableRow(30)}
+          </tr>
+          <tr class="even">
+            ${tableRow(35)}
+          </tr>
+          <tr class="odd">
+            ${tableRow(40)}
+          </tr>
+          <tr class="even">
+            ${tableRow(45)}
+          </tr>
+          <tr class="odd">
+            ${tableRow(50)}
+          </tr>
+        </tbody>
+      </table>
+    </div>`;
 
   document.getElementById("results").innerHTML = info;
 
@@ -311,6 +243,7 @@ const handleDistrict = function (props, map) {
     var chart2 = new Highcharts.Chart(CntyChart);
   }
 };
+
 const handleCounty = function (props) {
   // charts
   let popForecast = [

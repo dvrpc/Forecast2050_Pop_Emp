@@ -20,13 +20,11 @@ function generatePopup(popup, e) {
   popup
     .setLngLat(e.lngLat)
     .setHTML(
-      "<p>" +
-        props.mun_name +
-        "</p><hr /><p>" +
-        props.co_name +
-        " County, " +
-        props.state +
-        "</p>"
+      `
+      <p>${props.mun_name}</p>
+      <hr/>
+      <p>${props.co_name} County, ${props.state}</p>
+      `
     )
     .addTo(map);
 }
@@ -123,7 +121,7 @@ map.on("load", () => {
 
   map.on("click", "MCD", (e) => {
     // mapbox function calling of geojson properties
-    document.getElementById("mcdStart").removeAttribute('open')
+    document.getElementById("mcdStart").removeAttribute("open");
     document.getElementById("mcdName").style.display = "block";
     document.getElementById("mcdDetails").style.display = "block";
     mcdID = e.features[0].properties.geoid;
