@@ -45,35 +45,42 @@ const handleDistrict = function (props, map) {
     };
   });
 
-  const tableRow = function (year) {
-    return `
+  const forecastRows = function () {
+    let _tablefrag = "";
+    years.map(function (year) {
+      _tablefrag += `
+      <tr>
         <th>20${year}</th>
         <td>${formatNumber(props[`pop${year}`])}</td>
         <td>${pop[year].abs} (${pop[year].pct})</td>
         <td>${formatNumber(props[`emp${year}`])}</td>
         <td>${emp[year].abs} (${emp[year].pct})</td>
+      </tr>
       `;
+    });
+
+    return _tablefrag;
   };
 
   var info = `<div class='table-wrapper'>
       <table class='crashtable'>
         <h3 class='sidebar-group-header'>Forecasts (2015-2050)</h3>
         <tbody>
-          <tr class="odd">
+          <tr>
             <td></td>
             <th class="th-true">Population</th>
             <th class="th-true">Employment</th>
-          <tr class="even">
+          <tr>
             <th>Absolute Change</th>
             <td>${formatNumber(props.popabs50)}</td>
             <td>${formatNumber(props.empabs50)}</td>
           </tr>
-          <tr class="odd">
+          <tr>
             <th>Percent Change</th>
             <td>${formatPercent(props.poppct50, 2)}</td>
             <td>${formatPercent(props.emppct50, 2)}</td>
           </tr>
-          <tr class="even">
+          <tr>
             <th>Absolute Change per Square Mile</th>
             <td>${formatNumber(props.popabssq)}</td>
             <td>${formatNumber(props.empabssq)}</td>
@@ -85,54 +92,26 @@ const handleDistrict = function (props, map) {
       <table class='crashtable'>
         <h3 class='sidebar-group-header'>Five-year Increment Forecasts (2015 to 2050)</h3>
         <tbody>
-          <tr class="odd">
+          <tr>
             <td></td>
             <th class="th-true">Population</th>
             <th class="th-true">Change in Population</th>
             <th class="th-true">Employment</th>
             <th class="th-true">Change in Employment</th>
           </tr>
-          <tr class="even">
+          <tr>
             <th>2015</th>
             <td>${formatNumber(props.pop15)}</td>
             <td>-</td>
             <td>${formatNumber(props.emp15)}</td>
             <td>-</td>
           </tr>
-          <tr class="odd">
-            ${tableRow(20)}
-          </tr>
-          <tr class="even">
-            ${tableRow(25)}
-          </tr>
-          <tr class="odd">
-            ${tableRow(30)}
-          </tr>
-          <tr class="even">
-            ${tableRow(35)}
-          </tr>
-          <tr class="odd">
-            ${tableRow(40)}
-          </tr>
-          <tr class="even">
-            ${tableRow(45)}
-          </tr>
-          <tr class="odd">
-            ${tableRow(50)}
-          </tr>
+          ${forecastRows()}
         </tbody>
       </table>
     </div>`;
 
   document.getElementById("results").innerHTML = info;
-
-  // map.flyTo({
-  //   // created a parameter that pulls the lat/long values from the geojson
-  //   center: coordinates,
-  //   pitch: 20,
-  //   speed: 0.7,
-  //   zoom: 15,
-  // });
 
   // charts
 

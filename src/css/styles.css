@@ -531,20 +531,5 @@ td, th {
   text-align: center;
   border-right: 1px solid #bdbdbd;
 }
-.crashtable .odd {
-  background: #ededed;
-}
-/* .crashtable .odd th {
-  padding: 4px;
-}
-.crashtable .odd td {
-  padding: 2px;
-}
-.crashtable .even th {
-  padding: 4px;
-}
-.crashtable .even td {
-  padding: 2px;
-} */
-
+tr:nth-child(odd) {background: #ededed}
 /* END Footer */
