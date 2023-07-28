@@ -34,8 +34,9 @@ body {
 
 
 /* Sidebar */
-.sidebar {
+.sidebar-wrapper {
     width: 100%;
+    height: 45%;
 }
 .sidebar-content, footer {
     height: unset;
