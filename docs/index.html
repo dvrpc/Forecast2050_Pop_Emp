@@ -47,102 +47,121 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script defer type="module" src="./js/index.js"></script>
   </head>
 
   <body>
-    <nav class="flex-row flex-align-center">
-      <a href="/" class="nav-links"
-        ><img
-          src="./img/dvrpc.png"
-          alt="DVRPC logo"
-          id="dvrpc-logo"
-          class="nav-logos"
-      /></a>
-
-      <span class="nav-vr">|</span>
-
-      <h1>
-        Municipal and County-Level Population and Employment Forecasts,
-        2015-2050
-      </h1>
-
-      <span class="nav-vr">|</span>
-
-      <button id="modal-toggle" class="nav-btn">about</button>
-    </nav>
-
     <main class="flex-row flex-between main-content-wrapper">
-      <section class="sidebar">
-        <div class="sidebar-content">
-          <header id="sidebarHeader">
-            <h2 class="sidebar-h2">Choose a Map Layer</h2>
-            <form id="toggle-form" class="sidebar-form">
-              <label
-                class="flex-row flex-align-center flex-between label-select"
-              >
-                <select>
-                  <option value="pop">2050 Population Forecast</option>
-                  <option value="popABS">
-                    Absolute Change in Population: 2015-2050
-                  </option>
-                  <option value="popPER">
-                    Percent Change in Population: 2015-2050
-                  </option>
-                  <option value="popSQM">
-                    Absolute Change in Population per Square Mile, 2015-2050
-                  </option>
-                  <option value="emp">2050 Employment Forecast</option>
-                  <option value="empABS">
-                    Absolute Change in Employment: 2015-2050
-                  </option>
-                  <option value="empPER">
-                    Percent Change in Employment: 2015-2050
-                  </option>
-                  <option value="empSQM">
-                    Absolute Change in Employment per Square Mile, 2015-2050
-                  </option>
-                </select>
-              </label>
-            </form>
-            <div id="mcdStart" class="infoLeft">
-                <h1>
-                  Click the map to view Municipal and County-Level Forecast
-                  data.
-                </h1>
-            </div>
-          
-            <div id="mcdName" class="mcdName">
-            </div>
-        
+      <div class="flex-column flex-around sidebar-wrapper">
+        <nav class="flex-row flex-align-center flex-around">
+          <a href="/" class="nav-links"
+            ><img
+              src="./img/dvrpc.png"
+              alt="DVRPC logo"
+              id="dvrpc-logo"
+              class="nav-logos"
+          /></a>
+  
+          <span class="nav-vr">|</span>
+    
+          <header>
+            <h1>
+              Population & Employment Forecasts
+            </h1>
           </header>
+    
+          <span class="nav-vr">|</span>
+    
+          <button id="modal-toggle" class="nav-btn">about</button>
+        </nav>
 
-          <div id="mcdDetails" class="mcDetails">
-            <div id="results"></div>
+        <section class="sidebar">
+          <div class="sidebar-content">
+            <details id="mcdStart" class="details" open>
+              <summary class="summary">
+                How To
+              </summary>
 
-            <div class="chart-wrapper">  
-              <div id="chartMCD-header"></div>
-              <div id="Chart1"></div>
-            </div>
-          
-            <div class="chart-wrapper">  
-              <div id="chartCO-header"></div>
-              <div id="Chart3"></div>
-            </div>
+              <div class="details-content">
+                <h2 class="sidebar-h2">View the Data...</h2>
+                <ul class="details-ul">
+                  <li>
+                    Hover over the painted map areas to highlight municipalities in the DVRPC region.
+                  </li>
+                  <li>
+                    Click a desired municipality to view <strong>population and employment forecast data from 2015-2050</strong>
+                    for the selected municipality and the county it belongs to.
+                  </li>
+                </ul>
+                
+                <h2 class="sidebar-h2">Update the Map...</h2>
+                <ul class="details-ul">
+                  <li>
+                    Interact with the dropdown menu in the top left corner of the map to update the map data.
+                  </li>
+                </ul>
+              </div>
+            </details>
+            
+            <div id="mcdDetails" class="mcdDetails">
+                <div id="mcdName" class="mcdName"></div>
 
+                <div id="results"></div>
+                
+                <div class="chart-wrapper">  
+                  <div id="chartMCD-header"></div>
+                  <div id="Chart1" class="chart"></div>
+                </div>
+              
+                <div class="chart-wrapper">  
+                  <div id="chartCO-header" class="chartCO-header"></div>
+                  <div id="Chart3" class="chart"></div>
+                </div>
+    
+              </div>
           </div>
-        </div>
-        <footer>
-          contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a>
-        </footer>
-      </section>
+          
+          <footer>
+            contact:<a href="mailto:bgruswitz@dvrpc.org">Ben Gruswitz</a>
+          </footer>
+        </section>
+      </div>
+      
 
       <div id="map" class="map">
-        <div class="legend-container">
-          <div id="legend-container"></div>
-        </div>
+        <form id="toggle-form" class="legend-form">
+          <h2 class="legend-h3">Update map layer:</h2>
+          
+          <label
+            class="flex-row flex-align-center flex-between label-select"
+          >
+            <select>
+              <option value="pop">2050 Population Forecast</option>
+              <option value="popABS">
+                Absolute Change in Population (2015-2050)
+              </option>
+              <option value="popPER">
+                Percent Change in Population (2015-2050)
+              </option>
+              <option value="popSQM">
+                Absolute Change in Population per Square Mile (2015-2050)
+              </option>
+              <option value="emp">2050 Employment Forecast</option>
+              <option value="empABS">
+                Absolute Change in Employment (2015-2050)
+              </option>
+              <option value="empPER">
+                Percent Change in Employment (2015-2050)
+              </option>
+              <option value="empSQM">
+                Absolute Change in Employment per Square Mile (2015-2050)
+              </option>
+            </select>
+          </label>
+        </form>
+
+        <div class="legend-container" id="legend-container"></div>
 
         <div class="lds-ring lds-ring-active">
           <div></div>
@@ -178,8 +197,14 @@
             five-year increments through 2050, using 2015 Census population
             estimates and 2015 National Establishments Time Series (NETS)
             employment data as the base. <br />
-            - To view and download DVRPC's Population and Employment Forecasts
-            data visit:
+            - View and download the Analytical Data Report on
+            <a
+              href="https://www.dvrpc.org/Products/ADR21014"
+              target="_new"
+              >Population and Employment Forecast</a
+            > methods, process, and results. <br />
+            - View and download DVRPC's Population and Employment Forecasts
+            data:
           </p>
           <ul>
             <li>

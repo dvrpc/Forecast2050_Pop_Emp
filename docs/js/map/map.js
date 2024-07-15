@@ -1,12 +1,10 @@
 mapboxgl.accessToken =
-  "pk.eyJ1IjoibW1vbHRhIiwiYSI6ImNqZDBkMDZhYjJ6YzczNHJ4cno5eTcydnMifQ.RJNJ7s7hBfrJITOBZBdcOA";
+  "pk.eyJ1IjoiY3J2YW5wb2xsYXJkIiwiYSI6ImNseHVpZmprazI4bWoycXB2MTljMWF1YjUifQ.jLMaSXqIUV5N2IxYlk5ZiQ";
 
 const initMap = () => {
   return new mapboxgl.Map({
     container: "map",
-    style: "mapbox://styles/mapbox/light-v10",
-    //   style:"mapbox://styles/crvanpollard/cl309ua6g006a15qks975tm31",
-    //  style: "mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd",
+    style: "mapbox://styles/crvanpollard/ck5fpyqti0v971itf7edp2eyd",
     center: [-75.2273, 40.071],
     minZoom: 8,
     bounds: [

@@ -10,13 +10,13 @@ const handleDistrict = function (props, map) {
       "</span></small></h1><i>As of 2020, Pine Valley has been incorporated into Pine Hill but that data is not reflected here.</i>";
   } else {
     var mcdInfo =
-      "<h1>" +
+      "<h2 class='sidebar-h2-large'>" +
       props.mun_name +
-      "<br><small><span> " +
+      "<small><span> " +
       props.co_name +
       "</span><span></span> County, <span>" +
       props.state +
-      "</span></small></h1>";
+      "</span></small></h2>";
   }
   document.getElementById("mcdName").innerHTML = mcdInfo;
 
@@ -51,142 +51,146 @@ const handleDistrict = function (props, map) {
   var empPER50 = empABS50 / props.emp45;
 
   var info =
-    "<table id='crashtable'>" +
-    "<b>Forecasts (2015-2050)</b>" +
-    "<tbody>" +
-    '<tr class="odd">' +
-    '<th class="tableOne"></th><td>Population</td><td>Employment</td>' +
-    '<tr class="even">' +
-    "<th>Absolute Change</th><td>" +
-    numeral(props.popabs50).format("0,0") +
-    "</td><td>" +
-    numeral(props.empabs50).format("0,0") +
-    "</td>" +
-    '<tr class="odd">' +
-    "<th>Percent Change</th><td>" +
-    numeral(props.poppct50).format("0.00%") +
-    "</td><td>" +
-    numeral(props.emppct50).format("0.00%") +
-    "</td>" +
-    '<tr class="even">' +
-    "<th>Absolute Change per Square Mile</th><td>" +
-    numeral(props.popabssq).format("0,0") +
-    "</td><td>" +
-    numeral(props.empabssq).format("0,0") +
-    "</td>" +
-    "</tbody>" +
-    "</table>" +
-    "<table id='crashtable'>" +
-    "<br><b>Five-year Increment Forecasts (2015 to 2050)</b>" +
-    "<tbody>" +
-    '<tr class="odd">' +
-    '<th class="tableOne"></th><td>Population</td><td>Change in Population <br><i> Absolute (Percentage)</i></td><td>Employment</td><td>Change in Employment <br><i> Absolute (Percentage)</i></td>' +
-    '<tr class="even">' +
-    "<th>2015</th><td>" +
-    numeral(props.pop15).format("0,0") +
-    "</td><td>-</td><td>" +
-    numeral(props.emp15).format("0,0") +
-    "</td><td>-</td>" +
-    '<tr class="odd">' +
-    "<th>2020</th><td>" +
-    numeral(props.pop20).format("0,0") +
-    "</td><td>" +
-    numeral(popABS20).format("0,0") +
-    " (" +
-    numeral(popPER20).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp20).format("0,0") +
-    "</td><td>" +
-    numeral(empABS20).format("0,0") +
-    " (" +
-    numeral(empPER20).format("0.0%") +
-    ")</td>" +
-    '<tr class="even">' +
-    "<th>2025</th><td>" +
-    numeral(props.pop25).format("0,0") +
-    "</td><td>" +
-    numeral(popABS25).format("0,0") +
-    " (" +
-    numeral(popPER25).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp25).format("0,0") +
-    "</td><td>" +
-    numeral(empABS25).format("0,0") +
-    " (" +
-    numeral(empPER25).format("0.0%") +
-    ")</td>" +
-    '<tr class="odd">' +
-    "<th>2030</th><td>" +
-    numeral(props.pop30).format("0,0") +
-    "</td><td>" +
-    numeral(popABS30).format("0,0") +
-    " (" +
-    numeral(popPER30).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp30).format("0,0") +
-    "</td><td>" +
-    numeral(empABS30).format("0,0") +
-    " (" +
-    numeral(empPER30).format("0.0%") +
-    ")</td>" +
-    '<tr class="even">' +
-    "<th>2035</th><td>" +
-    numeral(props.pop35).format("0,0") +
-    "</td><td>" +
-    numeral(popABS35).format("0,0") +
-    " (" +
-    numeral(popPER35).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp35).format("0,0") +
-    "</td><td>" +
-    numeral(empABS35).format("0,0") +
-    " (" +
-    numeral(empPER35).format("0.0%") +
-    ")</td>" +
-    '<tr class="odd">' +
-    "<th>2040</th><td>" +
-    numeral(props.pop40).format("0,0") +
-    "</td><td>" +
-    numeral(popABS40).format("0,0") +
-    " (" +
-    numeral(popPER40).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp40).format("0,0") +
-    "</td><td>" +
-    numeral(empABS40).format("0,0") +
-    " (" +
-    numeral(empPER40).format("0.0%") +
-    ")</td>" +
-    '<tr class="even">' +
-    "<th>2045</th><td>" +
-    numeral(props.pop45).format("0,0") +
-    "</td><td>" +
-    numeral(popABS45).format("0,0") +
-    " (" +
-    numeral(popPER45).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp45).format("0,0") +
-    "</td><td>" +
-    numeral(empABS45).format("0,0") +
-    " (" +
-    numeral(empPER45).format("0.0%") +
-    ")</td>" +
-    '<tr class="odd">' +
-    "<th>2050</th><td>" +
-    numeral(props.pop50).format("0,0") +
-    "</td><td>" +
-    numeral(popABS50).format("0,0") +
-    " (" +
-    numeral(popPER50).format("0.0%") +
-    ")</td><td>" +
-    numeral(props.emp50).format("0,0") +
-    "</td><td>" +
-    numeral(empABS50).format("0,0") +
-    " (" +
-    numeral(empPER50).format("0.0%") +
-    ")</td>" +
-    "</tbody>" +
-    "</table>";
+    "<div class='table-wrapper'>" +
+      "<table class='crashtable'>" +
+        "<h3 class='sidebar-group-header'>Forecasts (2015-2050)</h3>" +
+        "<tbody>" +
+          '<tr class="odd">' +
+            '<td></td><th class="th-true">Population</th><th class="th-true">Employment</th>' +
+          '<tr class="even">' +
+            "<th>Absolute Change</th><td>" +
+            numeral(props.popabs50).format("0,0") +
+            "</td><td>" +
+            numeral(props.empabs50).format("0,0") +
+            "</td>" +
+            '<tr class="odd">' +
+            "<th>Percent Change</th><td>" +
+            numeral(props.poppct50).format("0.00%") +
+            "</td><td>" +
+            numeral(props.emppct50).format("0.00%") +
+            "</td>" +
+            '<tr class="even">' +
+            "<th>Absolute Change per Square Mile</th><td>" +
+            numeral(props.popabssq).format("0,0") +
+            "</td><td>" +
+            numeral(props.empabssq).format("0,0") +
+            "</td>" +
+        "</tbody>" +
+      "</table>" +
+    "</div>" +
+    "<div class='table-wrapper'>" +
+      "<table class='crashtable'>" +
+        "<h3 class='sidebar-group-header'>Five-year Increment Forecasts (2015 to 2050)</h3>" +
+        "<tbody>" +
+          '<tr class="odd">' +
+          '<td></td><th class="th-true">Population</th><th class="th-true">Change in Population</th class="th-true"><th class="th-true">Employment</th><th class="th-true">Change in Employment</th>' +
+          '<tr class="even">' +
+          "<th>2015</th><td>" +
+          numeral(props.pop15).format("0,0") +
+          "</td><td>-</td><td>" +
+          numeral(props.emp15).format("0,0") +
+          "</td><td>-</td>" +
+          '<tr class="odd">' +
+          "<th>2020</th><td>" +
+          numeral(props.pop20).format("0,0") +
+          "</td><td>" +
+          numeral(popABS20).format("0,0") +
+          " (" +
+          numeral(popPER20).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp20).format("0,0") +
+          "</td><td>" +
+          numeral(empABS20).format("0,0") +
+          " (" +
+          numeral(empPER20).format("0.0%") +
+          ")</td>" +
+          '<tr class="even">' +
+          "<th>2025</th><td>" +
+          numeral(props.pop25).format("0,0") +
+          "</td><td>" +
+          numeral(popABS25).format("0,0") +
+          " (" +
+          numeral(popPER25).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp25).format("0,0") +
+          "</td><td>" +
+          numeral(empABS25).format("0,0") +
+          " (" +
+          numeral(empPER25).format("0.0%") +
+          ")</td>" +
+          '<tr class="odd">' +
+          "<th>2030</th><td>" +
+          numeral(props.pop30).format("0,0") +
+          "</td><td>" +
+          numeral(popABS30).format("0,0") +
+          " (" +
+          numeral(popPER30).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp30).format("0,0") +
+          "</td><td>" +
+          numeral(empABS30).format("0,0") +
+          " (" +
+          numeral(empPER30).format("0.0%") +
+          ")</td>" +
+          '<tr class="even">' +
+          "<th>2035</th><td>" +
+          numeral(props.pop35).format("0,0") +
+          "</td><td>" +
+          numeral(popABS35).format("0,0") +
+          " (" +
+          numeral(popPER35).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp35).format("0,0") +
+          "</td><td>" +
+          numeral(empABS35).format("0,0") +
+          " (" +
+          numeral(empPER35).format("0.0%") +
+          ")</td>" +
+          '<tr class="odd">' +
+          "<th>2040</th><td>" +
+          numeral(props.pop40).format("0,0") +
+          "</td><td>" +
+          numeral(popABS40).format("0,0") +
+          " (" +
+          numeral(popPER40).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp40).format("0,0") +
+          "</td><td>" +
+          numeral(empABS40).format("0,0") +
+          " (" +
+          numeral(empPER40).format("0.0%") +
+          ")</td>" +
+          '<tr class="even">' +
+          "<th>2045</th><td>" +
+          numeral(props.pop45).format("0,0") +
+          "</td><td>" +
+          numeral(popABS45).format("0,0") +
+          " (" +
+          numeral(popPER45).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp45).format("0,0") +
+          "</td><td>" +
+          numeral(empABS45).format("0,0") +
+          " (" +
+          numeral(empPER45).format("0.0%") +
+          ")</td>" +
+          '<tr class="odd">' +
+          "<th>2050</th><td>" +
+          numeral(props.pop50).format("0,0") +
+          "</td><td>" +
+          numeral(popABS50).format("0,0") +
+          " (" +
+          numeral(popPER50).format("0.0%") +
+          ")</td><td>" +
+          numeral(props.emp50).format("0,0") +
+          "</td><td>" +
+          numeral(empABS50).format("0,0") +
+          " (" +
+          numeral(empPER50).format("0.0%") +
+          ")</td>" +
+        "</tbody>" +
+      "</table>" +
+    "</div>";
 
   document.getElementById("results").innerHTML = info;
 
@@ -201,7 +205,7 @@ const handleDistrict = function (props, map) {
   // charts
 
   var chartHeader =
-    "<h3 class='chart-subheader POP'>" + props.mun_name + "</h3>";
+    "<h3 class='sidebar-group-header'>" + props.mun_name + "</h3>";
   document.getElementById("chartMCD-header").innerHTML = chartHeader;
 
   let popForecast = [
@@ -332,7 +336,7 @@ const handleCounty = function (props) {
   updatepopForecastChart(popForecast, empForecast);
 
   var chartHeader2 =
-    "<h3 class='chart-subheader POP'>" + props.co_name + " County</h3>";
+    "<h3 class='sidebar-group-header'>" + props.co_name + " County</h3>";
   document.getElementById("chartCO-header").innerHTML = chartHeader2;
 
   function updatepopForecastChart(Values, Values2) {
