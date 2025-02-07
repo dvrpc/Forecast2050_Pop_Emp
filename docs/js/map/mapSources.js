@@ -5,12 +5,12 @@ const sources = {
   },
   MCD: {
     type: "geojson",
-    data: "https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_MCD/FeatureServer/0/query?where=1%3D1&outFields=*&geometryPrecision=6&outSR=4326&f=geojson",
+    data: "https://arcgis.dvrpc.org/portal/rest/services/demographics/forecast_2050_mcd_v2/FeatureServer/0/query?where=1%3D1&outFields=*&geometryPrecision=6&outSR=4326&f=geojson",
     generateId: true,
   },
   CNTY: {
     type: "geojson",
-    data: "https://arcgis.dvrpc.org/portal/rest/services/Demographics/Forecast_2015to2050_County/FeatureServer/0/query?where=1%3D1&outFields=*&geometryPrecision=5&outSR=4326&f=geojson",
+    data: "https://arcgis.dvrpc.org/portal/rest/services/demographics/forecast_2050_county_v2/FeatureServer/0/query?where=1%3D1&outFields=*&geometryPrecision=5&outSR=4326&f=geojson",
     generateId: true,
   },
 };

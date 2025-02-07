@@ -128,6 +128,7 @@ map.on("load", () => {
     document.getElementById("mcdDetails").style.display = "block";
     mcdID = e.features[0].properties.geoid;
     var props = e.features[0].properties;
+    props.pop20 = parseInt(props.pop20);
     if (mcdID) {
       map.setFilter("muniSelect", ["==", "geoid", mcdID]);
       map.setLayoutProperty("muniSelect", "visibility", "visible");
