@@ -20,8 +20,6 @@ const handleDistrict = function (props, map) {
   }
   document.getElementById("mcdName").innerHTML = mcdInfo;
 
-  var popABS20 = props.pop20 - props.pop15;
-  var popPER20 = popABS20 / props.pop15;
   var popABS25 = props.pop25 - props.pop20;
   var popPER25 = popABS25 / props.pop20;
   var popABS30 = props.pop30 - props.pop25;
@@ -35,8 +33,6 @@ const handleDistrict = function (props, map) {
   var popABS50 = props.pop50 - props.pop45;
   var popPER50 = popABS50 / props.pop45;
 
-  var empABS20 = props.emp20 - props.emp15;
-  var empPER20 = empABS20 / props.emp15;
   var empABS25 = props.emp25 - props.emp20;
   var empPER25 = empABS25 / props.emp20;
   var empABS30 = props.emp30 - props.emp25;
@@ -53,7 +49,7 @@ const handleDistrict = function (props, map) {
   var info =
     "<div class='table-wrapper'>" +
       "<table class='crashtable'>" +
-        "<h3 class='sidebar-group-header'>Forecasts (2015-2050)</h3>" +
+        "<h3 class='sidebar-group-header'>Forecasts (2020-2050)</h3>" +
         "<tbody>" +
           '<tr class="odd">' +
             '<td></td><th class="th-true">Population</th><th class="th-true">Employment</th>' +
@@ -65,9 +61,9 @@ const handleDistrict = function (props, map) {
             "</td>" +
             '<tr class="odd">' +
             "<th>Percent Change</th><td>" +
-            numeral(props.poppct50).format("0.00%") +
+            numeral(props.poppct50 / 100).format("0.00%") +
             "</td><td>" +
-            numeral(props.emppct50).format("0.00%") +
+            numeral(props.emppct50 / 100).format("0.00%") +
             "</td>" +
             '<tr class="even">' +
             "<th>Absolute Change per Square Mile</th><td>" +
@@ -80,31 +76,17 @@ const handleDistrict = function (props, map) {
     "</div>" +
     "<div class='table-wrapper'>" +
       "<table class='crashtable'>" +
-        "<h3 class='sidebar-group-header'>Five-year Increment Forecasts (2015 to 2050)</h3>" +
+        "<h3 class='sidebar-group-header'>Five-year Increment Forecasts (2020 to 2050)</h3>" +
         "<tbody>" +
           '<tr class="odd">' +
           '<td></td><th class="th-true">Population</th><th class="th-true">Change in Population</th class="th-true"><th class="th-true">Employment</th><th class="th-true">Change in Employment</th>' +
           '<tr class="even">' +
-          "<th>2015</th><td>" +
-          numeral(props.pop15).format("0,0") +
-          "</td><td>-</td><td>" +
-          numeral(props.emp15).format("0,0") +
-          "</td><td>-</td>" +
-          '<tr class="odd">' +
           "<th>2020</th><td>" +
           numeral(props.pop20).format("0,0") +
-          "</td><td>" +
-          numeral(popABS20).format("0,0") +
-          " (" +
-          numeral(popPER20).format("0.0%") +
-          ")</td><td>" +
+          "</td><td>-</td><td>" +
           numeral(props.emp20).format("0,0") +
-          "</td><td>" +
-          numeral(empABS20).format("0,0") +
-          " (" +
-          numeral(empPER20).format("0.0%") +
-          ")</td>" +
-          '<tr class="even">' +
+          "</td><td>-</td>" +
+          '<tr class="odd">' +
           "<th>2025</th><td>" +
           numeral(props.pop25).format("0,0") +
           "</td><td>" +
@@ -118,7 +100,7 @@ const handleDistrict = function (props, map) {
           " (" +
           numeral(empPER25).format("0.0%") +
           ")</td>" +
-          '<tr class="odd">' +
+          '<tr class="even">' +
           "<th>2030</th><td>" +
           numeral(props.pop30).format("0,0") +
           "</td><td>" +
@@ -132,7 +114,7 @@ const handleDistrict = function (props, map) {
           " (" +
           numeral(empPER30).format("0.0%") +
           ")</td>" +
-          '<tr class="even">' +
+          '<tr class="odd">' +
           "<th>2035</th><td>" +
           numeral(props.pop35).format("0,0") +
           "</td><td>" +
@@ -146,7 +128,7 @@ const handleDistrict = function (props, map) {
           " (" +
           numeral(empPER35).format("0.0%") +
           ")</td>" +
-          '<tr class="odd">' +
+          '<tr class="even">' +
           "<th>2040</th><td>" +
           numeral(props.pop40).format("0,0") +
           "</td><td>" +
@@ -160,7 +142,7 @@ const handleDistrict = function (props, map) {
           " (" +
           numeral(empPER40).format("0.0%") +
           ")</td>" +
-          '<tr class="even">' +
+          '<tr class="odd">' +
           "<th>2045</th><td>" +
           numeral(props.pop45).format("0,0") +
           "</td><td>" +
@@ -174,7 +156,7 @@ const handleDistrict = function (props, map) {
           " (" +
           numeral(empPER45).format("0.0%") +
           ")</td>" +
-          '<tr class="odd">' +
+          '<tr class="even">' +
           "<th>2050</th><td>" +
           numeral(props.pop50).format("0,0") +
           "</td><td>" +
@@ -209,7 +191,6 @@ const handleDistrict = function (props, map) {
   document.getElementById("chartMCD-header").innerHTML = chartHeader;
 
   let popForecast = [
-    props.pop15,
     props.pop20,
     props.pop25,
     props.pop30,
@@ -219,7 +200,6 @@ const handleDistrict = function (props, map) {
     props.pop50,
   ];
   let empForecast = [
-    props.emp15,
     props.emp20,
     props.emp25,
     props.emp30,
@@ -246,7 +226,6 @@ const handleDistrict = function (props, map) {
       },
       xAxis: {
         categories: [
-          "2015",
           "2020",
           "2025",
           "2030",
@@ -291,7 +270,6 @@ const handleDistrict = function (props, map) {
       ],
     };
     var Labels = [
-        "2015",
         "2020",
         "2025",
         "2030",
@@ -314,7 +292,6 @@ const handleDistrict = function (props, map) {
 const handleCounty = function (props) {
   // charts
   let popForecast = [
-    props.pop15,
     props.pop20,
     props.pop25,
     props.pop30,
@@ -324,7 +301,6 @@ const handleCounty = function (props) {
     props.pop50,
   ];
   let empForecast = [
-    props.emp15,
     props.emp20,
     props.emp25,
     props.emp30,
@@ -336,7 +312,7 @@ const handleCounty = function (props) {
   updatepopForecastChart(popForecast, empForecast);
 
   var chartHeader2 =
-    "<h3 class='sidebar-group-header'>" + props.co_name + " County</h3>";
+    "<h3 class='sidebar-group-header'>" + props.county + " County</h3>";
   document.getElementById("chartCO-header").innerHTML = chartHeader2;
 
   function updatepopForecastChart(Values, Values2) {
@@ -355,7 +331,6 @@ const handleCounty = function (props) {
       },
       xAxis: {
         categories: [
-          "2015",
           "2020",
           "2025",
           "2030",
@@ -400,7 +375,6 @@ const handleCounty = function (props) {
       ],
     };
     var Labels = [
-        "2015",
         "2020",
         "2025",
         "2030",
