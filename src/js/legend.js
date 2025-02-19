@@ -117,15 +117,15 @@ const createLegendItem = (val) => {
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-2"></span>  
-            <span>10,000 to 2,499</span>
+            <span>1,000 to 2,499</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-3"></span>  
-            <span>25,000 to 4,999</span>
+            <span>2,500 to 4,999</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-4"></span>
-            <span>50,000 to 7,499</span>
+            <span>5,000 to 7,499</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-5"></span>  

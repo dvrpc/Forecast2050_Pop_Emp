@@ -108,31 +108,31 @@ const createLegendItem = (val) => {
     `;
   } else if (legendDetails.label === "popSQM") {
     return `
-      <div class="flex-column">
-        <h3 class="legend-h3">People per Square Mile</h3>
+    <div class="flex-column">
+      <h3 class="legend-h3">People per Square Mile</h3>
 
-          <div class="flex-row flex-align-center legend-box-item">
-            <span class="legend-icon pop-1"></span>
-            <span>Less than 1,000</span>
-          </div>
-          <div class="flex-row flex-align-center legend-box-item">
-            <span class="legend-icon pop-2"></span>  
-            <span>10,000 to 2,499</span>
-          </div>
-          <div class="flex-row flex-align-center legend-box-item">
-            <span class="legend-icon pop-3"></span>  
-            <span>25,000 to 4,999</span>
-          </div>
-          <div class="flex-row flex-align-center legend-box-item">
-            <span class="legend-icon pop-4"></span>
-            <span>50,000 to 7,499</span>
-          </div>
-          <div class="flex-row flex-align-center legend-box-item">
-            <span class="legend-icon pop-5"></span>  
-            <span>7,500 or More</span>
-          </div>
+        <div class="flex-row flex-align-center legend-box-item">
+          <span class="legend-icon pop-1"></span>
+          <span>Less than 1,000</span>
+        </div>
+        <div class="flex-row flex-align-center legend-box-item">
+          <span class="legend-icon pop-2"></span>  
+          <span>1,000 to 2,499</span>
+        </div>
+        <div class="flex-row flex-align-center legend-box-item">
+          <span class="legend-icon pop-3"></span>  
+          <span>2,500 to 4,999</span>
+        </div>
+        <div class="flex-row flex-align-center legend-box-item">
+          <span class="legend-icon pop-4"></span>
+          <span>5,000 to 7,499</span>
+        </div>
+        <div class="flex-row flex-align-center legend-box-item">
+          <span class="legend-icon pop-5"></span>  
+          <span>7,500 or More</span>
         </div>
       </div>
+    </div>
     `;
   } else if (legendDetails.label === "emp") {
     return `

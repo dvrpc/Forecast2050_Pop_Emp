@@ -41,7 +41,7 @@ const map = makeMap();
 map.on("load", () => {
   for (const source in sources) map.addSource(source, sources[source]);
   //  for(const layer in layers) map.addLayer(layers[layer], 'road-label')
-  for (const layer in layers) map.addLayer(layers[layer]);
+  for(const layer in layers) map.addLayer(layers[layer], 'road-label')
 
   // set default form state
   let activeInputs = handleForms("input", inputs, map);
@@ -128,6 +128,7 @@ map.on("load", () => {
     document.getElementById("mcdDetails").style.display = "block";
     mcdID = e.features[0].properties.geoid;
     var props = e.features[0].properties;
+    props.pop20 = parseInt(props.pop20);
     if (mcdID) {
       map.setFilter("muniSelect", ["==", "geoid", mcdID]);
       map.setLayoutProperty("muniSelect", "visibility", "visible");
