@@ -40,8 +40,8 @@ const map = makeMap();
 
 map.on("load", () => {
   for (const source in sources) map.addSource(source, sources[source]);
-  //  for(const layer in layers) map.addLayer(layers[layer], 'road-label')
-  for (const layer in layers) map.addLayer(layers[layer]);
+  for(const layer in layers) map.addLayer(layers[layer], 'road-label')
+
 
   // set default form state
   let activeInputs = handleForms("input", inputs, map);
