@@ -15,11 +15,13 @@ body {
 }
 /* END Modal */
 
-
+h1 {
+    font-size: 18px;
+}
 
 /* Navbar */
 #dvrpc-logo {
-    width: 55px;
+    height: 32px;
 }
 /* END Navbar */
 

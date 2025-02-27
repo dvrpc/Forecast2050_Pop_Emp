@@ -10,7 +10,7 @@ body {
 }
 h1 {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 fieldset {
@@ -79,7 +79,7 @@ a {
 /* END General */
 
 /* Modal */
-.modal-toggle,
+.modal-toggle ,
 .close-modal {
   cursor: pointer;
   font-size: inherit;
@@ -251,7 +251,7 @@ nav {
   z-index: 1;
 }
 .sidebar-content {
-  padding: var(--padding);
+  padding: var(--padding) 0 var(--padding) var(--padding);
   height: calc(95% - var(--padding-2));
   overflow-y: auto;
 }

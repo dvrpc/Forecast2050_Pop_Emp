@@ -44,7 +44,8 @@
       rel="stylesheet"
       href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css"
     />
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/mobile.css" media="(max-width: 800px)" />
 
@@ -52,29 +53,34 @@
   </head>
 
   <body>
-    <main class="flex-row flex-between main-content-wrapper">
-      <div class="flex-column flex-around sidebar-wrapper">
-        <nav class="flex-row flex-align-center flex-around">
-          <a href="/" class="nav-links"
-            ><img
-              src="./img/dvrpc.png"
-              alt="DVRPC logo"
-              id="dvrpc-logo"
-              class="nav-logos"
-          /></a>
-  
-          <span class="nav-vr">|</span>
-    
-          <header>
+    <header>
+      <div class="header-container">
+            <div class="logo-container">
+              <a href="/" class="nav-links">
+                <img
+                  src="./img/dvrpc-logo-darkblue.svg"
+                  alt="DVRPC logo"
+                  id="dvrpc-logo"
+                  class="nav-logos"/>
+                </a>
+            </div>
+
             <h1>
               Population & Employment Forecasts
             </h1>
-          </header>
-    
-          <span class="nav-vr">|</span>
-    
-          <button id="modal-toggle" class="nav-btn">about</button>
-        </nav>
+      </div>
+
+      <div class="header-container">
+        <button id="modal-toggle" class="icon-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 0 24 24" width="21px" fill="#06688E" role="img"><path d="M0 0h24v24H0V0z" fill="none"/><title>Open about modal</title><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        </button>
+        <!-- <button id="modal-toggle" class="nav-btn">about</button> -->
+      </div>
+
+    </header>
+    <main class="flex-row flex-between main-content-wrapper">
+      <div class="flex-column flex-around sidebar-wrapper">
+
 
         <section class="sidebar">
           <div class="sidebar-content">
@@ -120,11 +126,64 @@
                 </div>
     
               </div>
+              <footer>
+                <div class="footer-top">
+                  <div class="footer-logo-wrapper">
+                    <a href="https://dvrpc.org" target="_blank">
+
+                    <img
+                      src="./img/dvrpc-full.svg"
+                      alt="DVRPC logo"
+                      class="footer-logo"/>
+                    </a>
+
+                  </div>
+                  
+                  <div class="dvrpc-info-wrapper">
+                    <p><a href="https://www.dvrpc.org/products/web22016" target="_blank">Product Number: WEB22016</a></p>
+                    <p><a href="https://www.dvrpc.org/policies/#data" target="_blank">Data Disclaimer</a>&nbsp;|&nbsp;<a href="https://www.dvrpc.org/policies/" target="_blank">DVRPC Policies</a></p>
+                    <p>Sign up for our email lists</p>
+                    <p>
+                      <a class="social-media-link" href="https://www.facebook.com/DVRPC" target="_blank">
+                        <img
+
+                        src="./img/facebook.svg"
+                        alt="Facebook"
+                        class="social-media-logo"/>
+                      </a>&nbsp;
+                      <a class="social-media-link" href="https://www.instagram.com/dvrpc/" 
+                      target="_blank">
+                        <img
+                        
+                        src="./img/instagram.svg"
+                        alt="Instagram"
+                        class="social-media-logo"/>
+                      </a>&nbsp;
+                      <a class="social-media-link" href="http://www.linkedin.com/company/delaware-valley-regional-planning-commission"
+                      target="_blank">
+                        <img
+                        
+                        src="./img/linkedin.svg"
+                        alt="Linkedin"
+                        class="social-media-logo"/>
+                      </a>&nbsp;
+                      <a class="social-media-link" href="https://www.youtube.com/channel/UCEU8UI5_iGkVypHP93b5jLA" target="_blank"
+                      >
+                        <img
+                        src="./img/youtube.svg"
+                        alt="Youtube"
+                        class="social-media-logo"/>
+                      </a>                    
+                    </p>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <p>Staff Contact: Gregory Diebold -&nbsp;<a href="mailto:gdiebold@dvrpc.org">gdiebold@dvrpc.org</a></p>
+              </div>
+              </footer>
           </div>
           
-          <footer>
-            contact:<a href="mailto:gdiebold@dvrpc.org">Gregory Diebold</a>
-          </footer>
+
         </section>
       </div>
       
