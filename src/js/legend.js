@@ -113,23 +113,23 @@ const createLegendItem = (val) => {
 
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-1"></span>
-            <span>Less than 1,000</span>
+            <span>Less than 100</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-2"></span>  
-            <span>1,000 to 2,499</span>
+            <span>100 to 249</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-3"></span>  
-            <span>2,500 to 4,999</span>
+            <span>250 to 499</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-4"></span>
-            <span>5,000 to 7,499</span>
+            <span>500 to 999</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon pop-5"></span>  
-            <span>7,500 or More</span>
+            <span>1,000 or more</span>
           </div>
         </div>
       </div>
@@ -221,23 +221,23 @@ const createLegendItem = (val) => {
 
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon emp-1"></span>
-            <span>Fewer than 500</span>
+            <span>Fewer than 100</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon emp-2"></span>
-            <span>500 to 1,499</span>
+            <span>100 to 250</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon emp-3"></span>
-            <span>1,500 to 2,999</span>
+            <span>250 to 499</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon emp-4"></span>
-            <span>3,000 to 5,999</span>
+            <span>500 to 999</span>
           </div>
           <div class="flex-row flex-align-center legend-box-item">
             <span class="legend-icon emp-5"></span>
-            <span>6,000 or more</span>
+            <span>1,000 or more</span>
           </div>
         </div>
       </div>
