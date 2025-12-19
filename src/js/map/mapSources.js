@@ -5,7 +5,7 @@ const sources = {
   },
   MCD: {
     type: "geojson",
-    data: "https://arcgis.dvrpc.org/portal/rest/services/demographics/forecast_2050_mcd_v2/FeatureServer/0/query?where=1%3D1&outFields=*&geometryPrecision=6&outSR=4326&f=geojson",
+    data: "https://arcgis.dvrpc.org/portal/rest/services/demographics/forecast_2050_mcd_v2_1/FeatureServer/0/query?where=1%3D1&outFields=*&geometryPrecision=6&outSR=4326&f=geojson",
     generateId: true,
   },
   CNTY: {
